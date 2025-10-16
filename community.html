@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - eink.sg</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="min-h-screen bg-white text-gray-900 font-sans">
+        <!-- Header -->
+        <header class="border-b border-gray-200">
+            <div class="max-w-6xl mx-auto px-6 py-6">
+                <a href="index.html" class="text-2xl font-light tracking-wide hover:text-gray-600 transition-colors">
+                    eink.sg
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-6 py-20">
+            <!-- Hero Section -->
+            <section class="mb-12 text-center">
+                <h1 class="text-5xl md:text-6xl font-light leading-tight text-gray-800 mb-6">
+                    Community
+                </h1>
+                <p class="text-lg text-gray-500 max-w-3xl mx-auto">
+                    Join online forums, local meetups, and communities passionate about e-ink technology and digital minimalism
+                </p>
+            </section>
+
+            <!-- Filter Controls -->
+            <section class="mb-8">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <select id="communityFilter" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        <option value="all">All Communities</option>
+                        <option value="online">Online Communities</option>
+                        <option value="local">Local Communities</option>
+                        <option value="forums">Forums & Discussion</option>
+                        <option value="social">Social Platforms</option>
+                        <option value="meetups">Meetups & Events</option>
+                    </select>
+                    <button onclick="suggestCommunity()" class="bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        💡 Suggest Community
+                    </button>
+                </div>
+            </section>
+
+            <!-- Online Communities Section -->
+            <section class="community-section mb-16" data-category="online">
+                <h2 class="text-3xl font-light text-gray-800 mb-8 text-center">Online Communities</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Reddit Communities -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="forums social">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">r/eink</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-orange-100 text-orange-800 px-2 py-1 rounded">Reddit</span>
+                                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">45K members</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">The largest e-ink community on Reddit. Discussions about devices, reviews, troubleshooting, and latest news in e-ink technology.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>📱 Device reviews • 🔧 Tech support • 📰 News</span>
+                            <a href="https://reddit.com/r/eink" target="_blank" class="text-blue-600 hover:underline">Join →</a>
+                        </div>
+                    </div>
+
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="forums social">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">r/ereader</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-orange-100 text-orange-800 px-2 py-1 rounded">Reddit</span>
+                                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">78K members</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Focused on e-reader devices like Kindle, Kobo, reMarkable. Book recommendations, device comparisons, and reading tips.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>📚 Book discussions • 🔍 Device comparisons</span>
+                            <a href="https://reddit.com/r/ereader" target="_blank" class="text-blue-600 hover:underline">Join →</a>
+                        </div>
+                    </div>
+
+                    <!-- Discord Communities -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="social">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">E-ink Enthusiasts</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Discord</span>
+                                    <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">3.2K members</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Real-time chat community for e-ink discussions. Active channels for different devices, troubleshooting, and general chat.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>💬 Real-time chat • 🤝 Community support</span>
+                            <button onclick="copyDiscordLink()" class="text-blue-600 hover:underline">Get Invite →</button>
+                        </div>
+                    </div>
+
+                    <!-- Forums -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="forums">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">MobileRead Forums</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-gray-100 text-gray-800 px-2 py-1 rounded">Forum</span>
+                                    <span class="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Est. 2005</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">The oldest and most comprehensive forum for e-readers and digital reading. Deep technical discussions and modifications.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>🔧 Technical mods • 📖 Reading formats • 💾 Firmware</span>
+                            <a href="https://www.mobileread.com" target="_blank" class="text-blue-600 hover:underline">Visit →</a>
+                        </div>
+                    </div>
+
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="forums">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">reMarkable Community</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-gray-100 text-gray-800 px-2 py-1 rounded">Official Forum</span>
+                                    <span class="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">reMarkable</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Official community for reMarkable tablet users. Tips, templates, workflow discussions, and feature requests.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>✍️ Writing tips • 📝 Templates • 💡 Workflows</span>
+                            <a href="https://remarkable.com/community" target="_blank" class="text-blue-600 hover:underline">Visit →</a>
+                        </div>
+                    </div>
+
+                    <!-- Facebook Groups -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="social">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">E-ink Display Technology</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Facebook</span>
+                                    <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">12K members</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Facebook group for e-ink enthusiasts sharing news, reviews, and discussions about the latest e-ink devices and applications.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>📰 Industry news • 💬 Casual discussions</span>
+                            <button onclick="alertFacebookLink()" class="text-blue-600 hover:underline">Join →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Local Communities Section -->
+            <section class="community-section mb-16" data-category="local">
+                <h2 class="text-3xl font-light text-gray-800 mb-8 text-center">Local Communities & Meetups</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Singapore -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="meetups">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">Singapore E-ink Meetup</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Singapore</span>
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Monthly</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Monthly gathering of e-ink enthusiasts in Singapore. Device demos, group purchases, and networking. Usually meets at Bugis Junction.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>🤝 Networking • 📱 Device demos • 💸 Group buys</span>
+                            <button onclick="showMeetupInfo('singapore')" class="text-blue-600 hover:underline">Learn More →</button>
+                        </div>
+                    </div>
+
+                    <!-- Tokyo -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="meetups">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">Tokyo E-paper Society</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">Tokyo</span>
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Bi-weekly</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Active community in Tokyo focused on e-paper technology research and practical applications. Mix of tech professionals and hobbyists.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>🔬 Research • 💻 Tech talks • 🍱 Social events</span>
+                            <button onclick="showMeetupInfo('tokyo')" class="text-blue-600 hover:underline">Learn More →</button>
+                        </div>
+                    </div>
+
+                    <!-- Changsha -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="meetups">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">长沙墨水屏爱好者</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Changsha</span>
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Weekly</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Changsha e-ink enthusiasts group. Regular meetups at local tech stores and cafes. Strong focus on Chinese e-ink devices and modifications.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>📱 中文设备 • 🔧 技术讨论 • ☕ 线下聚会</span>
+                            <button onclick="showMeetupInfo('changsha')" class="text-blue-600 hover:underline">了解更多 →</button>
+                        </div>
+                    </div>
+
+                    <!-- San Francisco -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="meetups">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">Bay Area Digital Minimalists</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded">SF Bay Area</span>
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Monthly</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Focus on digital minimalism and distraction-free technology including e-ink devices. Popular among tech workers seeking work-life balance.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>🧘 Digital wellness • 💼 Work-life balance</span>
+                            <button onclick="showMeetupInfo('sanfrancisco')" class="text-blue-600 hover:underline">Learn More →</button>
+                        </div>
+                    </div>
+
+                    <!-- London -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="meetups">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">London E-reading Club</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-indigo-100 text-indigo-800 px-2 py-1 rounded">London</span>
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Fortnightly</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Combines love of reading with e-ink technology. Book discussions, device comparisons, and library visits. Meets in Bloomsbury area.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>📚 Book clubs • 📖 Reading tech • 🏛️ Library visits</span>
+                            <button onclick="showMeetupInfo('london')" class="text-blue-600 hover:underline">Learn More →</button>
+                        </div>
+                    </div>
+
+                    <!-- Berlin -->
+                    <div class="community-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow" data-type="meetups">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-light text-gray-800 mb-2">Berlin Makers E-ink</h3>
+                                <div class="flex gap-2 mb-2">
+                                    <span class="text-sm bg-gray-100 text-gray-800 px-2 py-1 rounded">Berlin</span>
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Weekly</span>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 616 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">DIY-focused community building custom e-ink projects and displays. Workshops at local makerspaces for hardware hacking and programming.</p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>🔧 DIY projects • 🛠️ Workshops • 💻 Programming</span>
+                            <button onclick="showMeetupInfo('berlin')" class="text-blue-600 hover:underline">Learn More →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+
+        <!-- Community Suggestion Modal -->
+        <div id="suggestionModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+            <div class="flex items-center justify-center min-h-screen p-4">
+                <div class="bg-white rounded-lg max-w-md w-full">
+                    <div class="p-6 border-b border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-xl font-light text-gray-800">Suggest a Community</h2>
+                            <button onclick="closeSuggestionModal()" class="text-gray-500 hover:text-gray-700">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <form id="suggestionForm">
+                            <div class="mb-4">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Community Name</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400" placeholder="e.g., Berlin E-ink Hackers">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Type</label>
+                                <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400">
+                                    <option>Online Community</option>
+                                    <option>Local Meetup</option>
+                                    <option>Forum</option>
+                                    <option>Social Group</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Location/Platform</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400" placeholder="e.g., Discord, New York, etc.">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Description</label>
+                                <textarea rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400" placeholder="Brief description of the community..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                                Submit Suggestion
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Device Pair Submission Modal -->
+        <div id="pairSubmissionModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+            <div class="flex items-center justify-center min-h-screen p-4">
+                <div class="bg-white rounded-lg max-w-lg w-full">
+                    <div class="p-6 border-b border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-xl font-light text-gray-800">Submit Device Pair</h2>
+                            <button onclick="closePairSubmission()" class="text-gray-500 hover:text-gray-700">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <form id="pairSubmissionForm">
+                            <div class="mb-4">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Device 1</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="e.g., reMarkable 2">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Device 2</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="e.g., Dasung Paperlike HD-FT">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Pair Name</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="e.g., Perfect Writing Setup">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Category</label>
+                                <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                                    <option>Productivity</option>
+                                    <option>Lifestyle</option>
+                                    <option>Reading</option>
+                                    <option>Ecosystem</option>
+                                    <option>Study & Research</option>
+                                    <option>Hybrid</option>
+                                    <option>Gaming</option>
+                                    <option>Custom</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Why do they work great together?</label>
+                                <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Describe the synergy between these devices and why they make a perfect combination..."></textarea>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-light text-gray-600 mb-2">Your Name (optional)</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="How should we credit you?">
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors">
+                                Submit Device Pair
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Filter functionality
+            document.getElementById('communityFilter').addEventListener('change', function() {
+                const selectedType = this.value;
+                const communityCards = document.querySelectorAll('.community-card');
+                const sections = document.querySelectorAll('.community-section');
+
+                if (selectedType === 'all') {
+                    sections.forEach(section => section.style.display = 'block');
+                    communityCards.forEach(card => card.style.display = 'block');
+                } else if (selectedType === 'online' || selectedType === 'local') {
+                    sections.forEach(section => {
+                        if (section.dataset.category === selectedType) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                } else {
+                    sections.forEach(section => section.style.display = 'block');
+                    communityCards.forEach(card => {
+                        if (card.dataset.type && card.dataset.type.includes(selectedType)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+
+            function suggestCommunity() {
+                document.getElementById('suggestionModal').classList.remove('hidden');
+            }
+
+            function closeSuggestionModal() {
+                document.getElementById('suggestionModal').classList.add('hidden');
+            }
+
+            function copyDiscordLink() {
+                // In real implementation, would copy actual Discord invite link
+                navigator.clipboard.writeText('https://discord.gg/eink-enthusiasts');
+                alert('Discord invite link copied to clipboard!');
+            }
+
+            function alertFacebookLink() {
+                alert('Please search for "E-ink Display Technology" in Facebook Groups');
+            }
+
+            function showMeetupInfo(city) {
+                const meetupInfo = {
+                    singapore: 'Singapore E-ink Meetup meets every last Saturday of the month at Bugis Junction. Contact: singapore@eink.sg',
+                    tokyo: 'Tokyo E-paper Society meets bi-weekly at various tech cafes in Shibuya. Contact: tokyo@eink.sg',
+                    changsha: '长沙墨水屏爱好者每周六下午在星沙大道聚会。联系方式: changsha@eink.sg',
+                    sanfrancisco: 'Bay Area Digital Minimalists meet monthly in South Bay. Focus on tech wellness. Contact: sf@eink.sg',
+                    london: 'London E-reading Club meets fortnightly near British Library. Contact: london@eink.sg',
+                    berlin: 'Berlin Makers E-ink has weekly workshops at c-base. Contact: berlin@eink.sg'
+                };
+                
+                alert(meetupInfo[city] || 'Contact info not available');
+            }
+
+            function showStartGuide() {
+                alert('Starting a Community Guide:\n1. Find 3-5 interested people in your area\n2. Choose a regular meeting time/place\n3. Create online group (WhatsApp/Telegram)\n4. Plan first meetup around device demo\n5. Contact us for promotional support');
+            }
+
+            function findLocalUsers() {
+                alert('We can help connect you with other e-ink enthusiasts in your area. Email us at community@eink.sg with your location.');
+            }
+
+            function contactSupport() {
+                alert('Need help starting a community? Email us at support@eink.sg or join our Discord for guidance.');
+            }
+
+            function openPairSubmission() {
+                document.getElementById('pairSubmissionModal').classList.remove('hidden');
+            }
+
+            function closePairSubmission() {
+                document.getElementById('pairSubmissionModal').classList.add('hidden');
+            }
+
+            // Form submission
+            document.getElementById('suggestionForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your suggestion! We\'ll review it and add it to our directory.');
+                closeSuggestionModal();
+            });
+
+            document.getElementById('pairSubmissionForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for sharing your device pair! We\'ll review it and consider adding it to our curated pairs.');
+                closePairSubmission();
+            });
+
+            // Close modal when clicking outside
+            document.getElementById('suggestionModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeSuggestionModal();
+                }
+            });
+
+            document.getElementById('pairSubmissionModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closePairSubmission();
+                }
+            });
+        </script>
+
+        <!-- Disclaimer -->
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mx-6 mb-8 text-center">
+            <p class="text-sm text-yellow-800 mb-0">⚠️ <strong>Demo Notice:</strong> All content on this site is AI-generated and not verified. For demonstration purposes only.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-t border-gray-200 mt-32">
+            <div class="max-w-6xl mx-auto px-6 py-8">
+                <p class="text-sm text-gray-400">2025 eink.sg</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

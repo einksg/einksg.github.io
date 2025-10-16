@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>collections - eink.sg</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="min-h-screen bg-white text-gray-900 font-sans">
+        <!-- Header -->
+        <header class="border-b border-gray-200">
+            <div class="max-w-6xl mx-auto px-6 py-6">
+                <a href="index.html" class="text-2xl font-light tracking-wide hover:text-gray-600 transition-colors">
+                    eink.sg
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-6xl mx-auto px-6 py-20">
+            <!-- Hero Section -->
+            <section class="mb-12 text-center">
+                <h1 class="text-5xl md:text-6xl font-light leading-tight text-gray-800 mb-6">
+                    Collections
+                </h1>
+                
+                <!-- View Controls -->
+                <div class="mb-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <select id="collectionFilter" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent">
+                        <option value="all">All Collections</option>
+                        <option value="phones">Phones</option>
+                        <option value="monitors">Monitors</option>
+                        <option value="phone-cases">Phone Cases</option>
+                        <option value="tablets">Tablets</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <button id="timelineBtn" onclick="toggleTimeline()" class="px-6 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition-colors">
+                        📅 Timeline View
+                    </button>
+                </div>
+            </section>
+
+            <!-- Device Grid -->
+            <section id="gridView">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="deviceGrid">
+                    <!-- Phone Cards -->
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phones" data-year="2022" onclick="showDeviceDetails('hisense-a9')">
+                        <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Phone Image</span>
+                        </div>
+                        <h3 class="text-xl font-light mb-2 text-gray-800">Hisense A9</h3>
+                        <p class="text-gray-600 text-sm mb-3">E-ink smartphone with dual screens for extended battery life and outdoor readability.</p>
+                        <div class="text-xs text-gray-500">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Phone</span>
+                        </div>
+                    </div>
+
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phones" data-year="2024" onclick="showDeviceDetails('light-phone-3')">
+                        <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Phone Image</span>
+                        </div>
+                        <h3 class="text-xl font-light mb-2 text-gray-800">Light Phone 3</h3>
+                        <p class="text-gray-600 text-sm mb-3">Minimalist e-ink phone designed to reduce screen time while maintaining essential connectivity.</p>
+                        <div class="text-xs text-gray-500">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Phone</span>
+                        </div>
+                    </div>
+
+                    <!-- Monitor Cards -->
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="monitors" data-year="2021" onclick="showDeviceDetails('dasung-paperlike')">
+                        <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Monitor Image</span>
+                        </div>
+                        <h3 class="text-xl font-light mb-2 text-gray-800">Dasung Paperlike HD-FT</h3>
+                        <p class="text-gray-600 text-sm mb-3">25.3" e-ink monitor with front light for comfortable reading and reduced eye strain during long work sessions.</p>
+                        <div class="text-xs text-gray-500">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Monitor</span>
+                        </div>
+                    </div>
+
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="monitors" data-year="2023" onclick="showDeviceDetails('boox-mira')">
+                        <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Monitor Image</span>
+                        </div>
+                        <h3 class="text-xl font-light mb-2 text-gray-800">BOOX Mira Pro</h3>
+                        <p class="text-gray-600 text-sm mb-3">25.3" e-ink monitor with USB-C connectivity and adjustable refresh rates for programming and writing.</p>
+                        <div class="text-xs text-gray-500">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Monitor</span>
+                        </div>
+                    </div>
+
+                    <!-- Tablet Cards -->
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="tablets" data-year="2020" onclick="showDeviceDetails('remarkable-2')">
+                        <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Tablet Image</span>
+                        </div>
+                        <h3 class="text-xl font-light mb-2 text-gray-800">reMarkable 2</h3>
+                        <p class="text-gray-600 text-sm mb-3">Paper-like writing tablet with exceptional pen-to-paper feel for note-taking and document annotation.</p>
+                        <div class="text-xs text-gray-500">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">Tablet</span>
+                        </div>
+                    </div>
+
+                    <!-- Phone Case Cards -->
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phone-cases" data-year="2020" onclick="showDeviceDetails('inkcase-i7')">
+                        <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Case Image</span>
+                        </div>
+                        <h3 class="text-xl font-light mb-2 text-gray-800">InkCase i7 Plus</h3>
+                        <p class="text-gray-600 text-sm mb-3">E-ink secondary display case for iPhone with customizable widgets and notifications.</p>
+                        <div class="text-xs text-gray-500">
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded">Phone Case</span>
+                        </div>
+                    </div>
+
+                    <!-- Accessories -->
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="accessories" data-year="2015" onclick="showDeviceDetails('pebble-time')">
+                        <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Watch Image</span>
+                        </div>
+                        <h3 class="text-xl font-light mb-2 text-gray-800">Pebble Time</h3>
+                        <p class="text-gray-600 text-sm mb-3">Color e-paper smartwatch with week-long battery life and always-on display.</p>
+                        <div class="text-xs text-gray-500">
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Accessory</span>
+                        </div>
+                    </div>
+
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="tablets" data-year="2019" onclick="showDeviceDetails('kindle-oasis')">
+                        <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Reader Image</span>
+                        </div>
+                        <h3 class="text-xl font-light mb-2 text-gray-800">Kindle Oasis</h3>
+                        <p class="text-gray-600 text-sm mb-3">Premium e-reader with adjustable warm light and physical page turn buttons for comfortable reading.</p>
+                        <div class="text-xs text-gray-500">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">Tablet</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline View -->
+            <section id="timelineView" class="hidden">
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-8 top-0 bottom-0 w-px bg-gray-300"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div id="timelineContainer">
+                            <!-- Timeline items will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Device Details Modal -->
+            <div id="deviceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+                <div class="flex items-center justify-center min-h-screen p-4">
+                    <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+                        <div class="p-6 border-b border-gray-200">
+                            <div class="flex justify-between items-center">
+                                <h2 id="modalTitle" class="text-2xl font-light text-gray-800"></h2>
+                                <button onclick="closeDeviceModal()" class="text-gray-500 hover:text-gray-700">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-6">
+                                <div id="modalImage" class="aspect-w-16 aspect-h-9 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-gray-400">Device Image</span>
+                                </div>
+                            </div>
+                            <div id="modalContent">
+                                <!-- Content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            let isTimelineView = false;
+
+            // Device data for modals
+            const deviceData = {
+                'hisense-a9': {
+                    name: 'Hisense A9',
+                    category: 'Phone',
+                    year: 2022,
+                    price: 'S$649',
+                    description: 'E-ink smartphone with dual screens for extended battery life and outdoor readability.',
+                    specs: {
+                        'Display': '6.1" E-ink + 5.84" Color OLED',
+                        'Resolution': '1072 × 1448 (E-ink), 2280 × 1080 (OLED)',
+                        'Battery': '4070mAh',
+                        'OS': 'Android 10',
+                        'Storage': '128GB',
+                        'RAM': '6GB'
+                    },
+                    features: ['Dual screen design', 'Always-on E-ink display', '4G connectivity', 'Fingerprint sensor']
+                },
+                'light-phone-3': {
+                    name: 'Light Phone 3',
+                    category: 'Phone',
+                    year: 2024,
+                    price: 'S$449',
+                    description: 'Minimalist e-ink phone designed to reduce screen time while maintaining essential connectivity.',
+                    specs: {
+                        'Display': '3.2" E-ink',
+                        'Resolution': '480 × 800',
+                        'Battery': '1500mAh',
+                        'OS': 'Light OS',
+                        'Connectivity': '4G, Wi-Fi',
+                        'Weight': '89g'
+                    },
+                    features: ['Minimalist design', 'Essential apps only', 'Week-long battery', 'Distraction-free experience']
+                },
+                'dasung-paperlike': {
+                    name: 'Dasung Paperlike HD-FT',
+                    category: 'Monitor',
+                    year: 2021,
+                    price: 'S$2,899',
+                    description: '25.3" e-ink monitor with front light for comfortable reading and reduced eye strain during long work sessions.',
+                    specs: {
+                        'Display': '25.3" E-ink',
+                        'Resolution': '3200 × 1800',
+                        'Refresh Rate': '1-10Hz',
+                        'Connectivity': 'USB-C, HDMI',
+                        'Front Light': 'Adjustable warm/cool',
+                        'Weight': '4.2kg'
+                    },
+                    features: ['Front light technology', 'Eye strain reduction', 'Programming friendly', 'Multiple connectivity options']
+                },
+                'boox-mira': {
+                    name: 'BOOX Mira Pro',
+                    category: 'Monitor',
+                    year: 2023,
+                    price: 'S$2,599',
+                    description: '25.3" e-ink monitor with USB-C connectivity and adjustable refresh rates for programming and writing.',
+                    specs: {
+                        'Display': '25.3" E-ink Carta',
+                        'Resolution': '3200 × 1800',
+                        'Refresh Rate': 'Variable 1-15Hz',
+                        'Connectivity': 'USB-C (single cable)',
+                        'Compatibility': 'Windows, macOS, Linux',
+                        'Weight': '3.8kg'
+                    },
+                    features: ['Single USB-C connection', 'Variable refresh rates', 'Cross-platform support', 'Lightweight design']
+                },
+                'remarkable-2': {
+                    name: 'reMarkable 2',
+                    category: 'Tablet',
+                    year: 2020,
+                    price: 'S$599',
+                    description: 'Paper-like writing tablet with exceptional pen-to-paper feel for note-taking and document annotation.',
+                    specs: {
+                        'Display': '10.3" E-ink Carta',
+                        'Resolution': '1872 × 1404',
+                        'Thickness': '4.7mm',
+                        'Weight': '403g',
+                        'Battery': '2 weeks',
+                        'Storage': '8GB'
+                    },
+                    features: ['Paper-like writing experience', 'Ultra-thin design', 'Cloud synchronization', 'PDF annotation']
+                },
+                'inkcase-i7': {
+                    name: 'InkCase i7 Plus',
+                    category: 'Phone Case',
+                    year: 2020,
+                    price: 'S$199',
+                    description: 'E-ink secondary display case for iPhone with customizable widgets and notifications.',
+                    specs: {
+                        'Display': '4.3" E-ink',
+                        'Resolution': '800 × 600',
+                        'Compatibility': 'iPhone 7/8 Plus',
+                        'Battery': '2-3 weeks',
+                        'Thickness': '+2mm',
+                        'Weight': '+45g'
+                    },
+                    features: ['Secondary e-ink display', 'Customizable widgets', 'Always-on notifications', 'Minimal thickness added']
+                },
+                'pebble-time': {
+                    name: 'Pebble Time',
+                    category: 'Smartwatch',
+                    year: 2015,
+                    price: 'S$199 (discontinued)',
+                    description: 'Color e-paper smartwatch with week-long battery life and always-on display.',
+                    specs: {
+                        'Display': '1.25" Color E-paper',
+                        'Resolution': '144 × 168',
+                        'Battery': '7 days',
+                        'Water Rating': '30m',
+                        'Compatibility': 'iOS, Android',
+                        'Weight': '42.5g'
+                    },
+                    features: ['Color e-paper display', 'Week-long battery', 'Always-on screen', 'Timeline interface', 'Water resistant']
+                },
+                'kindle-oasis': {
+                    name: 'Kindle Oasis',
+                    category: 'E-reader',
+                    year: 2019,
+                    price: 'S$429',
+                    description: 'Premium e-reader with adjustable warm light and physical page turn buttons for comfortable reading.',
+                    specs: {
+                        'Display': '7" E-ink Carta',
+                        'Resolution': '1680 × 1264 (300 PPI)',
+                        'Storage': '8GB/32GB',
+                        'Battery': '6 weeks',
+                        'Water Rating': 'IPX8',
+                        'Weight': '188g'
+                    },
+                    features: ['Adjustable warm light', 'Physical page turn buttons', 'Waterproof design', 'Premium materials', 'Auto-rotating display']
+                }
+            };
+
+            // Modal functions
+            function showDeviceDetails(deviceId) {
+                const device = deviceData[deviceId];
+                if (!device) return;
+
+                document.getElementById('modalTitle').textContent = device.name;
+                
+                const modalContent = document.getElementById('modalContent');
+                modalContent.innerHTML = `
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <div class="mb-4">
+                                <span class="inline-block px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full">${device.category}</span>
+                                <span class="inline-block px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full ml-2">${device.year}</span>
+                            </div>
+                            <div class="mb-4">
+                                <p class="text-2xl font-light text-gray-900 mb-2">${device.price}</p>
+                                <p class="text-gray-600">${device.description}</p>
+                            </div>
+                            <div class="mb-6">
+                                <h3 class="text-lg font-medium text-gray-900 mb-3">Key Features</h3>
+                                <ul class="space-y-2">
+                                    ${device.features.map(feature => `<li class="flex items-center text-sm text-gray-600"><span class="w-2 h-2 bg-gray-400 rounded-full mr-3"></span>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-3">Specifications</h3>
+                            <div class="space-y-3">
+                                ${Object.entries(device.specs).map(([key, value]) => `
+                                    <div class="flex justify-between py-2 border-b border-gray-100">
+                                        <span class="text-sm font-medium text-gray-600">${key}</span>
+                                        <span class="text-sm text-gray-900">${value}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('deviceModal').classList.remove('hidden');
+            }
+
+            function closeDeviceModal() {
+                document.getElementById('deviceModal').classList.add('hidden');
+            }
+
+            // Close modal when clicking outside
+            document.getElementById('deviceModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeDeviceModal();
+                }
+            });
+
+            // Filter functionality
+            document.getElementById('collectionFilter').addEventListener('change', function() {
+                const selectedValue = this.value;
+                const deviceCards = document.querySelectorAll('.device-card');
+                
+                deviceCards.forEach(card => {
+                    if (selectedValue === 'all' || card.dataset.collection === selectedValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update timeline view if active
+                if (isTimelineView) {
+                    generateTimeline();
+                }
+            });
+
+            // Timeline toggle functionality
+            function toggleTimeline() {
+                const gridView = document.getElementById('gridView');
+                const timelineView = document.getElementById('timelineView');
+                const timelineBtn = document.getElementById('timelineBtn');
+                
+                if (isTimelineView) {
+                    // Switch to grid view
+                    gridView.classList.remove('hidden');
+                    timelineView.classList.add('hidden');
+                    timelineBtn.textContent = '📅 Timeline View';
+                    isTimelineView = false;
+                } else {
+                    // Switch to timeline view
+                    gridView.classList.add('hidden');
+                    timelineView.classList.remove('hidden');
+                    timelineBtn.textContent = '📊 Grid View';
+                    isTimelineView = true;
+                    generateTimeline();
+                }
+            }
+
+            // Generate timeline view
+            function generateTimeline() {
+                const container = document.getElementById('timelineContainer');
+                const deviceCards = document.querySelectorAll('.device-card');
+                const selectedFilter = document.getElementById('collectionFilter').value;
+                
+                // Collect and filter devices
+                const devices = [];
+                deviceCards.forEach(card => {
+                    if ((selectedFilter === 'all' || card.dataset.collection === selectedFilter) && card.dataset.year) {
+                        devices.push({
+                            year: parseInt(card.dataset.year),
+                            name: card.querySelector('h3').textContent,
+                            description: card.querySelector('p').textContent,
+                            category: card.dataset.collection,
+                            categoryLabel: card.querySelector('.text-xs span').textContent
+                        });
+                    }
+                });
+
+                // Sort by year (newest first)
+                devices.sort((a, b) => b.year - a.year);
+
+                // Generate timeline HTML
+                container.innerHTML = '';
+                let currentYear = null;
+
+                devices.forEach((device, index) => {
+                    if (device.year !== currentYear) {
+                        // Year header
+                        const yearHeader = document.createElement('div');
+                        yearHeader.className = 'flex items-center mb-8 mt-8';
+                        yearHeader.innerHTML = `
+                            <div class="bg-gray-900 text-white rounded-full w-16 h-16 flex items-center justify-center text-lg font-light mr-6 relative z-10">
+                                ${device.year}
+                            </div>
+                            <div class="h-px bg-gray-300 flex-1"></div>
+                        `;
+                        container.appendChild(yearHeader);
+                        currentYear = device.year;
+                    }
+
+                    // Device item
+                    const deviceItem = document.createElement('div');
+                    deviceItem.className = 'flex items-start mb-6 ml-4';
+                    deviceItem.innerHTML = `
+                        <div class="bg-white border-2 border-gray-300 rounded-full w-4 h-4 mr-6 relative z-10 mt-2"></div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 flex-1 hover:shadow-lg transition-shadow">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-light text-gray-800">${device.name}</h3>
+                                <span class="text-xs px-2 py-1 rounded ${getCategoryColor(device.category)}">${device.categoryLabel}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">${device.description}</p>
+                        </div>
+                    `;
+                    container.appendChild(deviceItem);
+                });
+
+                if (devices.length === 0) {
+                    container.innerHTML = '<div class="text-center text-gray-500 py-12">No devices found for the selected filter.</div>';
+                }
+            }
+
+            // Get category color classes
+            function getCategoryColor(category) {
+                const colors = {
+                    'phones': 'bg-blue-100 text-blue-800',
+                    'monitors': 'bg-green-100 text-green-800',
+                    'tablets': 'bg-purple-100 text-purple-800',
+                    'phone-cases': 'bg-orange-100 text-orange-800',
+                    'accessories': 'bg-yellow-100 text-yellow-800'
+                };
+                return colors[category] || 'bg-gray-100 text-gray-800';
+            }
+        </script>
+
+        <!-- Disclaimer -->
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mx-6 mb-8 text-center">
+            <p class="text-sm text-yellow-800 mb-0">⚠️ <strong>Demo Notice:</strong> All content on this site is AI-generated and not verified. For demonstration purposes only.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-t border-gray-200 mt-32">
+            <div class="max-w-6xl mx-auto px-6 py-8">
+                <p class="text-sm text-gray-400">2025 eink.sg</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

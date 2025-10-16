@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brick and mortar - eink.sg</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="min-h-screen bg-white text-gray-900 font-sans">
+        <!-- Header -->
+        <header class="border-b border-gray-200">
+            <div class="max-w-6xl mx-auto px-6 py-6">
+                <a href="index.html" class="text-2xl font-light tracking-wide hover:text-gray-600 transition-colors">
+                    eink.sg
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-6 py-20">
+            <!-- Hero Section -->
+            <section class="mb-12 text-center">
+                <h1 class="text-5xl md:text-6xl font-light leading-tight text-gray-800 mb-6">
+                    Brick and mortar
+                </h1>
+                <p class="text-lg text-gray-500 max-w-3xl mx-auto">
+                    Experience e-ink devices in person at these physical locations around the world
+                </p>
+            </section>
+
+            <!-- Filter Controls -->
+            <section class="mb-8">
+                <div class="flex justify-center">
+                    <select id="cityFilter" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        <option value="all">All Cities</option>
+                        <option value="changsha">Changsha</option>
+                        <option value="shanghai">Shanghai</option>
+                        <option value="hongkong">Hong Kong</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="tokyo">Tokyo</option>
+                    </select>
+                </div>
+            </section>
+
+
+            <!-- Store Directory -->
+            <section>
+                <h2 class="text-3xl font-light text-gray-800 mb-8 text-center">Store Directory</h2>
+                
+                <!-- Changsha Stores -->
+                <div class="city-section mb-12" data-city="changsha">
+                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">Changsha</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Store 1 -->
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('changsha-wanxiang')">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">万象城娱非凡店</h4>
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Gaming Store</span>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">长沙市银盆岭街道桐兴巷与铜盆湖路交叉口西北160米万象城广场5楼L580 娱非凡店</p>
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>🎯 E-ink gaming accessories</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shanghai Stores -->
+                <div class="city-section mb-12" data-city="shanghai">
+                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">Shanghai</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('shanghai-warmwind')">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">暖风家•浦江墨屿</h4>
+                                    <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">E-ink Cafe</span>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">上海市浦东新区浦东大道2000号24楼G室</p>
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>📚 E-ink reading devices & accessories</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hong Kong Stores -->
+                <div class="city-section mb-12" data-city="hongkong">
+                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">Hong Kong</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('hongkong-fortress')">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">Fortress Central</h4>
+                                    <span class="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">Electronics</span>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">Shop 234, Level 2, IFC Mall, Central, Hong Kong</p>
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>📚 E-readers & tablets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Cities (Sample Data) -->
+                <div class="city-section mb-12" data-city="singapore">
+                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">Singapore</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('singapore-challenger')">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">Challenger Bugis</h4>
+                                    <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Electronics</span>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">3 New Bugis Street, #05-17 Bugis Junction, Singapore 188867</p>
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>📱 E-ink phones & tablets</span>
+                            </div>
+                        </div>
+
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('singapore-kinokuniya')">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">Kinokuniya Orchard</h4>
+                                    <span class="text-sm bg-orange-100 text-orange-800 px-2 py-1 rounded">Bookstore</span>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">391 Orchard Road, #04-20/21 Takashimaya S.C., Singapore 238872</p>
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>📚 E-readers & writing tablets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="city-section mb-12" data-city="tokyo">
+                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">Tokyo</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('tokyo-bic')">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">Bic Camera Shibuya</h4>
+                                    <span class="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">Electronics</span>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">1-24-12 Shibuya, Shibuya City, Tokyo 150-0002, Japan</p>
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>🖥️ E-ink monitors & displays</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Store Details Modal -->
+        <div id="storeModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+            <div class="flex items-center justify-center min-h-screen p-4">
+                <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+                    <div class="p-6 border-b border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <h2 id="storeModalTitle" class="text-2xl font-light text-gray-800"></h2>
+                            <button onclick="closeStoreModal()" class="text-gray-500 hover:text-gray-700">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div id="storeModalContent">
+                            <!-- Content will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Store data for modals
+            const storeData = {
+                'changsha-wanxiang': {
+                    name: '万象城娱非凡店',
+                    type: 'Gaming Store',
+                    city: 'Changsha',
+                    address: '长沙市银盆岭街道桐兴巷与铜盆湖路交叉口西北160米万象城广场5楼L580 娱非凡店',
+                    phone: '+86 731 8888 0000',
+                    hours: {
+                        'Monday - Friday': '10:00 AM - 10:00 PM',
+                        'Saturday - Sunday': '10:00 AM - 11:00 PM'
+                    },
+                    specialties: ['E-ink gaming accessories', 'Gaming peripherals', 'Display devices', 'Custom configurations'],
+                    description: 'Specialized gaming store featuring the latest e-ink gaming accessories and peripherals. Expert staff available for device customization and technical support.',
+                    services: ['Device testing', 'Custom configuration', 'Technical support', 'Gaming setup consultation'],
+                    languages: ['Chinese', 'English']
+                },
+                'shanghai-warmwind': {
+                    name: '暖风家•浦江墨屿',
+                    type: 'E-ink Cafe',
+                    city: 'Shanghai',
+                    address: '上海市浦东新区浦东大道2000号24楼G室',
+                    phone: '+86 21 6888 0000',
+                    hours: {
+                        'Monday - Friday': '9:00 AM - 9:00 PM',
+                        'Saturday - Sunday': '10:00 AM - 10:00 PM'
+                    },
+                    specialties: ['E-ink reading devices', 'Digital accessories', 'Reading environment', 'Quiet workspace'],
+                    description: 'Unique e-ink cafe combining technology retail with a peaceful reading environment. Perfect place to test e-ink devices while enjoying coffee.',
+                    services: ['Device demonstration', 'Reading space rental', 'Technical consultation', 'Repair services'],
+                    languages: ['Chinese', 'English', 'Japanese']
+                },
+                'hongkong-fortress': {
+                    name: 'Fortress Central',
+                    type: 'Electronics Store',
+                    city: 'Hong Kong',
+                    address: 'Shop 234, Level 2, IFC Mall, Central, Hong Kong',
+                    phone: '+852 2888 0000',
+                    hours: {
+                        'Monday - Thursday': '10:00 AM - 10:00 PM',
+                        'Friday - Sunday': '10:00 AM - 11:00 PM'
+                    },
+                    specialties: ['E-readers', 'Tablets', 'Digital accessories', 'Premium devices'],
+                    description: 'Premium electronics retailer in the heart of Central. Extensive collection of e-ink devices from leading brands with expert sales support.',
+                    services: ['Product demonstrations', 'Extended warranty', 'Technical support', 'Trade-in programs'],
+                    languages: ['English', 'Cantonese', 'Mandarin']
+                },
+                'singapore-challenger': {
+                    name: 'Challenger Bugis',
+                    type: 'Electronics Store',
+                    city: 'Singapore',
+                    address: '3 New Bugis Street, #05-17 Bugis Junction, Singapore 188867',
+                    phone: '+65 6333 0000',
+                    hours: {
+                        'Monday - Sunday': '10:00 AM - 10:00 PM'
+                    },
+                    specialties: ['E-ink phones', 'Tablets', 'Gaming accessories', 'Mobile devices'],
+                    description: 'Leading electronics retailer with comprehensive selection of e-ink devices. Known for competitive pricing and excellent after-sales service.',
+                    services: ['Price matching', 'Installation service', 'Extended warranty', 'Technical workshops'],
+                    languages: ['English', 'Mandarin', 'Malay']
+                },
+                'singapore-kinokuniya': {
+                    name: 'Kinokuniya Orchard',
+                    type: 'Bookstore',
+                    city: 'Singapore',
+                    address: '391 Orchard Road, #04-20/21 Takashimaya S.C., Singapore 238872',
+                    phone: '+65 6737 0000',
+                    hours: {
+                        'Monday - Sunday': '10:00 AM - 9:30 PM'
+                    },
+                    specialties: ['E-readers', 'Writing tablets', 'Digital stationery', 'Reading accessories'],
+                    description: 'Renowned bookstore with dedicated section for digital reading devices. Perfect for readers looking to transition to or enhance their digital reading experience.',
+                    services: ['Reading consultations', 'Device setup', 'Content recommendations', 'Reading events'],
+                    languages: ['English', 'Japanese', 'Mandarin']
+                },
+                'tokyo-bic': {
+                    name: 'Bic Camera Shibuya',
+                    type: 'Electronics Store',
+                    city: 'Tokyo',
+                    address: '1-24-12 Shibuya, Shibuya City, Tokyo 150-0002, Japan',
+                    phone: '+81 3 5555 0000',
+                    hours: {
+                        'Monday - Sunday': '10:00 AM - 10:00 PM'
+                    },
+                    specialties: ['E-ink monitors', 'Displays', 'Computer accessories', 'Professional equipment'],
+                    description: 'Major electronics retailer with extensive display section featuring the latest e-ink monitors and professional equipment. Tax-free shopping available.',
+                    services: ['Tax-free shopping', 'International shipping', 'Technical demonstrations', 'Installation support'],
+                    languages: ['Japanese', 'English', 'Chinese']
+                }
+            };
+
+            function showStoreDetails(storeId) {
+                const store = storeData[storeId];
+                if (!store) return;
+
+                document.getElementById('storeModalTitle').textContent = store.name;
+                
+                const modalContent = document.getElementById('storeModalContent');
+                modalContent.innerHTML = `
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full">${store.type}</span>
+                                <span class="px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full">${store.city}</span>
+                            </div>
+                            <p class="text-gray-600">${store.description}</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-3">Contact Information</h3>
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-600">Address</p>
+                                        <p class="text-sm text-gray-900">${store.address}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-600">Phone</p>
+                                        <p class="text-sm text-gray-900">${store.phone}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-600">Languages</p>
+                                        <p class="text-sm text-gray-900">${store.languages.join(', ')}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-3">Opening Hours</h3>
+                                <div class="space-y-2">
+                                    ${Object.entries(store.hours).map(([day, time]) => `
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-600">${day}</span>
+                                            <span class="text-gray-900">${time}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-3">Specialties</h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${store.specialties.map(specialty => `<span class="px-3 py-1 bg-green-50 text-green-800 text-sm rounded-lg">${specialty}</span>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-3">Services</h3>
+                            <ul class="space-y-2">
+                                ${store.services.map(service => `<li class="flex items-center text-sm text-gray-600"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>${service}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('storeModal').classList.remove('hidden');
+            }
+
+            function closeStoreModal() {
+                document.getElementById('storeModal').classList.add('hidden');
+            }
+
+            // Close modal when clicking outside
+            document.getElementById('storeModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeStoreModal();
+                }
+            });
+
+            // City filter functionality
+            document.getElementById('cityFilter').addEventListener('change', function() {
+                const selectedCity = this.value;
+                const citySections = document.querySelectorAll('.city-section');
+                
+                citySections.forEach(section => {
+                    if (selectedCity === 'all' || section.dataset.city === selectedCity) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+
+        <!-- Disclaimer -->
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mx-6 mb-8 text-center">
+            <p class="text-sm text-yellow-800 mb-0">⚠️ <strong>Demo Notice:</strong> All content on this site is AI-generated and not verified. For demonstration purposes only.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-t border-gray-200 mt-32">
+            <div class="max-w-6xl mx-auto px-6 py-8">
+                <p class="text-sm text-gray-400">2025 eink.sg</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
