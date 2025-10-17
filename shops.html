@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brick and mortar - eink.sg</title>
+    <title>shops - eink.sg</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -22,31 +22,31 @@
             <!-- Hero Section -->
             <section class="mb-12 text-center">
                 <h1 class="text-5xl md:text-6xl font-light leading-tight text-gray-800 mb-6">
-                    Brick and mortar
+                    Shops
                 </h1>
                 <p class="text-lg text-gray-500 max-w-3xl mx-auto">
-                    Experience e-ink devices in person at these physical locations around the world
+                    Find e-ink devices at physical stores and online shops around the world
                 </p>
             </section>
 
-            <!-- Filter Controls -->
+            <!-- Category Tabs -->
             <section class="mb-8">
                 <div class="flex justify-center">
-                    <select id="cityFilter" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
-                        <option value="all">All Cities</option>
-                        <option value="changsha">Changsha</option>
-                        <option value="shanghai">Shanghai</option>
-                        <option value="hongkong">Hong Kong</option>
-                        <option value="singapore">Singapore</option>
-                        <option value="tokyo">Tokyo</option>
-                    </select>
+                    <div class="flex gap-1 bg-gray-100 rounded-lg p-1">
+                        <button id="physicalBtn" class="shop-category-btn bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors" data-category="physical">
+                            Physical Stores
+                        </button>
+                        <button id="onlineBtn" class="shop-category-btn bg-transparent text-gray-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors" data-category="online">
+                            Online Shops
+                        </button>
+                    </div>
                 </div>
             </section>
 
 
-            <!-- Store Directory -->
-            <section>
-                <h2 class="text-3xl font-light text-gray-800 mb-8 text-center">Store Directory</h2>
+            <!-- Physical Stores Section -->
+            <section id="physicalStores">
+                <h2 class="text-3xl font-light text-gray-800 mb-8 text-center">Physical Stores</h2>
                 
                 <!-- Changsha Stores -->
                 <div class="city-section mb-12" data-city="changsha">
@@ -95,91 +95,73 @@
                     </div>
                 </div>
 
-                <!-- Hong Kong Stores -->
-                <div class="city-section mb-12" data-city="hongkong">
-                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">Hong Kong</h3>
+            </section>
+
+            <!-- Online Shops Section -->
+            <section id="onlineShops" class="hidden">
+                <h2 class="text-3xl font-light text-gray-800 mb-8 text-center">Online Shops</h2>
+                
+                <!-- Global Online Stores -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">International</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('hongkong-fortress')">
+                        <!-- SKTNETSHOP -->
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showOnlineShopDetails('sktnetshop')">
                             <div class="flex items-start justify-between mb-4">
                                 <div>
-                                    <h4 class="text-lg font-light text-gray-800 mb-2">Fortress Central</h4>
-                                    <span class="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">Electronics</span>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">SKTNETSHOP</h4>
+                                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Japan</span>
                                 </div>
                                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
                                 </svg>
                             </div>
-                            <p class="text-sm text-gray-600 mb-4">Shop 234, Level 2, IFC Mall, Central, Hong Kong</p>
+                            <p class="text-sm text-gray-600 mb-4">E Ink端末の専門店 - Specialty store for E Ink devices</p>
                             <div class="flex justify-between text-xs text-gray-500">
-                                <span>📚 E-readers & tablets</span>
+                                <span>🛒 BOOX, DASUNG, Accessories</span>
+                                <a href="https://sktnetshop.com/" target="_blank" class="text-blue-600 hover:text-blue-800">Visit →</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Other Cities (Sample Data) -->
-                <div class="city-section mb-12" data-city="singapore">
-                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">Singapore</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('singapore-challenger')">
+                        
+                        <!-- Amazon -->
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showOnlineShopDetails('amazon')">
                             <div class="flex items-start justify-between mb-4">
                                 <div>
-                                    <h4 class="text-lg font-light text-gray-800 mb-2">Challenger Bugis</h4>
-                                    <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Electronics</span>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">Amazon</h4>
+                                    <span class="text-sm bg-orange-100 text-orange-800 px-2 py-1 rounded">Global</span>
                                 </div>
                                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
                                 </svg>
                             </div>
-                            <p class="text-sm text-gray-600 mb-4">3 New Bugis Street, #05-17 Bugis Junction, Singapore 188867</p>
+                            <p class="text-sm text-gray-600 mb-4">Wide selection of e-ink devices and accessories with global shipping</p>
                             <div class="flex justify-between text-xs text-gray-500">
-                                <span>📱 E-ink phones & tablets</span>
+                                <span>📦 Kindle, reMarkable, BOOX</span>
+                                <span class="text-blue-600">Multiple regions</span>
                             </div>
                         </div>
 
-                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('singapore-kinokuniya')">
+                        <!-- reMarkable Store -->
+                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showOnlineShopDetails('remarkable')">
                             <div class="flex items-start justify-between mb-4">
                                 <div>
-                                    <h4 class="text-lg font-light text-gray-800 mb-2">Kinokuniya Orchard</h4>
-                                    <span class="text-sm bg-orange-100 text-orange-800 px-2 py-1 rounded">Bookstore</span>
+                                    <h4 class="text-lg font-light text-gray-800 mb-2">reMarkable Store</h4>
+                                    <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Official</span>
                                 </div>
                                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
                                 </svg>
                             </div>
-                            <p class="text-sm text-gray-600 mb-4">391 Orchard Road, #04-20/21 Takashimaya S.C., Singapore 238872</p>
+                            <p class="text-sm text-gray-600 mb-4">Official store for reMarkable paper tablets and accessories</p>
                             <div class="flex justify-between text-xs text-gray-500">
-                                <span>📚 E-readers & writing tablets</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="city-section mb-12" data-city="tokyo">
-                    <h3 class="text-2xl font-light text-gray-700 mb-6 border-b border-gray-200 pb-2">Tokyo</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="store-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showStoreDetails('tokyo-bic')">
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <h4 class="text-lg font-light text-gray-800 mb-2">Bic Camera Shibuya</h4>
-                                    <span class="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">Electronics</span>
-                                </div>
-                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <p class="text-sm text-gray-600 mb-4">1-24-12 Shibuya, Shibuya City, Tokyo 150-0002, Japan</p>
-                            <div class="flex justify-between text-xs text-gray-500">
-                                <span>🖥️ E-ink monitors & displays</span>
+                                <span>✏️ reMarkable tablets & pens</span>
+                                <a href="https://remarkable.com/" target="_blank" class="text-blue-600 hover:text-blue-800">Visit →</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
         </main>
 
         <!-- Store Details Modal -->
@@ -238,62 +220,42 @@
                     services: ['Device demonstration', 'Reading space rental', 'Technical consultation', 'Repair services'],
                     languages: ['Chinese', 'English', 'Japanese']
                 },
-                'hongkong-fortress': {
-                    name: 'Fortress Central',
-                    type: 'Electronics Store',
-                    city: 'Hong Kong',
-                    address: 'Shop 234, Level 2, IFC Mall, Central, Hong Kong',
-                    phone: '+852 2888 0000',
-                    hours: {
-                        'Monday - Thursday': '10:00 AM - 10:00 PM',
-                        'Friday - Sunday': '10:00 AM - 11:00 PM'
-                    },
-                    specialties: ['E-readers', 'Tablets', 'Digital accessories', 'Premium devices'],
-                    description: 'Premium electronics retailer in the heart of Central. Extensive collection of e-ink devices from leading brands with expert sales support.',
-                    services: ['Product demonstrations', 'Extended warranty', 'Technical support', 'Trade-in programs'],
-                    languages: ['English', 'Cantonese', 'Mandarin']
+            };
+
+            // Online shop data
+            const onlineShopData = {
+                'sktnetshop': {
+                    name: 'SKTNETSHOP',
+                    type: 'E-ink Specialty Store',
+                    country: 'Japan',
+                    website: 'https://sktnetshop.com/',
+                    description: 'Japan-based specialty store focusing exclusively on E Ink devices and electronic paper technology. Offers wide selection of BOOX and DASUNG products.',
+                    specialties: ['BOOX tablets', 'DASUNG monitors', 'E-ink accessories', 'Stylus pens'],
+                    languages: ['Japanese', 'English'],
+                    shipping: 'International shipping available',
+                    brands: ['BOOX', 'DASUNG', 'Various accessories']
                 },
-                'singapore-challenger': {
-                    name: 'Challenger Bugis',
-                    type: 'Electronics Store',
-                    city: 'Singapore',
-                    address: '3 New Bugis Street, #05-17 Bugis Junction, Singapore 188867',
-                    phone: '+65 6333 0000',
-                    hours: {
-                        'Monday - Sunday': '10:00 AM - 10:00 PM'
-                    },
-                    specialties: ['E-ink phones', 'Tablets', 'Gaming accessories', 'Mobile devices'],
-                    description: 'Leading electronics retailer with comprehensive selection of e-ink devices. Known for competitive pricing and excellent after-sales service.',
-                    services: ['Price matching', 'Installation service', 'Extended warranty', 'Technical workshops'],
-                    languages: ['English', 'Mandarin', 'Malay']
+                'amazon': {
+                    name: 'Amazon',
+                    type: 'Global Marketplace',
+                    country: 'Global',
+                    website: 'https://amazon.com/',
+                    description: 'World\'s largest online marketplace with extensive selection of e-ink devices from multiple brands and sellers.',
+                    specialties: ['Kindle devices', 'reMarkable tablets', 'BOOX products', 'Accessories'],
+                    languages: ['Multiple languages'],
+                    shipping: 'Global shipping with regional stores',
+                    brands: ['Amazon Kindle', 'reMarkable', 'BOOX', 'Supernote', 'Various brands']
                 },
-                'singapore-kinokuniya': {
-                    name: 'Kinokuniya Orchard',
-                    type: 'Bookstore',
-                    city: 'Singapore',
-                    address: '391 Orchard Road, #04-20/21 Takashimaya S.C., Singapore 238872',
-                    phone: '+65 6737 0000',
-                    hours: {
-                        'Monday - Sunday': '10:00 AM - 9:30 PM'
-                    },
-                    specialties: ['E-readers', 'Writing tablets', 'Digital stationery', 'Reading accessories'],
-                    description: 'Renowned bookstore with dedicated section for digital reading devices. Perfect for readers looking to transition to or enhance their digital reading experience.',
-                    services: ['Reading consultations', 'Device setup', 'Content recommendations', 'Reading events'],
-                    languages: ['English', 'Japanese', 'Mandarin']
-                },
-                'tokyo-bic': {
-                    name: 'Bic Camera Shibuya',
-                    type: 'Electronics Store',
-                    city: 'Tokyo',
-                    address: '1-24-12 Shibuya, Shibuya City, Tokyo 150-0002, Japan',
-                    phone: '+81 3 5555 0000',
-                    hours: {
-                        'Monday - Sunday': '10:00 AM - 10:00 PM'
-                    },
-                    specialties: ['E-ink monitors', 'Displays', 'Computer accessories', 'Professional equipment'],
-                    description: 'Major electronics retailer with extensive display section featuring the latest e-ink monitors and professional equipment. Tax-free shopping available.',
-                    services: ['Tax-free shopping', 'International shipping', 'Technical demonstrations', 'Installation support'],
-                    languages: ['Japanese', 'English', 'Chinese']
+                'remarkable': {
+                    name: 'reMarkable Store',
+                    type: 'Official Brand Store',
+                    country: 'Norway (Global)',
+                    website: 'https://remarkable.com/',
+                    description: 'Official store for reMarkable paper tablets, offering the complete ecosystem of devices, accessories, and services.',
+                    specialties: ['reMarkable tablets', 'Marker pens', 'Folios', 'reMarkable Connect'],
+                    languages: ['English', 'Multiple languages'],
+                    shipping: 'Global shipping to 30+ countries',
+                    brands: ['reMarkable']
                 }
             };
 
@@ -365,6 +327,58 @@
                 document.getElementById('storeModal').classList.remove('hidden');
             }
 
+            function showOnlineShopDetails(shopId) {
+                const shop = onlineShopData[shopId];
+                if (!shop) return;
+
+                document.getElementById('storeModalTitle').textContent = shop.name;
+                
+                const modalContent = document.getElementById('storeModalContent');
+                modalContent.innerHTML = `
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full">${shop.type}</span>
+                                <span class="px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full">${shop.country}</span>
+                            </div>
+                            <p class="text-gray-600">${shop.description}</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-3">Website</h3>
+                                <a href="${shop.website}" target="_blank" class="text-blue-600 hover:text-blue-800 underline">${shop.website}</a>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-3">Shipping</h3>
+                                <p class="text-sm text-gray-600">${shop.shipping}</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-3">Specialties</h3>
+                            <ul class="space-y-2">
+                                ${shop.specialties.map(specialty => `<li class="flex items-center text-sm text-gray-600"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>${specialty}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-3">Brands Available</h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${shop.brands.map(brand => `<span class="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded">${brand}</span>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-3">Languages</h3>
+                            <p class="text-sm text-gray-600">${shop.languages.join(', ')}</p>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('storeModal').classList.remove('hidden');
+            }
+
             function closeStoreModal() {
                 document.getElementById('storeModal').classList.add('hidden');
             }
@@ -376,19 +390,35 @@
                 }
             });
 
-            // City filter functionality
-            document.getElementById('cityFilter').addEventListener('change', function() {
-                const selectedCity = this.value;
-                const citySections = document.querySelectorAll('.city-section');
-                
-                citySections.forEach(section => {
-                    if (selectedCity === 'all' || section.dataset.city === selectedCity) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
+            // Tab switching functionality
+            function switchCategory(category) {
+                const physicalBtn = document.getElementById('physicalBtn');
+                const onlineBtn = document.getElementById('onlineBtn');
+                const physicalStores = document.getElementById('physicalStores');
+                const onlineShops = document.getElementById('onlineShops');
+
+                // Reset button styles
+                [physicalBtn, onlineBtn].forEach(btn => {
+                    btn.classList.remove('bg-gray-900', 'text-white');
+                    btn.classList.add('bg-transparent', 'text-gray-600');
                 });
-            });
+
+                if (category === 'physical') {
+                    physicalBtn.classList.remove('bg-transparent', 'text-gray-600');
+                    physicalBtn.classList.add('bg-gray-900', 'text-white');
+                    physicalStores.classList.remove('hidden');
+                    onlineShops.classList.add('hidden');
+                } else {
+                    onlineBtn.classList.remove('bg-transparent', 'text-gray-600');
+                    onlineBtn.classList.add('bg-gray-900', 'text-white');
+                    physicalStores.classList.add('hidden');
+                    onlineShops.classList.remove('hidden');
+                }
+            }
+
+            // Tab event listeners
+            document.getElementById('physicalBtn').addEventListener('click', () => switchCategory('physical'));
+            document.getElementById('onlineBtn').addEventListener('click', () => switchCategory('online'));
         </script>
 
         <!-- Disclaimer -->

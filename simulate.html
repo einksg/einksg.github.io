@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simulate - eink.sg</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/devices.js"></script>
+    <style>
+        /* Device Preview Positioning - Exact coordinates from original */
+        .case-preview__container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .case-preview__display {
+            position: absolute;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        .case-preview__display img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: inherit;
+            display: block;
+            transition: filter 0.3s ease;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .case-preview__display img.e-paper {
+            filter: sepia(40%) contrast(120%) brightness(95%) hue-rotate(10deg) saturate(60%);
+        }
+        
+        .case-preview__placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #6c757d;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 0.5rem;
+            line-height: 1.3;
+            width: 90%;
+        }
+        
+        /* Gallery Items */
+        .gallery__item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            break-inside: avoid;
+            margin-bottom: 0.75rem;
+        }
+        
+        .gallery__item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery__item:hover .gallery__image {
+            filter: sepia(40%) contrast(120%) brightness(95%) hue-rotate(10deg) saturate(60%);
+        }
+        
+        .gallery__image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery__info {
+            padding: 0.75rem;
+        }
+        
+        .gallery__title {
+            font-size: 0.875rem;
+            font-weight: 300;
+            margin-bottom: 0.125rem;
+            color: #111827;
+        }
+        
+        .gallery__resolution {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal__content {
+            background: white;
+            border-radius: 8px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+            position: relative;
+            padding: 1.5rem;
+        }
+        
+        .modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #6b7280;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal__image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        
+        .modal__info {
+            text-align: center;
+        }
+        
+        .modal__title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+        
+        .modal__resolution {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        
+        .modal__download {
+            background: #111827;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .modal__download:hover {
+            background: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-white text-gray-900 font-sans">
+        <!-- Header -->
+        <header class="border-b border-gray-200">
+            <div class="max-w-6xl mx-auto px-6 py-6">
+                <a href="/" class="text-2xl font-light tracking-wide hover:text-gray-600 transition-colors">
+                    eink.sg
+                </a>
+            </div>
+        </header>
+
+        <!-- Header Section -->
+        <section class="text-center py-12 bg-white border-b border-gray-200">
+            <div class="max-w-4xl mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-4">
+                    E-ink Wallpaper Simulator
+                </h1>
+                <p class="text-lg text-gray-500 mb-6">
+                    Preview wallpapers on E6 Spectra 6-color e-ink displays
+                </p>
+                
+                <!-- Device Selector -->
+                <div class="inline-flex gap-1 bg-gray-100 rounded-lg p-1">
+                    <button class="device-selector__btn bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" data-device="reink-case">
+                        Reink Case
+                    </button>
+                    <button class="device-selector__btn bg-transparent text-gray-600 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors" data-device="m5-paper-s3">
+                        M5 Paper Color
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Layout -->
+        <main class="flex">
+            <!-- Case Section - Left Side -->
+            <div class="w-1/2 bg-gray-50 flex items-center justify-center p-4 border-r border-gray-200" style="height: 600px;">
+                <div class="text-center w-full">
+                    <div class="case-preview__container">
+                        <img class="case-preview__case" id="deviceImage" src="assets/devices/mockup.svg" alt="Reink Case" style="max-width: 250px; height: auto;">
+                        <div class="case-preview__display" id="caseDisplay">
+                            <div class="case-preview__placeholder">
+                                <p>Click any wallpaper to preview</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Section - Right Side -->
+            <div class="w-1/2 bg-white">
+                <div class="p-4" style="height: 600px; overflow-y: auto;">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-light text-gray-800 mb-1">Wallpaper Gallery</h3>
+                        <p class="text-xs text-gray-600">400×600 optimized for E6 Spectra displays</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-3" id="gallery">
+                        <!-- Gallery items will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal -->
+        <div class="modal" id="modal">
+            <div class="modal__content">
+                <button class="modal__close" id="modalClose">&times;</button>
+                <img class="modal__image" id="modalImage" alt="Full size artwork">
+                <div class="modal__info">
+                    <h3 class="modal__title" id="modalTitle"></h3>
+                    <p class="modal__resolution" id="modalResolution"></p>
+                    <button class="modal__download" id="modalDownload">Download</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mx-6 mb-8 text-center">
+            <p class="text-sm text-yellow-800 mb-0">⚠️ <strong>Demo Notice:</strong> All content on this site is AI-generated and not verified. For demonstration purposes only.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-t border-gray-200">
+            <div class="max-w-6xl mx-auto px-6 py-8">
+                <p class="text-sm text-gray-400">2025 eink.sg</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Gallery data - Auto-generated from wallpapers folder
+        const artworks = [
+            {
+                id: 1,
+                title: "Photo 01",
+                resolution: "400x600",
+                thumbnail: "assets/wallpapers/photo-01.jpg",
+                fullSize: "assets/wallpapers/photo-01.jpg"
+            },
+            {
+                id: 2,
+                title: "Photo 02",
+                resolution: "400x600",
+                thumbnail: "assets/wallpapers/photo-02.jpg",
+                fullSize: "assets/wallpapers/photo-02.jpg"
+            },
+            {
+                id: 3,
+                title: "Photo 03",
+                resolution: "400x600",
+                thumbnail: "assets/wallpapers/photo-03.jpg",
+                fullSize: "assets/wallpapers/photo-03.jpg"
+            },
+            {
+                id: 4,
+                title: "Photo 04",
+                resolution: "400x600",
+                thumbnail: "assets/wallpapers/photo-04.jpg",
+                fullSize: "assets/wallpapers/photo-04.jpg"
+            },
+            {
+                id: 5,
+                title: "Photo 05",
+                resolution: "400x600",
+                thumbnail: "assets/wallpapers/photo-05.jpg",
+                fullSize: "assets/wallpapers/photo-05.jpg"
+            }
+        ];
+
+        class Gallery {
+            constructor() {
+                this.gallery = document.getElementById('gallery');
+                this.modal = document.getElementById('modal');
+                this.modalImage = document.getElementById('modalImage');
+                this.modalTitle = document.getElementById('modalTitle');
+                this.modalResolution = document.getElementById('modalResolution');
+                this.modalDownload = document.getElementById('modalDownload');
+                this.modalClose = document.getElementById('modalClose');
+                this.caseDisplay = document.getElementById('caseDisplay');
+                this.deviceImage = document.getElementById('deviceImage');
+                this.deviceSelectorBtns = document.querySelectorAll('.device-selector__btn');
+                
+                this.currentArtwork = null;
+                this.currentDevice = 'reink-case';
+                
+                // Calculate scale based on device image max-width of 250px
+                const reinkScale = 250/640;  // 0.390625
+                const m5Scale = 250/520;     // 0.481
+                
+                this.devices = {
+                    'reink-case': {
+                        name: 'Reink Case',
+                        mockup: 'assets/devices/mockup.svg',
+                        displayPosition: {
+                            left: Math.round(120 * reinkScale) + 'px',  // 47px
+                            top: Math.round(400 * reinkScale) + 'px',   // 156px
+                            width: Math.round(400 * reinkScale) + 'px', // 156px
+                            height: Math.round(600 * reinkScale) + 'px', // 234px
+                            borderRadius: Math.round(50 * reinkScale) + 'px' // 20px (SVG rx="50")
+                        }
+                    },
+                    'm5-paper-s3': {
+                        name: 'M5 Paper Color',
+                        mockup: 'assets/devices/m5-paper-s3.svg',
+                        displayPosition: {
+                            left: Math.round(60 * m5Scale) + 'px',   // 29px
+                            top: Math.round(60 * m5Scale) + 'px',    // 29px
+                            width: Math.round(400 * m5Scale) + 'px', // 192px
+                            height: Math.round(600 * m5Scale) + 'px', // 288px
+                            borderRadius: '0px' // SVG rx="0"
+                        }
+                    }
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.bindEvents();
+                this.setupInitialDevice();
+                this.loadArtworks();
+            }
+            
+            setupInitialDevice() {
+                // Ensure the initial device (reink-case) is properly configured
+                this.switchDevice('reink-case');
+            }
+            
+            bindEvents() {
+                this.modalClose.addEventListener('click', () => this.closeModal());
+                this.modal.addEventListener('click', (e) => {
+                    if (e.target === this.modal) this.closeModal();
+                });
+                this.modalDownload.addEventListener('click', () => this.downloadArtwork());
+                
+                // Device selector events
+                this.deviceSelectorBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.switchDevice(e.target.dataset.device);
+                    });
+                });
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeModal();
+                    }
+                });
+            }
+            
+            loadArtworks() {
+                this.renderArtworks();
+            }
+            
+            shuffleArray(array) {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            }
+            
+            renderArtworks() {
+                this.gallery.innerHTML = '';
+                
+                // Randomize the order of artworks each time
+                const shuffledArtworks = this.shuffleArray(artworks);
+                
+                shuffledArtworks.forEach((artwork, index) => {
+                    const item = this.createGalleryItem(artwork, index);
+                    this.gallery.appendChild(item);
+                });
+            }
+            
+            createGalleryItem(artwork, index) {
+                const item = document.createElement('div');
+                item.className = 'gallery__item';
+                
+                item.innerHTML = `
+                    <img class="gallery__image" src="${artwork.thumbnail}" alt="${artwork.title}" loading="lazy">
+                    <div class="gallery__info">
+                        <h3 class="gallery__title">${artwork.title}</h3>
+                        <p class="gallery__resolution">${artwork.resolution}</p>
+                    </div>
+                `;
+                
+                // Add click event to image for preview
+                const image = item.querySelector('.gallery__image');
+                image.addEventListener('click', () => {
+                    this.previewOnCase(artwork);
+                });
+                
+                // Add double-click for modal
+                item.addEventListener('dblclick', () => {
+                    this.openModal(artwork);
+                });
+                
+                return item;
+            }
+            
+            openModal(artwork) {
+                this.currentArtwork = artwork;
+                this.modalImage.src = artwork.fullSize;
+                this.modalTitle.textContent = artwork.title;
+                this.modalResolution.textContent = `Resolution: ${artwork.resolution}`;
+                this.modal.classList.add('active');
+                
+                // Prevent body scroll when modal is open
+                document.body.style.overflow = 'hidden';
+            }
+            
+            closeModal() {
+                this.modal.classList.remove('active');
+                this.currentArtwork = null;
+                
+                // Restore body scroll
+                document.body.style.overflow = '';
+            }
+            
+            switchDevice(deviceId) {
+                if (!this.devices[deviceId]) return;
+                
+                this.currentDevice = deviceId;
+                const device = this.devices[deviceId];
+                
+                // Update device image
+                this.deviceImage.src = device.mockup;
+                this.deviceImage.alt = device.name;
+                
+                // Update display positioning - exact pixel coordinates from SVG
+                const displayPosition = device.displayPosition;
+                this.caseDisplay.style.left = displayPosition.left;
+                this.caseDisplay.style.top = displayPosition.top;
+                this.caseDisplay.style.width = displayPosition.width;
+                this.caseDisplay.style.height = displayPosition.height;
+                this.caseDisplay.style.borderRadius = displayPosition.borderRadius;
+                this.caseDisplay.style.transform = 'none';
+                
+                // Update active button
+                this.deviceSelectorBtns.forEach(btn => {
+                    btn.classList.remove('active', 'bg-gray-900', 'text-white');
+                    btn.classList.add('bg-transparent', 'text-gray-600');
+                    if (btn.dataset.device === deviceId) {
+                        btn.classList.remove('bg-transparent', 'text-gray-600');
+                        btn.classList.add('active', 'bg-gray-900', 'text-white');
+                    }
+                });
+                
+                // Clear current preview
+                this.caseDisplay.innerHTML = `
+                    <div class="case-preview__placeholder">
+                        <p>Click any wallpaper to preview</p>
+                    </div>
+                `;
+            }
+            
+            previewOnCase(artwork) {
+                // Update case display with the selected wallpaper
+                const device = this.devices[this.currentDevice];
+                const borderRadius = device.displayPosition.borderRadius;
+                this.caseDisplay.innerHTML = `
+                    <img src="${artwork.thumbnail}" alt="${artwork.title}" class="e-paper" style="border-radius: ${borderRadius};">
+                `;
+            }
+            
+            async downloadArtwork(artwork = this.currentArtwork) {
+                if (!artwork) return;
+                
+                try {
+                    // Fetch the image content
+                    const response = await fetch(artwork.fullSize);
+                    const blob = await response.blob();
+                    const url = URL.createObjectURL(blob);
+                    
+                    // Create a temporary link to download the file
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = `${artwork.title.toLowerCase().replace(/\s+/g, '-')}-${artwork.resolution}.jpg`;
+                    
+                    // Force download without opening in browser
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // Clean up the blob URL
+                    URL.revokeObjectURL(url);
+                } catch (error) {
+                    console.error('Download failed:', error);
+                }
+            }
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Gallery();
+        });
+    </script>
+</body>
+</html>

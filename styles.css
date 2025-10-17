@@ -77,6 +77,28 @@ main {
     color: #6b7280;
 }
 
+/* Project Divider */
+.project-divider {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: #e5e7eb;
+}
+
+.divider-text {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
 .hidden {
     display: none;
 }

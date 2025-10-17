@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pair - eink.sg</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/devices.js"></script>
 </head>
 <body>
     <div class="min-h-screen bg-white text-gray-900 font-sans">
@@ -47,6 +48,24 @@
                         <p class="text-sm text-gray-600 mb-4">Enhance your MacBook setup with a paper-like second screen. Perfect for reading, writing, and reducing eye strain during long work sessions.</p>
                         <div class="flex justify-between text-xs text-gray-500">
                             <span>Desktop Enhancement</span>
+                        </div>
+                    </div>
+
+                    <!-- Pair 3: iPhone + Boox HiBreak S -->
+                    <div class="pair-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showPairDetails('iphone-boox')">
+                        <h3 class="text-lg font-light mb-2 text-gray-800">iPhone + Boox HiBreak S</h3>
+                        <p class="text-sm text-gray-600 mb-4">Ultimate reading combo. Use your iPhone for everything digital while the Boox HiBreak S provides the perfect e-ink reading experience with Android apps support.</p>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Reading & Entertainment</span>
+                        </div>
+                    </div>
+
+                    <!-- Pair 4: iPhone + XTEINK X4 -->
+                    <div class="pair-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="showPairDetails('iphone-xteink')">
+                        <h3 class="text-lg font-light mb-2 text-gray-800">iPhone + XTEINK X4</h3>
+                        <p class="text-sm text-gray-600 mb-4">Compact productivity pair. Keep your iPhone for communication while the XTEINK X4 handles focused reading, note-taking, and distraction-free work.</p>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Compact Productivity</span>
                         </div>
                     </div>
                 </div>
@@ -124,6 +143,40 @@
                     ],
                     useCases: ['Software development', 'Academic writing', 'Research', 'Content creation', 'Document review'],
                     compatibility: 'Modos Display connects to MacBook Air via USB-C. Works as a standard external monitor with macOS, providing extended desktop space with the unique benefits of e-ink technology.'
+                },
+                'iphone-boox': {
+                    title: 'iPhone + Boox HiBreak S',
+                    category: 'Reading & Entertainment',
+                    device1: { name: 'iPhone', type: 'Smartphone', price: 'S$1,299' },
+                    device2: { name: 'Boox HiBreak S', type: 'E-ink Tablet', price: 'S$899' },
+                    totalPrice: 'S$2,198',
+                    description: 'Ultimate reading combo. Use your iPhone for everything digital while the Boox HiBreak S provides the perfect e-ink reading experience with full Android app support and color display.',
+                    benefits: [
+                        'Full Android app ecosystem on e-ink',
+                        'Color e-ink display for magazines and comics',
+                        'Separate devices for focused vs connected tasks',
+                        'Long battery life for extended reading',
+                        'Large screen for comfortable reading'
+                    ],
+                    useCases: ['Digital magazine reading', 'Comic books', 'PDF documents', 'E-book library', 'Educational content'],
+                    compatibility: 'Both devices work independently. Boox HiBreak S runs full Android, allowing you to install reading apps, sync with cloud services, and access the same content as your iPhone while providing a superior reading experience on e-ink.'
+                },
+                'iphone-xteink': {
+                    title: 'iPhone + XTEINK X4',
+                    category: 'Compact Productivity',
+                    device1: { name: 'iPhone', type: 'Smartphone', price: 'S$1,299' },
+                    device2: { name: 'XTEINK X4', type: 'E-ink Note Tablet', price: 'S$599' },
+                    totalPrice: 'S$1,898',
+                    description: 'Compact productivity pair. Keep your iPhone for communication and apps while the XTEINK X4 handles focused reading, note-taking, and distraction-free work in a portable form factor.',
+                    benefits: [
+                        'Ultra-portable dual-device setup',
+                        'Distraction-free note-taking and reading',
+                        'Excellent battery life for travel',
+                        'Affordable e-ink solution',
+                        'Perfect size for commuting'
+                    ],
+                    useCases: ['Daily commuting', 'Travel productivity', 'Student note-taking', 'Meeting notes', 'Quick sketching'],
+                    compatibility: 'Independent devices that complement each other perfectly. XTEINK X4 focuses on core productivity tasks while iPhone handles communication, apps, and connectivity. Both fit easily in a small bag for ultimate portability.'
                 }
             };
 
