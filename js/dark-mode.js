@@ -4,15 +4,11 @@
     const DARK_THEME = 'dark';
     const LIGHT_THEME = 'light';
     
-    console.log('Dark mode script loaded');
-    
     // Apply theme using Tailwind's dark mode
     function applyTheme(theme) {
         const html = document.documentElement;
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
-        
-        console.log('Applying theme:', theme);
         
         if (theme === DARK_THEME) {
             html.classList.add('dark');
@@ -25,12 +21,18 @@
         }
     }
     
-    // Get saved theme or default to light
+    // Get saved theme or default to system preference
     function getSavedTheme() {
         try {
-            return localStorage.getItem(THEME_KEY) || LIGHT_THEME;
+            const saved = localStorage.getItem(THEME_KEY);
+            if (saved) return saved;
+            
+            // Auto-detect system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return DARK_THEME;
+            }
+            return LIGHT_THEME;
         } catch (e) {
-            console.warn('LocalStorage not available, using default theme');
             return LIGHT_THEME;
         }
     }
@@ -40,7 +42,7 @@
         try {
             localStorage.setItem(THEME_KEY, theme);
         } catch (e) {
-            console.warn('Could not save theme to localStorage');
+            // Silently fail if localStorage is not available
         }
     }
     
@@ -48,7 +50,6 @@
     function toggleTheme() {
         const currentTheme = getSavedTheme();
         const newTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
-        console.log('Toggling from', currentTheme, 'to', newTheme);
         saveTheme(newTheme);
         applyTheme(newTheme);
     }
@@ -56,16 +57,23 @@
     // Initialize theme
     function initTheme() {
         const savedTheme = getSavedTheme();
-        console.log('Initializing with theme:', savedTheme);
         applyTheme(savedTheme);
         
         // Add event listener to toggle button
         const darkModeToggle = document.getElementById('darkModeToggle');
         if (darkModeToggle) {
-            console.log('Dark mode toggle found, adding event listener');
             darkModeToggle.addEventListener('click', toggleTheme);
-        } else {
-            console.warn('Dark mode toggle button not found');
+        }
+        
+        // Listen for system theme changes (only if no manual preference is saved)
+        if (window.matchMedia && !localStorage.getItem(THEME_KEY)) {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', function(e) {
+                // Only auto-switch if user hasn't manually set a preference
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(e.matches ? DARK_THEME : LIGHT_THEME);
+                }
+            });
         }
     }
     
