@@ -1,4 +1,4 @@
-// Dark mode functionality
+// Dark mode functionality using Tailwind
 (function() {
     const THEME_KEY = 'theme';
     const DARK_THEME = 'dark';
@@ -8,7 +8,7 @@
     const darkModeToggle = document.getElementById('darkModeToggle');
     const sunIcon = document.getElementById('sunIcon');
     const moonIcon = document.getElementById('moonIcon');
-    const body = document.body;
+    const html = document.documentElement;
     
     // Get saved theme or default to light
     function getSavedTheme() {
@@ -20,14 +20,14 @@
         localStorage.setItem(THEME_KEY, theme);
     }
     
-    // Apply theme
+    // Apply theme using Tailwind's dark mode
     function applyTheme(theme) {
         if (theme === DARK_THEME) {
-            body.setAttribute('data-theme', 'dark');
+            html.classList.add('dark');
             if (sunIcon) sunIcon.style.display = 'none';
             if (moonIcon) moonIcon.style.display = 'block';
         } else {
-            body.removeAttribute('data-theme');
+            html.classList.remove('dark');
             if (sunIcon) sunIcon.style.display = 'block';
             if (moonIcon) moonIcon.style.display = 'none';
         }
