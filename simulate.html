@@ -1,3 +1,6 @@
+---
+permalink: /simulate/
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>simulate - eink.sg</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/devices.js"></script>
+    <script src="/js/devices.js"></script>
     <style>
         /* Device Preview Positioning - Exact coordinates from original */
         .case-preview__container {
@@ -220,7 +223,7 @@
             <div class="w-1/2 bg-gray-50 flex items-center justify-center p-4 border-r border-gray-200" style="height: 600px;">
                 <div class="text-center w-full">
                     <div class="case-preview__container">
-                        <img class="case-preview__case" id="deviceImage" src="assets/devices/mockup.svg" alt="Reink Case" style="max-width: 250px; height: auto;">
+                        <img class="case-preview__case" id="deviceImage" src="/assets/devices/mockup.svg" alt="Reink Case" style="max-width: 250px; height: auto;">
                         <div class="case-preview__display" id="caseDisplay">
                             <div class="case-preview__placeholder">
                                 <p>Click any wallpaper to preview</p>
@@ -278,36 +281,36 @@
                 id: 1,
                 title: "Photo 01",
                 resolution: "400x600",
-                thumbnail: "assets/wallpapers/photo-01.jpg",
-                fullSize: "assets/wallpapers/photo-01.jpg"
+                thumbnail: "/assets/wallpapers/photo-01.jpg",
+                fullSize: "/assets/wallpapers/photo-01.jpg"
             },
             {
                 id: 2,
                 title: "Photo 02",
                 resolution: "400x600",
-                thumbnail: "assets/wallpapers/photo-02.jpg",
-                fullSize: "assets/wallpapers/photo-02.jpg"
+                thumbnail: "/assets/wallpapers/photo-02.jpg",
+                fullSize: "/assets/wallpapers/photo-02.jpg"
             },
             {
                 id: 3,
                 title: "Photo 03",
                 resolution: "400x600",
-                thumbnail: "assets/wallpapers/photo-03.jpg",
-                fullSize: "assets/wallpapers/photo-03.jpg"
+                thumbnail: "/assets/wallpapers/photo-03.jpg",
+                fullSize: "/assets/wallpapers/photo-03.jpg"
             },
             {
                 id: 4,
                 title: "Photo 04",
                 resolution: "400x600",
-                thumbnail: "assets/wallpapers/photo-04.jpg",
-                fullSize: "assets/wallpapers/photo-04.jpg"
+                thumbnail: "/assets/wallpapers/photo-04.jpg",
+                fullSize: "/assets/wallpapers/photo-04.jpg"
             },
             {
                 id: 5,
                 title: "Photo 05",
                 resolution: "400x600",
-                thumbnail: "assets/wallpapers/photo-05.jpg",
-                fullSize: "assets/wallpapers/photo-05.jpg"
+                thumbnail: "/assets/wallpapers/photo-05.jpg",
+                fullSize: "/assets/wallpapers/photo-05.jpg"
             }
         ];
 
@@ -334,7 +337,7 @@
                 this.devices = {
                     'reink-case': {
                         name: 'Reink Case',
-                        mockup: 'assets/devices/mockup.svg',
+                        mockup: '/assets/devices/mockup.svg',
                         displayPosition: {
                             left: Math.round(120 * reinkScale) + 'px',  // 47px
                             top: Math.round(400 * reinkScale) + 'px',   // 156px
@@ -345,7 +348,7 @@
                     },
                     'm5-paper-s3': {
                         name: 'M5 Paper Color',
-                        mockup: 'assets/devices/m5-paper-s3.svg',
+                        mockup: '/assets/devices/m5-paper-s3.svg',
                         displayPosition: {
                             left: Math.round(60 * m5Scale) + 'px',   // 29px
                             top: Math.round(60 * m5Scale) + 'px',    // 29px
