@@ -72,7 +72,7 @@ permalink: /shops
                                 </svg>
                             </div>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">长沙市银盆岭街道桐兴巷与铜盆湖路交叉口西北160米万象城广场5楼L580 娱非凡店</p>
-                            <div class="flex justify-between text-xs text-gray-500">
+                            <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
                                 <span>🎯 E-ink gaming accessories</span>
                             </div>
                         </div>
@@ -95,7 +95,7 @@ permalink: /shops
                                 </svg>
                             </div>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">上海市浦东新区浦东大道2000号24楼G室</p>
-                            <div class="flex justify-between text-xs text-gray-500">
+                            <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
                                 <span>📚 E-ink reading devices & accessories</span>
                             </div>
                         </div>
@@ -124,7 +124,7 @@ permalink: /shops
                                 </svg>
                             </div>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">E Ink端末の専門店 - Specialty store for E Ink devices</p>
-                            <div class="flex justify-between text-xs text-gray-500">
+                            <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
                                 <span>🛒 BOOX, DASUNG, Accessories</span>
                                 <a href="https://sktnetshop.com/" target="_blank" class="text-blue-600 hover:text-blue-800">Visit →</a>
                             </div>
@@ -142,7 +142,7 @@ permalink: /shops
                                 </svg>
                             </div>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Wide selection of e-ink devices and accessories with global shipping</p>
-                            <div class="flex justify-between text-xs text-gray-500">
+                            <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
                                 <span>📦 Kindle, reMarkable, BOOX</span>
                                 <span class="text-blue-600">Multiple regions</span>
                             </div>
@@ -160,7 +160,7 @@ permalink: /shops
                                 </svg>
                             </div>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Official store for reMarkable paper tablets and accessories</p>
-                            <div class="flex justify-between text-xs text-gray-500">
+                            <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
                                 <span>✏️ reMarkable tablets & pens</span>
                                 <a href="https://remarkable.com/" target="_blank" class="text-blue-600 hover:text-blue-800">Visit →</a>
                             </div>
@@ -177,8 +177,8 @@ permalink: /shops
                 <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
                     <div class="p-6 border-b border-gray-200">
                         <div class="flex justify-between items-center">
-                            <h2 id="storeModalTitle" class="text-2xl font-light text-gray-800"></h2>
-                            <button onclick="closeStoreModal()" class="text-gray-500 hover:text-gray-700">
+                            <h2 id="storeModalTitle" class="text-2xl font-light text-gray-800 dark:text-white"></h2>
+                            <button onclick="closeStoreModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-300">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
@@ -280,7 +280,7 @@ permalink: /shops
                                 <span class="px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full">${store.type}</span>
                                 <span class="px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full">${store.city}</span>
                             </div>
-                            <p class="text-gray-600">${store.description}</p>
+                            <p class="text-gray-600 dark:text-gray-400">${store.description}</p>
                         </div>
                         
                         <div class="grid md:grid-cols-2 gap-6">
@@ -288,15 +288,15 @@ permalink: /shops
                                 <h3 class="text-lg font-medium text-gray-900 mb-3">Contact Information</h3>
                                 <div class="space-y-3">
                                     <div>
-                                        <p class="text-sm font-medium text-gray-600">Address</p>
+                                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Address</p>
                                         <p class="text-sm text-gray-900">${store.address}</p>
                                     </div>
                                     <div>
-                                        <p class="text-sm font-medium text-gray-600">Phone</p>
+                                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Phone</p>
                                         <p class="text-sm text-gray-900">${store.phone}</p>
                                     </div>
                                     <div>
-                                        <p class="text-sm font-medium text-gray-600">Languages</p>
+                                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Languages</p>
                                         <p class="text-sm text-gray-900">${store.languages.join(', ')}</p>
                                     </div>
                                 </div>
@@ -307,7 +307,7 @@ permalink: /shops
                                 <div class="space-y-2">
                                     ${Object.entries(store.hours).map(([day, time]) => `
                                         <div class="flex justify-between text-sm">
-                                            <span class="text-gray-600">${day}</span>
+                                            <span class="text-gray-600 dark:text-gray-400">${day}</span>
                                             <span class="text-gray-900">${time}</span>
                                         </div>
                                     `).join('')}
@@ -325,7 +325,7 @@ permalink: /shops
                         <div>
                             <h3 class="text-lg font-medium text-gray-900 mb-3">Services</h3>
                             <ul class="space-y-2">
-                                ${store.services.map(service => `<li class="flex items-center text-sm text-gray-600"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>${service}</li>`).join('')}
+                                ${store.services.map(service => `<li class="flex items-center text-sm text-gray-600 dark:text-gray-400"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>${service}</li>`).join('')}
                             </ul>
                         </div>
                     </div>
@@ -348,7 +348,7 @@ permalink: /shops
                                 <span class="px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full">${shop.type}</span>
                                 <span class="px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full">${shop.country}</span>
                             </div>
-                            <p class="text-gray-600">${shop.description}</p>
+                            <p class="text-gray-600 dark:text-gray-400">${shop.description}</p>
                         </div>
                         
                         <div class="grid md:grid-cols-2 gap-6">
@@ -358,14 +358,14 @@ permalink: /shops
                             </div>
                             <div>
                                 <h3 class="text-lg font-medium text-gray-900 mb-3">Shipping</h3>
-                                <p class="text-sm text-gray-600">${shop.shipping}</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">${shop.shipping}</p>
                             </div>
                         </div>
                         
                         <div>
                             <h3 class="text-lg font-medium text-gray-900 mb-3">Specialties</h3>
                             <ul class="space-y-2">
-                                ${shop.specialties.map(specialty => `<li class="flex items-center text-sm text-gray-600"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>${specialty}</li>`).join('')}
+                                ${shop.specialties.map(specialty => `<li class="flex items-center text-sm text-gray-600 dark:text-gray-400"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>${specialty}</li>`).join('')}
                             </ul>
                         </div>
                         
@@ -378,7 +378,7 @@ permalink: /shops
                         
                         <div>
                             <h3 class="text-lg font-medium text-gray-900 mb-3">Languages</h3>
-                            <p class="text-sm text-gray-600">${shop.languages.join(', ')}</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">${shop.languages.join(', ')}</p>
                         </div>
                     </div>
                 `;
@@ -431,7 +431,7 @@ permalink: /shops
         <!-- Footer -->
         <footer class="border-t border-gray-200 dark:border-gray-700 mt-32">
             <div class="max-w-6xl mx-auto px-6 py-8">
-                <p class="text-sm text-gray-400 dark:text-gray-500">2025 <a href="/" class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white underline-offset-4 hover:underline transition-colors">eink.sg</a></p>
+                <p class="text-sm text-gray-400 dark:text-gray-400">2025 <a href="/" class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white underline-offset-4 hover:underline transition-colors">eink.sg</a></p>
             </div>
         </footer>
     </div>
