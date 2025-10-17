@@ -64,7 +64,7 @@ permalink: /simulate
             color: #9ca3af;
         }
         
-        /* Gallery Items */
+        /* Gallery Items - Horizontal Scroll */
         .gallery__item {
             background: white;
             border: 1px solid #e5e7eb;
@@ -72,13 +72,56 @@ permalink: /simulate
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
-            break-inside: avoid;
-            margin-bottom: 0.75rem;
+            flex-shrink: 0;
+            width: 120px;
         }
         
         .dark .gallery__item {
             background: #374151;
             border: 1px solid #4b5563;
+        }
+        
+        .gallery__container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 8px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #d1d5db #f3f4f6;
+        }
+        
+        .gallery__container::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .gallery__container::-webkit-scrollbar-track {
+            background: #f3f4f6;
+            border-radius: 3px;
+        }
+        
+        .gallery__container::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 3px;
+        }
+        
+        .gallery__container::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+        
+        .dark .gallery__container {
+            scrollbar-color: #4b5563 #374151;
+        }
+        
+        .dark .gallery__container::-webkit-scrollbar-track {
+            background: #374151;
+        }
+        
+        .dark .gallery__container::-webkit-scrollbar-thumb {
+            background: #4b5563;
+        }
+        
+        .dark .gallery__container::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
         }
         
         .gallery__item:hover {
@@ -92,21 +135,22 @@ permalink: /simulate
         
         .gallery__image {
             width: 100%;
-            height: 120px;
+            height: 140px;
             object-fit: cover;
             display: block;
             transition: all 0.3s ease;
         }
         
         .gallery__info {
-            padding: 0.75rem;
+            padding: 0.5rem;
         }
         
         .gallery__title {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             font-weight: 300;
             margin-bottom: 0.125rem;
             color: #111827;
+            line-height: 1.2;
         }
         
         .dark .gallery__title {
@@ -114,7 +158,7 @@ permalink: /simulate
         }
         
         .gallery__resolution {
-            font-size: 0.75rem;
+            font-size: 0.625rem;
             color: #6b7280;
         }
         
@@ -244,7 +288,7 @@ permalink: /simulate
         <!-- Header Section -->
         <section class="text-center py-12 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             <div class="max-w-4xl mx-auto px-6">
-                <h1 class="text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-4">Simulate</h1>
+                <h1 class="text-4xl md:text-5xl font-light leading-tight text-gray-800 dark:text-white mb-4">Simulate</h1>
                 <p class="text-lg text-gray-500 dark:text-gray-300 mb-6">
                     Preview wallpapers on E6 Spectra 6-color e-ink displays
                 </p>
@@ -267,7 +311,7 @@ permalink: /simulate
             <div class="w-full md:w-1/2 bg-gray-50 dark:bg-gray-800 flex items-center justify-center p-4 md:border-r border-gray-200 dark:border-gray-700 md:h-[600px]">
                 <div class="text-center w-full">
                     <div class="case-preview__container">
-                        <img class="case-preview__case" id="deviceImage" src="/assets/devices/mockup.svg" alt="Reink Case" style="max-width: 250px; height: auto;">
+                        <img class="case-preview__case" id="deviceImage" src="/assets/devices/mockup.svg" alt="Reink Case" style="max-width: 200px; height: auto;">
                         <div class="case-preview__display" id="caseDisplay">
                             <div class="case-preview__placeholder">
                                 <p>Click any wallpaper to preview</p>
@@ -279,13 +323,13 @@ permalink: /simulate
             
             <!-- Gallery Section - Right Side -->
             <div class="w-full md:w-1/2 bg-white dark:bg-gray-900">
-                <div class="p-4 md:h-[600px] overflow-y-auto">
+                <div class="p-4 md:h-[600px] flex flex-col">
                     <div class="mb-4">
                         <h3 class="text-lg font-light text-gray-800 dark:text-white mb-1">Wallpaper Gallery</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-400">400×600 optimized for E6 Spectra displays</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Scroll horizontally</p>
                     </div>
                     
-                    <div class="grid grid-cols-3 gap-3" id="gallery">
+                    <div class="gallery__container" id="gallery">
                         <!-- Gallery items will be generated by JavaScript -->
                     </div>
                 </div>
@@ -369,30 +413,30 @@ permalink: /simulate
                 this.currentArtwork = null;
                 this.currentDevice = 'reink-case';
                 
-                // Calculate scale based on device image max-width of 250px
-                const reinkScale = 250/640;  // 0.390625
-                const m5Scale = 250/520;     // 0.481
+                // Calculate scale based on device image max-width of 200px
+                const reinkScale = 200/640;  // 0.3125
+                const m5Scale = 200/520;     // 0.385
                 
                 this.devices = {
                     'reink-case': {
                         name: 'Reink Case',
                         mockup: '/assets/devices/mockup.svg',
                         displayPosition: {
-                            left: Math.round(120 * reinkScale) + 'px',  // 47px
-                            top: Math.round(400 * reinkScale) + 'px',   // 156px
-                            width: Math.round(400 * reinkScale) + 'px', // 156px
-                            height: Math.round(600 * reinkScale) + 'px', // 234px
-                            borderRadius: Math.round(50 * reinkScale) + 'px' // 20px (SVG rx="50")
+                            left: Math.round(120 * reinkScale) + 'px',  // 38px
+                            top: Math.round(400 * reinkScale) + 'px',   // 125px
+                            width: Math.round(400 * reinkScale) + 'px', // 125px
+                            height: Math.round(600 * reinkScale) + 'px', // 188px
+                            borderRadius: Math.round(50 * reinkScale) + 'px' // 16px (SVG rx="50")
                         }
                     },
                     'm5-paper-s3': {
                         name: 'M5 Paper Color',
                         mockup: '/assets/devices/m5-paper-s3.svg',
                         displayPosition: {
-                            left: Math.round(60 * m5Scale) + 'px',   // 29px
-                            top: Math.round(60 * m5Scale) + 'px',    // 29px
-                            width: Math.round(400 * m5Scale) + 'px', // 192px
-                            height: Math.round(600 * m5Scale) + 'px', // 288px
+                            left: Math.round(60 * m5Scale) + 'px',   // 23px
+                            top: Math.round(60 * m5Scale) + 'px',    // 23px
+                            width: Math.round(400 * m5Scale) + 'px', // 154px
+                            height: Math.round(600 * m5Scale) + 'px', // 231px
                             borderRadius: '0px' // SVG rx="0"
                         }
                     }

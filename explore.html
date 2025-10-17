@@ -36,14 +36,33 @@ permalink: /explore
                 
                 <!-- View Controls -->
                 <div class="mb-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <select id="collectionFilter" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent">
-                        <option value="all">All Categories</option>
-                        <option value="phones">Phones</option>
-                        <option value="monitors">Monitors</option>
-                        <option value="phone-cases">Phone Cases</option>
-                        <option value="tablets">Tablets</option>
-                        <option value="accessories">Accessories</option>
-                    </select>
+                    <div class="flex flex-col items-center gap-2">
+                        <label class="text-sm font-medium text-gray-600 dark:text-gray-400">Collections</label>
+                        <select id="collectionFilter" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent">
+                            <option value="all">All</option>
+                            <optgroup label="Categories">
+                                <option value="phones">Phones</option>
+                                <option value="monitors">Monitors</option>
+                                <option value="tablets">Tablets</option>
+                                <option value="phone-cases">Phone Cases</option>
+                                <option value="accessories">Accessories</option>
+                            </optgroup>
+                            <optgroup label="Brands">
+                                <option value="remarkable">reMarkable</option>
+                                <option value="boox">BOOX</option>
+                                <option value="kindle">Kindle</option>
+                                <option value="supernote">Supernote</option>
+                                <option value="dasung">DASUNG</option>
+                            </optgroup>
+                            <optgroup label="Features">
+                                <option value="color-eink">Color E-ink</option>
+                                <option value="note-taking">Note-taking</option>
+                                <option value="large-screen">Large Screen (10"+)</option>
+                                <option value="portable">Portable (6-8")</option>
+                                <option value="frontlight">Front Light</option>
+                            </optgroup>
+                        </select>
+                    </div>
                     
                     <!-- View Mode Buttons -->
                     <div class="flex gap-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
@@ -64,7 +83,7 @@ permalink: /explore
             <section id="gridView">
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="deviceGrid">
                     <!-- Phone Cards -->
-                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phones" data-year="2022" onclick="showDeviceDetails('hisense-a9')">
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phones" data-year="2022" data-brand="hisense" data-features="portable,frontlight" onclick="showDeviceDetails('hisense-a9')">
                         <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 text-sm">Phone Image</span>
                         </div>
@@ -75,7 +94,7 @@ permalink: /explore
                         </div>
                     </div>
 
-                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phones" data-year="2024" onclick="showDeviceDetails('light-phone-3')">
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phones" data-year="2024" data-brand="light" data-features="portable" onclick="showDeviceDetails('light-phone-3')">
                         <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 text-sm">Phone Image</span>
                         </div>
@@ -87,7 +106,7 @@ permalink: /explore
                     </div>
 
                     <!-- Monitor Cards -->
-                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="monitors" data-year="2021" onclick="showDeviceDetails('dasung-paperlike')">
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="monitors" data-year="2021" data-brand="dasung" data-features="large-screen,frontlight" onclick="showDeviceDetails('dasung-paperlike')">
                         <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 text-sm">Monitor Image</span>
                         </div>
@@ -98,7 +117,7 @@ permalink: /explore
                         </div>
                     </div>
 
-                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="monitors" data-year="2023" onclick="showDeviceDetails('boox-mira')">
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="monitors" data-year="2023" data-brand="boox" data-features="large-screen" onclick="showDeviceDetails('boox-mira')">
                         <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 text-sm">Monitor Image</span>
                         </div>
@@ -110,7 +129,7 @@ permalink: /explore
                     </div>
 
                     <!-- Tablet Cards -->
-                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="tablets" data-year="2020" onclick="showDeviceDetails('remarkable-2')">
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="tablets" data-year="2020" data-brand="remarkable" data-features="large-screen,note-taking" onclick="showDeviceDetails('remarkable-2')">
                         <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 text-sm">Tablet Image</span>
                         </div>
@@ -122,7 +141,7 @@ permalink: /explore
                     </div>
 
                     <!-- Phone Case Cards -->
-                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phone-cases" data-year="2020" onclick="showDeviceDetails('inkcase-i7')">
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="phone-cases" data-year="2020" data-brand="inkcase" data-features="portable" onclick="showDeviceDetails('inkcase-i7')">
                         <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 text-sm">Case Image</span>
                         </div>
@@ -134,7 +153,7 @@ permalink: /explore
                     </div>
 
                     <!-- Accessories -->
-                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="accessories" data-year="2015" onclick="showDeviceDetails('pebble-time')">
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="accessories" data-year="2015" data-brand="pebble" data-features="color-eink,portable" onclick="showDeviceDetails('pebble-time')">
                         <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 text-sm">Watch Image</span>
                         </div>
@@ -145,7 +164,7 @@ permalink: /explore
                         </div>
                     </div>
 
-                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="tablets" data-year="2019" onclick="showDeviceDetails('kindle-oasis')">
+                    <div class="device-card border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer" data-collection="tablets" data-year="2019" data-brand="kindle" data-features="portable,frontlight" onclick="showDeviceDetails('kindle-oasis')">
                         <div class="aspect-w-4 aspect-h-3 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 text-sm">Reader Image</span>
                         </div>
@@ -276,17 +295,29 @@ permalink: /explore
                 }
             });
 
-            // Filter functionality
+            // Enhanced filter functionality
             document.getElementById('collectionFilter').addEventListener('change', function() {
                 const selectedValue = this.value;
                 const deviceCards = document.querySelectorAll('.device-card');
                 
                 deviceCards.forEach(card => {
-                    if (selectedValue === 'all' || card.dataset.collection === selectedValue) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
+                    let shouldShow = false;
+                    
+                    if (selectedValue === 'all') {
+                        shouldShow = true;
+                    } else if (['phones', 'monitors', 'tablets', 'phone-cases', 'accessories'].includes(selectedValue)) {
+                        // Category filters
+                        shouldShow = card.dataset.collection === selectedValue;
+                    } else if (['remarkable', 'boox', 'kindle', 'supernote', 'dasung'].includes(selectedValue)) {
+                        // Brand filters
+                        shouldShow = card.dataset.brand === selectedValue;
+                    } else if (['color-eink', 'note-taking', 'large-screen', 'portable', 'frontlight'].includes(selectedValue)) {
+                        // Feature filters
+                        const cardFeatures = card.dataset.features ? card.dataset.features.split(',') : [];
+                        shouldShow = cardFeatures.includes(selectedValue);
                     }
+                    
+                    card.style.display = shouldShow ? 'block' : 'none';
                 });
 
                 // Update current view if needed
