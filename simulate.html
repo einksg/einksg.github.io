@@ -6,7 +6,7 @@ permalink: /simulate
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>simulate - eink.sg</title>
+    <title>Simulate - eink.sg</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/devices.js"></script>
     <style>
@@ -198,9 +198,7 @@ permalink: /simulate
         <!-- Header Section -->
         <section class="text-center py-12 bg-white border-b border-gray-200">
             <div class="max-w-4xl mx-auto px-6">
-                <h1 class="text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-4">
-                    E-ink Wallpaper Simulator
-                </h1>
+                <h1 class="text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-4">Simulate</h1>
                 <p class="text-lg text-gray-500 mb-6">
                     Preview wallpapers on E6 Spectra 6-color e-ink displays
                 </p>
@@ -218,9 +216,9 @@ permalink: /simulate
         </section>
 
         <!-- Main Layout -->
-        <main class="flex">
+        <main class="flex flex-col md:flex-row">
             <!-- Case Section - Left Side -->
-            <div class="w-1/2 bg-gray-50 flex items-center justify-center p-4 border-r border-gray-200" style="height: 600px;">
+            <div class="w-full md:w-1/2 bg-gray-50 flex items-center justify-center p-4 md:border-r border-gray-200 md:h-[600px]">
                 <div class="text-center w-full">
                     <div class="case-preview__container">
                         <img class="case-preview__case" id="deviceImage" src="/assets/devices/mockup.svg" alt="Reink Case" style="max-width: 250px; height: auto;">
@@ -234,8 +232,8 @@ permalink: /simulate
             </div>
             
             <!-- Gallery Section - Right Side -->
-            <div class="w-1/2 bg-white">
-                <div class="p-4" style="height: 600px; overflow-y: auto;">
+            <div class="w-full md:w-1/2 bg-white">
+                <div class="p-4 md:h-[600px] overflow-y-auto">
                     <div class="mb-4">
                         <h3 class="text-lg font-light text-gray-800 mb-1">Wallpaper Gallery</h3>
                         <p class="text-xs text-gray-600">400×600 optimized for E6 Spectra displays</p>
