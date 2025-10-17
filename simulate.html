@@ -60,6 +60,10 @@ permalink: /simulate
             width: 90%;
         }
         
+        .dark .case-preview__placeholder {
+            color: #9ca3af;
+        }
+        
         /* Gallery Items */
         .gallery__item {
             background: white;
@@ -70,6 +74,11 @@ permalink: /simulate
             transition: all 0.3s ease;
             break-inside: avoid;
             margin-bottom: 0.75rem;
+        }
+        
+        .dark .gallery__item {
+            background: #374151;
+            border: 1px solid #4b5563;
         }
         
         .gallery__item:hover {
@@ -100,9 +109,17 @@ permalink: /simulate
             color: #111827;
         }
         
+        .dark .gallery__title {
+            color: #f9fafb;
+        }
+        
         .gallery__resolution {
             font-size: 0.75rem;
             color: #6b7280;
+        }
+        
+        .dark .gallery__resolution {
+            color: #9ca3af;
         }
         
         /* Modal */
@@ -133,6 +150,10 @@ permalink: /simulate
             padding: 1.5rem;
         }
         
+        .dark .modal__content {
+            background: #374151;
+        }
+        
         .modal__close {
             position: absolute;
             top: 1rem;
@@ -147,6 +168,10 @@ permalink: /simulate
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        
+        .dark .modal__close {
+            color: #d1d5db;
         }
         
         .modal__image {
@@ -167,10 +192,18 @@ permalink: /simulate
             color: #111827;
         }
         
+        .dark .modal__title {
+            color: #f9fafb;
+        }
+        
         .modal__resolution {
             font-size: 1rem;
             color: #6b7280;
             margin-bottom: 1rem;
+        }
+        
+        .dark .modal__resolution {
+            color: #9ca3af;
         }
         
         .modal__download {
@@ -186,6 +219,15 @@ permalink: /simulate
         
         .modal__download:hover {
             background: #374151;
+        }
+        
+        .dark .modal__download {
+            background: #f9fafb;
+            color: #111827;
+        }
+        
+        .dark .modal__download:hover {
+            background: #e5e7eb;
         }
     </style>
 </head>
@@ -208,11 +250,11 @@ permalink: /simulate
                 </p>
                 
                 <!-- Device Selector -->
-                <div class="inline-flex gap-1 bg-gray-100 rounded-lg p-1">
+                <div class="inline-flex gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
                     <button class="device-selector__btn bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" data-device="reink-case">
                         Reink Case
                     </button>
-                    <button class="device-selector__btn bg-transparent text-gray-600 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors" data-device="m5-paper-s3">
+                    <button class="device-selector__btn bg-transparent text-gray-600 dark:text-gray-300 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" data-device="m5-paper-s3">
                         M5 Paper Color
                     </button>
                 </div>
@@ -222,7 +264,7 @@ permalink: /simulate
         <!-- Main Layout -->
         <main class="flex flex-col md:flex-row">
             <!-- Case Section - Left Side -->
-            <div class="w-full md:w-1/2 bg-gray-50 flex items-center justify-center p-4 md:border-r border-gray-200 md:h-[600px]">
+            <div class="w-full md:w-1/2 bg-gray-50 dark:bg-gray-800 flex items-center justify-center p-4 md:border-r border-gray-200 dark:border-gray-700 md:h-[600px]">
                 <div class="text-center w-full">
                     <div class="case-preview__container">
                         <img class="case-preview__case" id="deviceImage" src="/assets/devices/mockup.svg" alt="Reink Case" style="max-width: 250px; height: auto;">
@@ -484,9 +526,9 @@ permalink: /simulate
                 // Update active button
                 this.deviceSelectorBtns.forEach(btn => {
                     btn.classList.remove('active', 'bg-gray-900', 'text-white');
-                    btn.classList.add('bg-transparent', 'text-gray-600');
+                    btn.classList.add('bg-transparent', 'text-gray-600', 'dark:text-gray-300');
                     if (btn.dataset.device === deviceId) {
-                        btn.classList.remove('bg-transparent', 'text-gray-600');
+                        btn.classList.remove('bg-transparent', 'text-gray-600', 'dark:text-gray-300');
                         btn.classList.add('active', 'bg-gray-900', 'text-white');
                     }
                 });

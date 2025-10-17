@@ -36,7 +36,7 @@ permalink: /explore
                 
                 <!-- View Controls -->
                 <div class="mb-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <select id="collectionFilter" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent">
+                    <select id="collectionFilter" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent">
                         <option value="all">All Categories</option>
                         <option value="phones">Phones</option>
                         <option value="monitors">Monitors</option>
@@ -46,14 +46,14 @@ permalink: /explore
                     </select>
                     
                     <!-- View Mode Buttons -->
-                    <div class="flex gap-2 bg-gray-100 rounded-lg p-1">
+                    <div class="flex gap-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
                         <button id="gridBtn" onclick="setViewMode('grid')" class="px-4 py-2 bg-gray-900 text-white rounded-md text-sm font-medium transition-colors">
                             📊 Grid View
                         </button>
-                        <button id="launchDateBtn" onclick="setViewMode('launchDate')" class="px-4 py-2 bg-transparent text-gray-600 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">
+                        <button id="launchDateBtn" onclick="setViewMode('launchDate')" class="px-4 py-2 bg-transparent text-gray-600 dark:text-gray-300 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                             📅 By Launch Date
                         </button>
-                        <button id="screenSizeBtn" onclick="setViewMode('screenSize')" class="px-4 py-2 bg-transparent text-gray-600 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">
+                        <button id="screenSizeBtn" onclick="setViewMode('screenSize')" class="px-4 py-2 bg-transparent text-gray-600 dark:text-gray-300 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                             📏 By Screen Size
                         </button>
                     </div>
@@ -163,7 +163,7 @@ permalink: /explore
                 <div class="max-w-3xl mx-auto">
                     <div class="relative">
                         <!-- Timeline Line -->
-                        <div class="absolute left-8 top-0 bottom-0 w-px bg-gray-300"></div>
+                        <div class="absolute left-8 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600"></div>
                         
                         <!-- Timeline Items -->
                         <div id="timelineContainer">
@@ -176,8 +176,8 @@ permalink: /explore
             <!-- Screen Size View -->
             <section id="screenSizeView" class="hidden">
                 <div class="mb-8">
-                    <h3 class="text-xl font-light text-gray-800 mb-4 text-center">Devices by Screen Size</h3>
-                    <p class="text-sm text-gray-600 text-center mb-6">Scroll horizontally to explore devices from smallest to largest screen size</p>
+                    <h3 class="text-xl font-light text-gray-800 dark:text-white mb-4 text-center">Devices by Screen Size</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 text-center mb-6">Scroll horizontally to explore devices from smallest to largest screen size</p>
                 </div>
                 
                 <div class="overflow-x-auto pb-4">
@@ -190,11 +190,11 @@ permalink: /explore
             <!-- Device Details Modal -->
             <div id="deviceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
                 <div class="flex items-center justify-center min-h-screen p-4">
-                    <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-                        <div class="p-6 border-b border-gray-200">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
                             <div class="flex justify-between items-center">
                                 <h2 id="modalTitle" class="text-2xl font-light text-gray-800 dark:text-white"></h2>
-                                <button onclick="closeDeviceModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-300">
+                                <button onclick="closeDeviceModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                     </svg>
@@ -203,7 +203,7 @@ permalink: /explore
                         </div>
                         <div class="p-6">
                             <div class="mb-6">
-                                <div id="modalImage" class="aspect-w-16 aspect-h-9 mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+                                <div id="modalImage" class="aspect-w-16 aspect-h-9 mb-4 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
                                     <span class="text-gray-400 dark:text-gray-500">Device Image</span>
                                 </div>
                             </div>
@@ -234,27 +234,27 @@ permalink: /explore
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <div class="mb-4">
-                                <span class="inline-block px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full">${device.category}</span>
-                                <span class="inline-block px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full ml-2">${device.year}</span>
+                                <span class="inline-block px-3 py-1 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full">${device.category}</span>
+                                <span class="inline-block px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full ml-2">${device.year}</span>
                             </div>
                             <div class="mb-4">
-                                <p class="text-2xl font-light text-gray-900 mb-2">${device.price}</p>
+                                <p class="text-2xl font-light text-gray-900 dark:text-white mb-2">${device.price}</p>
                                 <p class="text-gray-600 dark:text-gray-400">${device.description}</p>
                             </div>
                             <div class="mb-6">
-                                <h3 class="text-lg font-medium text-gray-900 mb-3">Key Features</h3>
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Key Features</h3>
                                 <ul class="space-y-2">
-                                    ${device.features.map(feature => `<li class="flex items-center text-sm text-gray-600 dark:text-gray-400"><span class="w-2 h-2 bg-gray-400 rounded-full mr-3"></span>${feature}</li>`).join('')}
+                                    ${device.features.map(feature => `<li class="flex items-center text-sm text-gray-600 dark:text-gray-400"><span class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mr-3"></span>${feature}</li>`).join('')}
                                 </ul>
                             </div>
                         </div>
                         <div>
-                            <h3 class="text-lg font-medium text-gray-900 mb-3">Specifications</h3>
+                            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Specifications</h3>
                             <div class="space-y-3">
                                 ${Object.entries(device.specs).map(([key, value]) => `
-                                    <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <div class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
                                         <span class="text-sm font-medium text-gray-600 dark:text-gray-400">${key}</span>
-                                        <span class="text-sm text-gray-900">${value}</span>
+                                        <span class="text-sm text-gray-900 dark:text-white">${value}</span>
                                     </div>
                                 `).join('')}
                             </div>
@@ -332,7 +332,7 @@ permalink: /explore
                 // Reset all buttons
                 [gridBtn, launchDateBtn, screenSizeBtnElement].forEach(btn => {
                     btn.classList.remove('bg-gray-900', 'text-white');
-                    btn.classList.add('bg-transparent', 'text-gray-600');
+                    btn.classList.add('bg-transparent', 'text-gray-600', 'dark:text-gray-300');
                 });
                 
                 // Hide all views
@@ -345,19 +345,19 @@ permalink: /explore
                 switch(mode) {
                     case 'grid':
                         gridView.classList.remove('hidden');
-                        gridBtn.classList.remove('bg-transparent', 'text-gray-600');
+                        gridBtn.classList.remove('bg-transparent', 'text-gray-600', 'dark:text-gray-300');
                         gridBtn.classList.add('bg-gray-900', 'text-white');
                         randomizeGrid(); // Randomize grid order when switching to grid view
                         break;
                     case 'launchDate':
                         timelineView.classList.remove('hidden');
-                        launchDateBtn.classList.remove('bg-transparent', 'text-gray-600');
+                        launchDateBtn.classList.remove('bg-transparent', 'text-gray-600', 'dark:text-gray-300');
                         launchDateBtn.classList.add('bg-gray-900', 'text-white');
                         generateTimeline();
                         break;
                     case 'screenSize':
                         screenSizeView.classList.remove('hidden');
-                        screenSizeBtnElement.classList.remove('bg-transparent', 'text-gray-600');
+                        screenSizeBtnElement.classList.remove('bg-transparent', 'text-gray-600', 'dark:text-gray-300');
                         screenSizeBtnElement.classList.add('bg-gray-900', 'text-white');
                         generateScreenSizeView();
                         break;
@@ -403,10 +403,10 @@ permalink: /explore
                         const yearHeader = document.createElement('div');
                         yearHeader.className = 'flex items-center mb-8 mt-8';
                         yearHeader.innerHTML = `
-                            <div class="bg-gray-900 text-white rounded-full w-16 h-16 flex items-center justify-center text-lg font-light mr-6 relative z-10">
+                            <div class="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-full w-16 h-16 flex items-center justify-center text-lg font-light mr-6 relative z-10">
                                 ${device.year}
                             </div>
-                            <div class="h-px bg-gray-300" style="width: 400px;"></div>
+                            <div class="h-px bg-gray-300 dark:bg-gray-600" style="width: 400px;"></div>
                         `;
                         container.appendChild(yearHeader);
                         currentYear = device.year;
@@ -417,20 +417,20 @@ permalink: /explore
                     deviceItem.className = 'flex items-start mb-6 ml-4';
                     const clickHandler = device.deviceId ? `onclick="showDeviceDetails('${device.deviceId}')"` : '';
                     deviceItem.innerHTML = `
-                        <div class="bg-white border-2 border-gray-300 rounded-full w-4 h-4 mr-6 relative z-10 mt-2"></div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow ${device.deviceId ? 'cursor-pointer' : ''}" style="width: 400px;" ${clickHandler}>
+                        <div class="bg-white dark:bg-gray-600 border-2 border-gray-300 dark:border-gray-500 rounded-full w-4 h-4 mr-6 relative z-10 mt-2"></div>
+                        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow ${device.deviceId ? 'cursor-pointer' : ''}" style="width: 400px;" ${clickHandler}>
                             <div class="flex justify-between items-start mb-3">
                                 <h3 class="text-xl font-light text-gray-800 dark:text-white">${device.name}</h3>
                                 <span class="text-xs px-2 py-1 rounded ${getCategoryColor(device.category)}">${device.categoryLabel}</span>
                             </div>
-                            <p class="text-gray-600 text-sm">${device.description}</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">${device.description}</p>
                         </div>
                     `;
                     container.appendChild(deviceItem);
                 });
 
                 if (devices.length === 0) {
-                    container.innerHTML = '<div class="text-center text-gray-500 py-12">No devices found for the selected filter.</div>';
+                    container.innerHTML = '<div class="text-center text-gray-500 dark:text-gray-400 py-12">No devices found for the selected filter.</div>';
                 }
             }
 
@@ -472,21 +472,21 @@ permalink: /explore
                 
                 devices.forEach(device => {
                     const deviceElement = document.createElement('div');
-                    deviceElement.className = 'flex-shrink-0 w-64 bg-white border border-gray-200 rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer';
+                    deviceElement.className = 'flex-shrink-0 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer';
                     deviceElement.onclick = () => showDeviceDetails(device.id);
                     
                     deviceElement.innerHTML = `
                         <div class="text-center mb-4">
-                            <div class="text-2xl font-light text-gray-800 mb-1">${device.screenSize}"</div>
+                            <div class="text-2xl font-light text-gray-800 dark:text-white mb-1">${device.screenSize}"</div>
                             <div class="text-xs text-gray-500 dark:text-gray-400">Screen Size</div>
                         </div>
-                        <div class="mb-4 bg-gray-100 rounded-lg flex items-center justify-center" style="height: 120px;">
-                            <span class="text-gray-400 text-xs">${device.categoryLabel}</span>
+                        <div class="mb-4 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center" style="height: 120px;">
+                            <span class="text-gray-400 dark:text-gray-500 text-xs">${device.categoryLabel}</span>
                         </div>
                         <h3 class="text-lg font-light text-gray-800 dark:text-white mb-2">${device.name}</h3>
-                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">${device.description}</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">${device.description}</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-sm font-medium text-gray-900">${device.price}</span>
+                            <span class="text-sm font-medium text-gray-900 dark:text-white">${device.price}</span>
                             <span class="text-xs px-2 py-1 rounded ${getCategoryColor(device.category)}">${device.categoryLabel}</span>
                         </div>
                     `;
@@ -495,7 +495,7 @@ permalink: /explore
                 });
                 
                 if (devices.length === 0) {
-                    container.innerHTML = '<div class="text-center text-gray-500 py-12 w-full">No devices found for the selected filter.</div>';
+                    container.innerHTML = '<div class="text-center text-gray-500 dark:text-gray-400 py-12 w-full">No devices found for the selected filter.</div>';
                 }
             }
 
