@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#000000"/>
+  <!-- Stars -->
+  <g fill="#ffffff">
+    <circle cx="100" cy="120" r="2"/>
+    <circle cx="150" cy="100" r="3"/>
+    <circle cx="200" cy="140" r="2"/>
+    <circle cx="250" cy="110" r="2"/>
+    <circle cx="300" cy="160" r="3"/>
+    
+    <circle cx="80" cy="250" r="2"/>
+    <circle cx="150" cy="280" r="2"/>
+    <circle cx="220" cy="260" r="3"/>
+    <circle cx="280" cy="290" r="2"/>
+    <circle cx="350" cy="250" r="2"/>
+    
+    <circle cx="120" cy="400" r="3"/>
+    <circle cx="180" cy="420" r="2"/>
+    <circle cx="240" cy="380" r="2"/>
+    <circle cx="300" cy="410" r="2"/>
+  </g>
+  <!-- Constellation lines -->
+  <g stroke="#ffffff" stroke-width="1" fill="none" opacity="0.6">
+    <path d="M100,120 L150,100 L200,140 L250,110 L300,160"/>
+    <path d="M80,250 L150,280 L220,260 L280,290 L350,250"/>
+    <path d="M120,400 L180,420 L240,380 L300,410"/>
+    <path d="M150,100 L150,280"/>
+    <path d="M220,260 L240,380"/>
+  </g>
+  <!-- Planets -->
+  <g fill="#ffff00">
+    <circle cx="320" cy="200" r="8"/>
+    <circle cx="80" cy="350" r="6"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#ffffff"/>
+  <!-- Mandala center -->
+  <g transform="translate(200,300)">
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#ff0000" stroke-width="2"/>
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#0000ff" stroke-width="2"/>
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#00ff00" stroke-width="2"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#ffff00" stroke-width="2"/>
+    <!-- Petals -->
+    <g stroke="#ff0000" stroke-width="1" fill="none">
+      <ellipse cx="0" cy="-70" rx="15" ry="30" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-70" rx="15" ry="30" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-70" rx="15" ry="30" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-70" rx="15" ry="30" transform="rotate(135)"/>
+      <ellipse cx="0" cy="-70" rx="15" ry="30" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-70" rx="15" ry="30" transform="rotate(225)"/>
+      <ellipse cx="0" cy="-70" rx="15" ry="30" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-70" rx="15" ry="30" transform="rotate(315)"/>
+    </g>
+  </g>
+</svg>

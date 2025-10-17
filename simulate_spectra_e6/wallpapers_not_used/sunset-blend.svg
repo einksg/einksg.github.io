@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#ffffff"/>
+  
+  <!-- Flowing sunset layers -->
+  <path d="M0,100 Q100,80 200,120 Q300,160 400,140 L400,250 Q300,230 200,270 Q100,310 0,290 Z" fill="#ffff00" opacity="0.4"/>
+  <path d="M0,200 Q100,180 200,220 Q300,260 400,240 L400,350 Q300,330 200,370 Q100,410 0,390 Z" fill="#ff0000" opacity="0.5"/>
+  <path d="M0,320 Q100,300 200,340 Q300,380 400,360 L400,470 Q300,450 200,490 Q100,530 0,510 Z" fill="#ffff00" opacity="0.3"/>
+  
+  <!-- Organic cloud-like forms -->
+  <ellipse cx="120" cy="90" rx="60" ry="30" fill="#ffffff" opacity="0.8" transform="rotate(10 120 90)"/>
+  <ellipse cx="280" cy="120" rx="50" ry="25" fill="#ffffff" opacity="0.9" transform="rotate(-15 280 120)"/>
+  <ellipse cx="200" cy="280" rx="70" ry="35" fill="#ffffff" opacity="0.7" transform="rotate(25 200 280)"/>
+  <ellipse cx="100" cy="450" rx="55" ry="40" fill="#ffffff" opacity="0.8" transform="rotate(-10 100 450)"/>
+  
+  <!-- Smooth color transitions -->
+  <path d="M0,150 Q50,130 100,150 Q150,170 200,150 Q250,130 300,150 Q350,170 400,150 
+           L400,200 Q350,220 300,200 Q250,180 200,200 Q150,220 100,200 Q50,180 0,200 Z" 
+        fill="#ff0000" opacity="0.3"/>
+  
+  <!-- Gentle flowing streaks -->
+  <path d="M50,200 Q150,180 250,220 Q350,260 400,240" stroke="#ff0000" stroke-width="5" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <path d="M0,350 Q100,330 200,370 Q300,410 350,390" stroke="#ffff00" stroke-width="4" fill="none" opacity="0.5" stroke-linecap="round"/>
+  <path d="M80,500 Q180,480 280,520 Q380,560 400,540" stroke="#ff0000" stroke-width="3" fill="none" opacity="0.3" stroke-linecap="round"/>
+  
+  <!-- Soft highlight dots -->
+  <circle cx="180" cy="160" r="8" fill="#ffffff" opacity="0.9"/>
+  <circle cx="320" cy="190" r="6" fill="#ffffff" opacity="0.8"/>
+  <circle cx="90" cy="320" r="10" fill="#ffffff" opacity="0.9"/>
+  <circle cx="250" cy="380" r="7" fill="#ffffff" opacity="0.8"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#000000"/>
+  <!-- Retro wave lines -->
+  <g stroke="#ff0000" stroke-width="2" fill="none">
+    <path d="M0,150 Q100,100 200,150 T400,150"/>
+    <path d="M0,180 Q100,130 200,180 T400,180"/>
+    <path d="M0,210 Q100,160 200,210 T400,210"/>
+  </g>
+  <g stroke="#ffff00" stroke-width="2" fill="none">
+    <path d="M0,300 Q100,250 200,300 T400,300"/>
+    <path d="M0,330 Q100,280 200,330 T400,330"/>
+    <path d="M0,360 Q100,310 200,360 T400,360"/>
+  </g>
+  <g stroke="#0000ff" stroke-width="2" fill="none">
+    <path d="M0,450 Q100,400 200,450 T400,450"/>
+    <path d="M0,480 Q100,430 200,480 T400,480"/>
+    <path d="M0,510 Q100,460 200,510 T400,510"/>
+  </g>
+  <!-- Grid overlay -->
+  <g stroke="#ffffff" stroke-width="0.5" fill="none" opacity="0.2">
+    <defs>
+      <pattern id="retroGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40"/>
+      </pattern>
+    </defs>
+    <rect width="400" height="600" fill="url(#retroGrid)"/>
+  </g>
+</svg>

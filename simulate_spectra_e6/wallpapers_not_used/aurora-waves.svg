@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#000000"/>
+  
+  <!-- Aurora-like flowing waves -->
+  <path d="M0,150 Q50,100 100,130 Q200,180 300,140 Q350,120 400,150 
+           L400,250 Q350,220 300,240 Q200,280 100,230 Q50,200 0,250 Z" 
+        fill="#00ff00" opacity="0.4"/>
+  
+  <path d="M0,200 Q80,160 160,190 Q240,220 320,180 Q360,160 400,200 
+           L400,300 Q360,260 320,280 Q240,320 160,290 Q80,260 0,300 Z" 
+        fill="#0000ff" opacity="0.5"/>
+  
+  <path d="M0,350 Q60,300 120,340 Q200,380 280,340 Q340,320 400,360 
+           L400,460 Q340,420 280,440 Q200,480 120,440 Q60,400 0,460 Z" 
+        fill="#00ff00" opacity="0.3"/>
+  
+  <!-- Shimmering particles -->
+  <circle cx="100" cy="120" r="3" fill="#ffffff" opacity="0.9"/>
+  <circle cx="250" cy="160" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="350" cy="190" r="4" fill="#ffffff" opacity="0.9"/>
+  <circle cx="80" cy="280" r="2" fill="#ffffff" opacity="0.7"/>
+  <circle cx="200" cy="320" r="3" fill="#ffffff" opacity="0.8"/>
+  <circle cx="320" cy="350" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="150" cy="450" r="4" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Flowing energy streams -->
+  <path d="M0,100 Q100,80 200,120 Q300,160 400,140" 
+        stroke="#00ff00" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <path d="M0,250 Q100,230 200,270 Q300,310 400,290" 
+        stroke="#0000ff" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round"/>
+  <path d="M0,400 Q100,380 200,420 Q300,460 400,440" 
+        stroke="#00ff00" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Ethereal wisps -->
+  <ellipse cx="180" cy="180" rx="40" ry="20" fill="#ffffff" opacity="0.3" transform="rotate(30 180 180)"/>
+  <ellipse cx="120" cy="380" rx="50" ry="25" fill="#0000ff" opacity="0.2" transform="rotate(-20 120 380)"/>
+  <ellipse cx="300" cy="280" rx="35" ry="15" fill="#00ff00" opacity="0.3" transform="rotate(45 300 280)"/>
+</svg>

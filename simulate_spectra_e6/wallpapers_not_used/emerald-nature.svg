@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#ffffff"/>
+  
+  <!-- Organic leaf-like shapes -->
+  <path d="M100,50 Q50,100 80,150 Q110,200 160,170 Q210,140 180,90 Q150,40 100,50 Z" fill="#00ff00" opacity="0.6"/>
+  <path d="M280,120 Q230,170 260,220 Q290,270 340,240 Q390,210 360,160 Q330,110 280,120 Z" fill="#00ff00" opacity="0.4"/>
+  <path d="M60,280 Q10,330 40,380 Q70,430 120,400 Q170,370 140,320 Q110,270 60,280 Z" fill="#00ff00" opacity="0.7"/>
+  <path d="M300,350 Q250,400 280,450 Q310,500 360,470 Q410,440 380,390 Q350,340 300,350 Z" fill="#00ff00" opacity="0.5"/>
+  
+  <!-- Flowing vine-like curves -->
+  <path d="M0,80 Q50,60 100,100 Q150,140 200,120 Q250,100 300,140 Q350,180 400,160" 
+        stroke="#00ff00" stroke-width="6" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <path d="M0,250 Q50,230 100,270 Q150,310 200,290 Q250,270 300,310 Q350,350 400,330" 
+        stroke="#00ff00" stroke-width="4" fill="none" opacity="0.5" stroke-linecap="round"/>
+  <path d="M0,420 Q50,400 100,440 Q150,480 200,460 Q250,440 300,480 Q350,520 400,500" 
+        stroke="#000000" stroke-width="2" fill="none" opacity="0.3" stroke-linecap="round"/>
+  
+  <!-- Natural bubble patterns -->
+  <circle cx="150" cy="90" r="8" fill="#ffffff" opacity="0.9"/>
+  <circle cx="200" cy="110" r="12" fill="#ffffff" opacity="0.8"/>
+  <circle cx="120" cy="130" r="6" fill="#ffffff" opacity="0.9"/>
+  <circle cx="320" cy="180" r="10" fill="#ffffff" opacity="0.8"/>
+  <circle cx="80" cy="350" r="14" fill="#ffffff" opacity="0.9"/>
+  <circle cx="350" cy="420" r="9" fill="#ffffff" opacity="0.8"/>
+  <circle cx="180" cy="480" r="11" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Soft gradient overlays -->
+  <ellipse cx="200" cy="200" rx="120" ry="80" fill="#00ff00" opacity="0.2" transform="rotate(30 200 200)"/>
+  <ellipse cx="150" cy="400" rx="80" ry="100" fill="#00ff00" opacity="0.3" transform="rotate(-20 150 400)"/>
+</svg>

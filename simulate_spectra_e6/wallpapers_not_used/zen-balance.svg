@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#ffffff"/>
+  
+  <!-- Zen circle (Enso) -->
+  <circle cx="200" cy="200" r="80" fill="none" stroke="#000000" stroke-width="6" opacity="0.7" 
+          stroke-dasharray="10 5" transform="rotate(45 200 200)"/>
+  
+  <!-- Flowing water ripples -->
+  <ellipse cx="200" cy="400" rx="120" ry="20" fill="none" stroke="#0000ff" stroke-width="2" opacity="0.4"/>
+  <ellipse cx="200" cy="400" rx="90" ry="15" fill="none" stroke="#0000ff" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="200" cy="400" rx="60" ry="10" fill="none" stroke="#0000ff" stroke-width="2" opacity="0.6"/>
+  <ellipse cx="200" cy="400" rx="30" ry="5" fill="none" stroke="#0000ff" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Balanced stones -->
+  <ellipse cx="120" cy="350" rx="25" ry="15" fill="#000000" opacity="0.3" transform="rotate(10 120 350)"/>
+  <ellipse cx="120" cy="330" rx="20" ry="12" fill="#000000" opacity="0.4" transform="rotate(5 120 330)"/>
+  <ellipse cx="120" cy="315" rx="15" ry="10" fill="#000000" opacity="0.5"/>
+  
+  <ellipse cx="280" cy="360" rx="30" ry="18" fill="#000000" opacity="0.3" transform="rotate(-10 280 360)"/>
+  <ellipse cx="280" cy="335" rx="25" ry="15" fill="#000000" opacity="0.4" transform="rotate(-5 280 335)"/>
+  <ellipse cx="280" cy="315" rx="20" ry="12" fill="#000000" opacity="0.5"/>
+  
+  <!-- Gentle bamboo-like strokes -->
+  <path d="M100,50 Q105,100 110,150 Q115,200 120,250" 
+        stroke="#00ff00" stroke-width="4" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <path d="M300,50 Q295,100 290,150 Q285,200 280,250" 
+        stroke="#00ff00" stroke-width="4" fill="none" opacity="0.6" stroke-linecap="round"/>
+  
+  <!-- Minimal accent dots -->
+  <circle cx="200" cy="120" r="4" fill="#ff0000" opacity="0.8"/>
+  <circle cx="80" cy="280" r="3" fill="#ffff00" opacity="0.7"/>
+  <circle cx="320" cy="280" r="3" fill="#ffff00" opacity="0.7"/>
+  
+  <!-- Flowing energy line -->
+  <path d="M50,500 Q200,480 350,520 Q400,530 400,550" 
+        stroke="#000000" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Soft background texture -->
+  <circle cx="300" cy="100" r="40" fill="#ffffff" opacity="0.5" stroke="#000000" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="100" cy="150" r="35" fill="#ffffff" opacity="0.5" stroke="#000000" stroke-width="1" stroke-opacity="0.2"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#000000"/>
+  <g transform="translate(200,300)">
+    <!-- Galaxy spiral arms -->
+    <path d="M0,0 Q50,-50 100,-20 Q150,20 120,80 Q50,120 -20,100 Q-80,50 -60,-20 Q-20,-80 40,-60 Q100,-20 80,40" 
+          stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M0,0 Q-50,50 -100,20 Q-150,-20 -120,-80 Q-50,-120 20,-100 Q80,-50 60,20 Q20,80 -40,60 Q-100,20 -80,-40" 
+          stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+    <!-- Stars -->
+    <g fill="#ffffff">
+      <circle cx="60" cy="-30" r="1"/>
+      <circle cx="-40" cy="50" r="1"/>
+      <circle cx="80" cy="20" r="1"/>
+      <circle cx="-60" cy="-40" r="1"/>
+      <circle cx="30" cy="70" r="1"/>
+    </g>
+    <!-- Core -->
+    <circle cx="0" cy="0" r="15" fill="#ffff00" opacity="0.8"/>
+  </g>
+</svg>

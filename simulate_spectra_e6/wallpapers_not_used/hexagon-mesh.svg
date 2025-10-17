@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#ffffff"/>
+  <!-- Hexagon pattern -->
+  <defs>
+    <polygon id="hex" points="20,0 30,17.32 10,17.32" stroke="#0000ff" stroke-width="1" fill="none"/>
+  </defs>
+  <g transform="translate(40,40)">
+    <use href="#hex" x="0" y="0"/>
+    <use href="#hex" x="40" y="0"/>
+    <use href="#hex" x="80" y="0"/>
+    <use href="#hex" x="120" y="0"/>
+    <use href="#hex" x="160" y="0"/>
+    <use href="#hex" x="200" y="0"/>
+    <use href="#hex" x="240" y="0"/>
+    <use href="#hex" x="20" y="35"/>
+    <use href="#hex" x="60" y="35"/>
+    <use href="#hex" x="100" y="35"/>
+    <use href="#hex" x="140" y="35"/>
+    <use href="#hex" x="180" y="35"/>
+    <use href="#hex" x="220" y="35"/>
+  </g>
+  <!-- Filled hexagons -->
+  <g fill="#ff0000" opacity="0.6">
+    <polygon points="120,100 130,117.32 110,117.32"/>
+    <polygon points="220,150 230,167.32 210,167.32"/>
+    <polygon points="160,250 170,267.32 150,267.32"/>
+  </g>
+</svg>

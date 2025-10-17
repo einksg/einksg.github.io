@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Photo 01",
+    "resolution": "400x600",
+    "thumbnail": "./wallpapers/photo-01.jpg",
+    "fullSize": "./wallpapers/photo-01.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Photo 02",
+    "resolution": "400x600",
+    "thumbnail": "./wallpapers/photo-02.jpg",
+    "fullSize": "./wallpapers/photo-02.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Photo 03",
+    "resolution": "400x600",
+    "thumbnail": "./wallpapers/photo-03.jpg",
+    "fullSize": "./wallpapers/photo-03.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Photo 04",
+    "resolution": "400x600",
+    "thumbnail": "./wallpapers/photo-04.jpg",
+    "fullSize": "./wallpapers/photo-04.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Photo 05",
+    "resolution": "400x600",
+    "thumbnail": "./wallpapers/photo-05.jpg",
+    "fullSize": "./wallpapers/photo-05.jpg"
+  }
+]
