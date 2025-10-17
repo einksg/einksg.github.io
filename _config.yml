@@ -1,0 +1,13 @@
+title: eink.sg
+url: https://eink.sg
+baseurl: ""
+markdown: kramdown
+timezone: UTC
+plugins: []
+exclude:
+  - README.md
+  - node_modules
+  - .git
+  - .claude
+  - .DS_Store
+  - simulate_spectra_e6
