@@ -1,0 +1,101 @@
+[
+  {
+    "file": "public/images/tickey-detail.jpg",
+    "url": "https://www.eniacelec.com/cdn/shop/t/20/assets/hero-slide-1.jpg?v=83019986600706986591784527062",
+    "source": "https://www.eniacelec.com/pages/ticket",
+    "accessed": "2026-09-10"
+  },
+  {
+    "file": "public/images/tickey-product.jpg",
+    "url": "https://www.eniacelec.com/cdn/shop/t/20/assets/what-product-poster.jpg?v=10976239739133404741784527127",
+    "source": "https://www.eniacelec.com/pages/ticket",
+    "accessed": "2026-09-10"
+  },
+  {
+    "file": "public/images/tickey-bag.jpg",
+    "url": "https://www.eniacelec.com/cdn/shop/t/20/assets/use-bag-charm.jpg?v=5337944106404402311784527124",
+    "source": "https://www.eniacelec.com/pages/ticket",
+    "accessed": "2026-09-10"
+  },
+  {
+    "file": "public/images/tickey-desk.jpg",
+    "url": "https://www.eniacelec.com/cdn/shop/t/20/assets/use-desk-display.jpg?v=173422656337498536381784527125",
+    "source": "https://www.eniacelec.com/pages/ticket",
+    "accessed": "2026-09-10"
+  },
+  {
+    "file": "public/images/tickey-hero.jpg",
+    "url": "https://www.eniacelec.com/cdn/shop/t/20/assets/hero-slide-3.jpg?v=166067144886712186691784527064",
+    "source": "https://www.eniacelec.com/pages/ticket",
+    "accessed": "2026-09-10"
+  },
+  {
+    "file": "public/images/tickey-demo.mp4",
+    "url": "https://www.eniacelec.com/cdn/shop/t/20/assets/what-product-web-4ad33264.mp4?v=123020950603539994611784527128",
+    "source": "https://www.eniacelec.com/pages/ticket",
+    "accessed": "2026-09-10"
+  },
+  {
+    "file": "public/images/tickey-cutout.png",
+    "url": "https://www.eniacelec.com/cdn/shop/t/20/assets/driver-ours-alpha-4fafa1fb.png?v=79623371821683563291784527053",
+    "source": "https://www.eniacelec.com/pages/ticket",
+    "accessed": "2026-09-10",
+    "notes": "Official transparent product asset; copied without image modification."
+  },
+  {
+    "file": "public/images/modos-flow-mono.jpg",
+    "url": "https://www.crowdsupply.com/img/7fd7/73819d0b-e5f6-467e-ad53-90cfc25a7fd7_md-fixed-xl.jpg",
+    "source": "https://www.crowdsupply.com/modos-tech/modos-flow",
+    "accessed": "2026-09-10",
+    "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  },
+  {
+    "file": "public/images/modos-flow-color.jpg",
+    "url": "https://www.crowdsupply.com/img/ee6a/3002da33-23ac-4232-9e2c-ef553fe9ee6a_md-fixed-xl.jpg",
+    "source": "https://www.crowdsupply.com/modos-tech/modos-flow",
+    "accessed": "2026-09-10",
+    "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  },
+  {
+    "file": "public/images/obook5.png",
+    "url": "http://www.obook.com.cn/uploads/products/20250930/1c1c202fdf1c35881d223995b6106b75.png",
+    "source": "http://www.obook.com.cn/products/view/id/34.html",
+    "accessed": "2026-09-10",
+    "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  },
+  {
+    "file": "public/images/papermono-1.webp",
+    "url": "https://cdn.shopify.com/s/files/1/0056/7689/2250/files/C153_M5PaperMono_with_LoRa_NFC2.webp?v=1787221057",
+    "source": "https://shop.m5stack.com/products/m5papermono-with-lora-nfc-800x480-3-97-eink-display",
+    "accessed": "2026-09-10",
+    "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  },
+  {
+    "file": "public/images/papermono-2.webp",
+    "url": "https://cdn.shopify.com/s/files/1/0056/7689/2250/files/C153_M5PaperMono_with_LoRa_NFC.webp?v=1787283379",
+    "source": "https://shop.m5stack.com/products/m5papermono-with-lora-nfc-800x480-3-97-eink-display",
+    "accessed": "2026-09-10",
+    "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  },
+  {
+    "file": "public/images/papermono-3.webp",
+    "url": "https://cdn.shopify.com/s/files/1/0056/7689/2250/files/C153_M5PaperMono_with_LoRa_NFC1.webp?v=1787221057",
+    "source": "https://shop.m5stack.com/products/m5papermono-with-lora-nfc-800x480-3-97-eink-display",
+    "accessed": "2026-09-10",
+    "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  },
+  {
+    "file": "public/images/c1slim-detail.jpg",
+    "url": "https://img.alicdn.com/imgextra/i1/693503587/O1CN01ruyQFd1cMtn6yjD6u_%21%21693503587.jpg",
+    "source": "https://www.ruten.com.tw/item/22601857206672/",
+    "accessed": "2026-09-10",
+    "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  },
+  {
+    "file": "public/images/c1slim-front.jpg",
+    "url": "https://img.alicdn.com/imgextra/i4/693503587/O1CN01sJGyJM1cMtnHoN03i_%21%21693503587.jpg",
+    "source": "https://www.ruten.com.tw/item/22601857206672/",
+    "accessed": "2026-09-10",
+    "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  }
+]

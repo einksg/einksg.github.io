@@ -1,74 +1,44 @@
----
----
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eink.sg</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class'
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Discover independent e-paper products and the people who make them. Real devices, thoughtful details, and a direct connection to the maker." />
+  <meta property="og:title" content="Catalog by eink.sg" />
+  <meta property="og:description" content="An independent epaper product catalog." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://eink.sg/" />
+  <meta property="og:image" content="https://eink.sg/images/tickey-cutout.png" />
+  <link rel="canonical" href="https://eink.sg/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>Catalog by eink.sg</title>
+  <script type="module" crossorigin src="/assets/index-CNosxFge.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Bm1vKezO.css">
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
-    <!-- Header (shared include) -->
-    {% include header.html %}
+<body>
+  <a class="skip-link" href="#collection">Skip to products</a>
+  <header class="site-header">
+    <h1 class="site-title"><a href="/"><strong>Catalog</strong> <span>by eink.sg</span></a></h1>
 
-    <!-- Disclaimer -->
-    <div class="bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 p-4 mb-8 text-center">
-        <p class="text-sm text-yellow-800 dark:text-yellow-200 mb-0">⚠️ <strong>Demo Notice:</strong> All content on this site is AI-generated and not verified. For demonstration purposes only.</p>
-    </div>
-
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-6 py-20">
-        <!-- Projects -->
-        <section>
-            <div class="grid gap-8 md:grid-cols-3">
-                <!-- Functional Subpages -->
-                <a href="/explore" class="block border border-gray-200 dark:border-gray-700 p-8 transition-all duration-300 text-inherit hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-lg">
-                    <h3 class="text-3xl font-light mb-3 transition-colors">Explore</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Discover selected devices</p>
-                </a>
-                <a href="/compare" class="block border border-gray-200 dark:border-gray-700 p-8 transition-all duration-300 text-inherit hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-lg">
-                    <h3 class="text-3xl font-light mb-3 transition-colors">Compare</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Side-by-side</p>
-                </a>
-                <a href="/pair" class="block border border-gray-200 dark:border-gray-700 p-8 transition-all duration-300 text-inherit hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-lg">
-                    <h3 class="text-3xl font-light mb-3 transition-colors">Pair</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Perfect combinations</p>
-                </a>
-                <a href="/simulate" class="block border border-gray-200 dark:border-gray-700 p-8 transition-all duration-300 text-inherit hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-lg">
-                    <h3 class="text-3xl font-light mb-3 transition-colors">Simulate</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Virtual experience</p>
-                </a>
-
-                <!-- Divider -->
-                <div class="col-span-full flex items-center my-4 gap-4">
-                    <div class="flex-1 h-px bg-gray-200 dark:bg-gray-600"></div>
-                </div>
-
-                <!-- Informational Subpages -->
-                <a href="/shops" class="block border border-gray-200 dark:border-gray-700 p-8 transition-all duration-300 text-inherit hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-lg">
-                    <h3 class="text-3xl font-light mb-3 transition-colors">Shops</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Physical & online stores</p>
-                </a>
-                <a href="/community" class="block border border-gray-200 dark:border-gray-700 p-8 transition-all duration-300 text-inherit hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-lg">
-                    <h3 class="text-3xl font-light mb-3 transition-colors">Community</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Connect with like-minded people</p>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-gray-200 dark:border-gray-700 mt-32">
-        <div class="max-w-6xl mx-auto px-6 py-8">
-            <p class="text-sm text-gray-400 dark:text-gray-400">2025 <a href="/" class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white underline-offset-4 hover:underline transition-colors">eink.sg</a></p>
+  </header>
+  <main>
+    <section id="collection" class="collection" aria-labelledby="collection-title">
+      <h2 id="collection-title" class="sr-only">Products</h2>
+      <aside class="catalog-sidebar" aria-label="Catalog controls">
+        <div class="sorting" role="group" aria-label="Sort products">
+          <button type="button" id="sort-date" class="sort-button" aria-pressed="true" aria-describedby="sort-status">Release date<span class="sort-direction" aria-hidden="true">↓</span></button>
+          <button type="button" id="sort-size" class="sort-button" aria-pressed="false" aria-describedby="sort-status">Screen size<span class="sort-direction" aria-hidden="true"></span></button>
         </div>
-    </footer>
-    <script src="/js/dark-mode.js"></script>
+        <hr>
+        <div id="brand-filters" class="brand-filters" role="group" aria-label="Filter by brand"></div>
+      </aside>
+      <p id="sort-status" class="sr-only" role="status">Release date: newest to oldest.</p>
+      <div class="catalog-results"><span id="product-count" class="sr-only" role="status"></span><div id="product-grid" class="product-grid"></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© 2026 Catalog by eink.sg</span></footer>
+  <dialog id="product-dialog" aria-labelledby="product-title"></dialog>
+  <noscript><p class="noscript">This collection uses JavaScript to show product cards. You can also visit <a href="https://www.eniacelec.com/pages/ticket">TICKEY’s official product page</a>.</p></noscript>
 </body>
 </html>
