@@ -1,3 +1,10 @@
+export const collections = [
+  { id: 'spectra6', name: 'Spectra6' },
+  { id: 'development-board', name: 'Development board' },
+  { id: 'monitor', name: 'Monitor' },
+  { id: 'note-taking', name: 'Note-taking' },
+];
+
 /** Newest releases first; year-only entries follow dated entries in that year. */
 export function sortProducts(products) {
   const value = product => product.releaseDate ? Date.parse(product.releaseDate) : product.releaseYear ? Date.UTC(product.releaseYear, 0, 1) : null;

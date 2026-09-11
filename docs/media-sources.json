@@ -187,5 +187,61 @@
     "url": "https://cdn.shopify.com/s/files/1/0604/6410/3654/files/2_a6e0f29d-0aef-46c3-8b52-b0ba470c7453.jpg?v=1724049026",
     "source": "https://shop.boox.com/products/go6",
     "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/papercolor-1.webp",
+    "url": "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1239/C151_main-pictures_01.webp",
+    "source": "https://docs.m5stack.com/en/core/PaperColor",
+    "accessed": "2026-09-11",
+    "notes": "Official M5Stack product image, downloaded without modification."
+  },
+  {
+    "file": "public/images/papercolor-2.webp",
+    "url": "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1239/C151_main-pictures_02.webp",
+    "source": "https://docs.m5stack.com/en/core/PaperColor",
+    "accessed": "2026-09-11",
+    "notes": "Official M5Stack product image, downloaded without modification."
+  },
+  {
+    "file": "public/images/plaud-note-1.webp",
+    "url": "https://cdn.shopify.com/s/files/1/0918/0171/5051/files/BL-plaud-note-052526.webp?v=1779709941",
+    "source": "https://www.plaud.ai/products/plaud-note-ai-voice-recorder",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/plaud-note-2.png",
+    "url": "https://cdn.shopify.com/s/files/1/0918/0171/5051/files/4_e10f8969-6ac3-4641-971f-2514b6c6b3c1.png?v=1774430233",
+    "source": "https://www.plaud.ai/products/plaud-note-ai-voice-recorder",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/plaud-pro-1.png",
+    "url": "https://cdn.shopify.com/s/files/1/0918/0171/5051/files/NotePro-_-2_fdc31980-a483-420d-b385-3723c698c9b7.png?v=1779783768",
+    "source": "https://www.plaud.ai/products/plaud-note-pro",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/plaud-pro-2.webp",
+    "url": "https://cdn.shopify.com/s/files/1/0918/0171/5051/files/Plaud_Note_Pro-side-black_e0ab6b2a-c29f-4906-a5da-4067210906ce.webp?v=1766042075",
+    "source": "https://www.plaud.ai/products/plaud-note-pro",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/plaud-pin-1.webp",
+    "url": "https://cdn.shopify.com/s/files/1/0918/0171/5051/files/plaud-notepin-gray-0225.webp?v=1774430287",
+    "source": "https://www.plaud.ai/products/plaud-notepin",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/plaud-pin-2.png",
+    "url": "https://cdn.shopify.com/s/files/1/0918/0171/5051/files/plaud-notepin-sp_1bfc6e93-d6ab-4ed4-a9e5-f241dd57b26b.png?v=1774430287",
+    "source": "https://www.plaud.ai/products/plaud-notepin",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/iflytek-max2.png",
+    "url": "https://img.xunfei.cn/mall/ifly-mall-shop/images/202603/goods-thumbs/202603050933106893.png",
+    "source": "https://www.xunfei.cn/goods?goodsId=2387",
+    "accessed": "2026-09-11"
   }
 ]

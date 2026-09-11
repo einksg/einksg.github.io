@@ -1,7 +1,7 @@
 import '@fontsource-variable/inter';
 import './style.css';
 import { products } from './products.js';
-import { sortProducts, formatDate } from './catalog.js';
+import { collections, sortProducts, formatDate } from './catalog.js';
 
 const grid = document.querySelector('#product-grid');
 const productDialog = document.querySelector('#product-dialog');
@@ -10,9 +10,13 @@ const external = (url, label, className = '') => `<a class="${className}" href="
 let returnFocus;
 let activeProduct;
 let activeBrand = null;
+let activeCollection = null;
 
 function renderCatalog() {
-  const visibleProducts = products.filter(product => !activeBrand || product.maker === activeBrand);
+  const visibleProducts = products.filter(product => !product.hidden &&
+    (!activeBrand || product.maker === activeBrand) &&
+    (!activeCollection || product.collections?.includes(activeCollection))
+  );
   const years = new Map();
   for (const product of sortProducts(visibleProducts)) {
     const year = product.releaseDate?.slice(0, 4) || product.releaseYear || 'Undated';
@@ -29,21 +33,45 @@ function renderCatalog() {
     </a>
   </article>`).join('')}</div>
   </section>`).join('');
-  document.querySelector('#product-count').textContent = `${visibleProducts.length} ${visibleProducts.length === 1 ? 'product' : 'products'}${activeBrand ? ` by ${activeBrand}` : ''}`;
+  const collectionName = collections.find(collection => collection.id === activeCollection)?.name;
+  document.querySelector('#product-count').textContent = `${visibleProducts.length} ${visibleProducts.length === 1 ? 'product' : 'products'}${activeBrand ? ` by ${activeBrand}` : ''}${collectionName ? ` in ${collectionName}` : ''}`;
 }
 
+const allFilter = document.querySelector('#all-filter');
+const collectionFilters = document.querySelector('#collection-filters');
+collectionFilters.innerHTML = collections.map(collection => `<button type="button" class="collection-button" data-collection="${escape(collection.id)}" aria-pressed="false">${escape(collection.name)}</button>`).join('');
 const brandFilters = document.querySelector('#brand-filters');
-brandFilters.innerHTML = [...new Set(products.map(product => product.maker))]
+brandFilters.innerHTML = [...new Set(products.filter(product => !product.hidden).map(product => product.maker))]
   .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }))
   .map(brand => `<button type="button" class="brand-button" data-brand="${escape(brand)}" aria-pressed="false">${escape(brand)}</button>`).join('');
-brandFilters.addEventListener('click', event => {
-  const button = event.target.closest('[data-brand]');
-  if (!button) return;
-  activeBrand = activeBrand === button.dataset.brand ? null : button.dataset.brand;
+function updateFilters() {
+  allFilter.setAttribute('aria-pressed', String(!activeCollection && !activeBrand));
+  for (const collectionButton of collectionFilters.querySelectorAll('button')) {
+    collectionButton.setAttribute('aria-pressed', String(collectionButton.dataset.collection === activeCollection));
+  }
   for (const brandButton of brandFilters.querySelectorAll('button')) {
     brandButton.setAttribute('aria-pressed', String(brandButton.dataset.brand === activeBrand));
   }
   renderCatalog();
+}
+allFilter.addEventListener('click', () => {
+  activeCollection = null;
+  activeBrand = null;
+  updateFilters();
+});
+collectionFilters.addEventListener('click', event => {
+  const button = event.target.closest('[data-collection]');
+  if (!button) return;
+  activeCollection = activeCollection === button.dataset.collection ? null : button.dataset.collection;
+  activeBrand = null;
+  updateFilters();
+});
+brandFilters.addEventListener('click', event => {
+  const button = event.target.closest('[data-brand]');
+  if (!button) return;
+  activeBrand = activeBrand === button.dataset.brand ? null : button.dataset.brand;
+  activeCollection = null;
+  updateFilters();
 });
 function closeDialog(dialog, updateUrl = true) {
   dialog.querySelectorAll('video').forEach(video => video.pause());
@@ -80,7 +108,7 @@ function openProduct(product) {
       ${product.variants ? `<fieldset class="variant-options"><legend>Model</legend>${product.variants.map((variant, index) => `<label><input type="radio" name="model" value="${index}" ${index === 0 ? 'checked' : ''}><span>${escape(variant.name)}</span></label>`).join('')}</fieldset>` : ''}
       ${external(product.purchaseUrl, product.purchaseLabel || 'View on Kickstarter', 'primary-button')}
       <section class="product-specs" aria-labelledby="specs-title"><h3 id="specs-title">Specs</h3>
-      <dl class="specs"><div><dt>Screen size</dt><dd>${product.screenInches} inches</dd></div><div><dt>Release date</dt><dd><span>${product.releaseDate ? formatDate(product.releaseDate) : product.releaseYear || 'Not verified'}</span>${product.releaseType ? `<small>${escape(product.releaseType)}</small>` : ''}</dd></div>${product.specs.map(([key,value])=>`<div><dt>${escape(key)}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl>
+      <dl class="specs">${product.screenInches ? `<div><dt>Screen size</dt><dd>${product.screenInches} inches</dd></div>` : ''}<div><dt>Release date</dt><dd><span>${product.releaseDate ? formatDate(product.releaseDate) : product.releaseYear || 'Not verified'}</span>${product.releaseType ? `<small>${escape(product.releaseType)}</small>` : ''}</dd></div>${product.specs.map(([key,value])=>`<div><dt>${escape(key)}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl>
       </section>
     </div></div>`;
   productDialog.querySelectorAll('input[name="model"]').forEach(input => input.addEventListener('change', () => {
@@ -94,10 +122,10 @@ function openProduct(product) {
 }
 
 function route() {
-  const legacyProduct = products.find(item => `#product/${item.id}` === location.hash);
+  const legacyProduct = products.find(item => !item.hidden && `#product/${item.id}` === location.hash);
   if (legacyProduct) history.replaceState(null, '', `/product/${legacyProduct.id}/${location.search}`);
   const path = location.pathname.replace(/\/$/, '');
-  const product = products.find(item => `/product/${item.id}` === path);
+  const product = products.find(item => !item.hidden && `/product/${item.id}` === path);
   for (const dialog of [productDialog]) if (dialog.open) closeDialog(dialog, false);
   if (product) openProduct(product);
 }

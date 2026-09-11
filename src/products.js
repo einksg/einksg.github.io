@@ -1,6 +1,6 @@
 const campaign = 'https://www.kickstarter.com/projects/enilinx/ticket-refresh-it-new-clip-it-on-carry-your-moment';
 export const products = [{
-  id: 'tickey', name: 'TICKEY', maker: 'ENILINX', category: 'Frame',
+  id: 'tickey', collections: ['spectra6'], name: 'TICKEY', maker: 'ENILINX', category: 'Frame',
   description: 'A 3.7-inch color e-paper display for photos, notes, and badges. Update it from your phone over Bluetooth or Wi-Fi.',
   screenInches: 3.7, releaseDate: '2026-08-11', releaseType: 'Crowdfunding launch',
   releaseSource: 'https://news.pedaily.cn/202609/568477.shtml',
@@ -32,7 +32,7 @@ export const products = [{
 
 const flowCampaign = 'https://www.crowdsupply.com/modos-tech/modos-flow';
 products.push({
-  id: 'modos-flow', name: 'Modos Flow', maker: 'Modos', category: 'Monitor',
+  id: 'modos-flow', collections: ['monitor'], name: 'Modos Flow', maker: 'Modos', category: 'Monitor',
   description: 'A 13.3-inch touchscreen e-paper monitor for your computer. Connect over USB-C DisplayPort Alt Mode. Available in monochrome or color.',
   screenInches: 13.3, releaseDate: '2026-05-26', releaseType: 'Crowdfunding launch',
   releaseSource: `${flowCampaign}/updates/our-new-campaign-is-live-on-crowd-supply`,
@@ -84,7 +84,7 @@ products.push({
 
 const c1SlimPage = 'https://www.ruten.com.tw/item/22601857206672/';
 products.push({
-  id: 'koridy-c1-slim', name: 'C1 Slim', maker: 'Koridy', category: 'Dictionary',
+  id: 'koridy-c1-slim', hidden: true, name: 'C1 Slim', maker: 'Koridy', category: 'Dictionary',
   description: 'A pocket electronic dictionary for Chinese, English, and Japanese. A 2.66-inch monochrome e-paper display and physical keyboard support word lookup and vocabulary practice.',
   screenInches: 2.66, releaseDate: '2025-11-01', releaseType: 'Retailer-reported release', releaseSource: c1SlimPage,
   price: 499, currency: 'CNY', priceLabel: 'CN¥499', priceSource: 'Catalog owner',
@@ -101,7 +101,7 @@ products.push({
 const paperMonoPage = 'https://shop.m5stack.com/products/m5papermono-with-lora-nfc-800x480-3-97-eink-display';
 const paperMonoLaunch = 'https://shop.m5stack.com/blogs/news/m5stack-launches-papermono-a-compact-e-ink-development-terminal-for-connected-projects';
 products.push({
-  id: 'm5stack-paper-mono', name: 'Paper Mono', maker: 'M5Stack', category: 'Development board',
+  id: 'm5stack-paper-mono', collections: ['development-board'], name: 'Paper Mono', maker: 'M5Stack', category: 'Development board',
   description: 'A compact e-paper development device powered by the ESP32-S3. Its 3.97-inch touchscreen, frontlight, LoRa, and NFC support projects such as calendars, dashboards, and connected controls.',
   screenInches: 3.97, releaseDate: '2026-08-21', releaseType: 'Product launch',
   releaseSource: paperMonoLaunch,
@@ -118,9 +118,26 @@ products.push({
   sources: [{ label: 'Official product, price and photography', url: paperMonoPage }, { label: 'Launch announcement', url: paperMonoLaunch }],
 });
 
+const paperColorPage = 'https://shop.m5stack.com/products/m5paper-color-esp32s3-dev-kit';
+const paperColorDocs = 'https://docs.m5stack.com/en/core/PaperColor';
+products.push({
+  id: 'm5stack-paper-color', collections: ['spectra6', 'development-board'], name: 'Paper Color', maker: 'M5Stack', category: 'Development board',
+  description: 'A compact ESP32-S3 development kit with a 4-inch Spectra 6 color e-paper screen. Programmable buttons, a microphone and speaker, and temperature and humidity sensing support projects such as photo frames, dashboards, and connected signs.',
+  screenInches: 4, releaseDate: '2026-05-15', releaseType: 'Product release',
+  releaseSource: 'https://docs.m5stack.com/en/history',
+  price: 75, currency: 'USD', priceLabel: 'US$75', priceSource: paperColorPage, status: 'Out of stock',
+  purchaseUrl: paperColorPage, purchaseLabel: 'View on M5Stack', officialUrl: paperColorDocs, makerUrl: 'https://m5stack.com/',
+  specs: [['Display', 'E Ink Spectra 6 full-color e-paper'], ['Resolution', '400 × 600 pixels'], ['Processor', 'ESP32-S3R8, dual-core up to 240 MHz'], ['Memory', '16 MB flash, 8 MB PSRAM'], ['Connectivity', '2.4 GHz Wi-Fi, USB-C'], ['Battery', '1,250 mAh'], ['Input', 'Three programmable buttons and a power button'], ['Audio', 'MEMS microphone and 1 W speaker'], ['Sensors', 'SHT40 temperature and humidity sensor, RTC'], ['Expansion', 'MicroSD, HY2.0-4P port, infrared emitter'], ['Dimensions', '70.8 × 103.9 × 8.5 mm'], ['Weight', '73.3 g']],
+  cover: '/images/papercolor-2.webp', coverShape: 'papercolor', coverAlt: 'White M5Stack Paper Color development kit, angled front view',
+  photos: [{ src: '/images/papercolor-2.webp', alt: 'M5Stack Paper Color development kit, angled front view' }, { src: '/images/papercolor-1.webp', alt: 'M5Stack Paper Color annotated hardware overview' }],
+  verifiedAt: '2026-09-11',
+  sources: [{ label: 'Official product and price', url: paperColorPage }, { label: 'Official specifications and photography', url: paperColorDocs }, { label: 'Official release history', url: 'https://docs.m5stack.com/en/history' }],
+  mediaCredit: 'Official product photographs by M5Stack.',
+});
+
 const paperS3Page = 'https://shop.m5stack.com/products/m5papers3-esp32s3-development-kit';
 products.push({
-  id: 'm5stack-paper-s3', name: 'PaperS3', maker: 'M5Stack', category: 'Development board',
+  id: 'm5stack-paper-s3', collections: ['development-board'], name: 'PaperS3', maker: 'M5Stack', category: 'Development board',
   description: 'A low-power ESP32-S3 development kit with a full-screen 4.7-inch touch e-paper display. It combines a gyroscope, buzzer, buttons, microSD expansion, and a built-in battery for interactive projects.',
   screenInches: 4.7, releaseDate: '2024-12-13', releaseType: 'Product release',
   releaseSource: 'https://m5stack.lang-ship.com/catalog/products/controller/c139_papers3/',
@@ -135,7 +152,7 @@ products.push({
 
 const stickyPage = 'https://www.seeedstudio.com/reTerminal-Sticky-p-6861.html';
 products.push({
-  id: 'seeed-studio-sticky', name: 'reTerminal Sticky', maker: 'Seeed Studio', category: 'Development board',
+  id: 'seeed-studio-sticky', collections: ['development-board'], name: 'reTerminal Sticky', maker: 'Seeed Studio', category: 'Development board',
   description: 'A magnetic 3.97-inch e-paper touchscreen for household notes, reminders, weather, and photos. Create notes by voice or manage content through the Seeedash app.',
   screenInches: 3.97, releaseDate: '2026-07-30', releaseType: 'Product announcement',
   releaseSource: 'https://www.seeedstudio.com/blog/news-center/4/',
@@ -151,7 +168,7 @@ products.push({
 const inkjoySpecs = 'https://docs.inkjoyframe.com/guide/hardware/hardware-specs';
 const nestPage = 'https://www.inkjoyframe.com/products/inkjoy-nest-7?variant=48907293786331';
 products.push({
-  id: 'inkjoy-nest-7', name: 'Nest 7-inch', maker: 'InkJoy', category: 'Frame',
+  id: 'inkjoy-nest-7', collections: ['spectra6'], name: 'Nest 7-inch', maker: 'InkJoy', category: 'Frame',
   description: 'A compact color e-paper frame for family photos, artwork, and calendars on a desk or bedside table. The 7-inch model uses E Ink Spectra 6 and supports remote image updates.',
   screenInches: 7, releaseDate: null, releaseYear: 2026, releaseType: 'Year only; exact date unverified', releaseSource: nestPage,
   price: 239, currency: 'USD', priceLabel: 'US$239', priceSource: nestPage,
@@ -164,7 +181,7 @@ products.push({
 
 const musePage = 'https://www.inkjoyframe.com/products/inkjoy-muse?variant=48907289755867';
 products.push({
-  id: 'inkjoy-muse-10', name: 'Muse 10-inch', maker: 'InkJoy', category: 'Frame',
+  id: 'inkjoy-muse-10', collections: ['spectra6'], name: 'Muse 10-inch', maker: 'InkJoy', category: 'Frame',
   description: 'A 10-inch color e-paper frame for photographs and artwork. Its E Ink Spectra 6 panel displays images without a backlight, with WaveMorph transitions when changing pictures.',
   screenInches: 10, releaseDate: null, releaseYear: 2026, releaseType: 'Year only; exact date unverified', releaseSource: musePage,
   price: 379, currency: 'USD', priceLabel: 'US$379', priceSource: musePage,
@@ -177,7 +194,7 @@ products.push({
 
 const galleryPage = 'https://www.inkjoyframe.com/products/inkjoy-gallery?variant=48907295654107';
 products.push({
-  id: 'inkjoy-gallery-28-5', name: 'Gallery 28.5-inch', maker: 'InkJoy', category: 'Frame',
+  id: 'inkjoy-gallery-28-5', collections: ['spectra6'], name: 'Gallery 28.5-inch', maker: 'InkJoy', category: 'Frame',
   description: 'A 28.5-inch color e-paper wall display for artwork and photography. Its E Ink Spectra 6 panel keeps images visible without a backlight, and dual-band Wi-Fi supports remote updates.',
   screenInches: 28.5, releaseDate: null, releaseYear: 2026, releaseType: 'Year only; exact date unverified', releaseSource: galleryPage,
   price: 1999, currency: 'USD', priceLabel: 'US$1,999', priceSource: galleryPage,
@@ -191,7 +208,7 @@ products.push({
 // Recovered product identities and images; copy and specifications curated afresh.
 const recoveredProducts = [
   {
-    id: 'dasung-paperlike-13k', name: 'Paperlike 13K', maker: 'DASUNG', category: 'Monitor',
+    id: 'dasung-paperlike-13k', collections: ['monitor'], name: 'Paperlike 13K', maker: 'DASUNG', category: 'Monitor',
     description: 'A 13.3-inch monochrome e-paper monitor for a computer. Connect over USB-C or mini-HDMI, with a choice of models with or without a frontlight.',
     screenInches: 13.3, releaseDate: '2025-03-25', releaseType: 'Product announcement',
     releaseSource: 'https://www.dasung.com/nd.jsp?id=43',
@@ -203,7 +220,7 @@ const recoveredProducts = [
     coverAlt: 'DASUNG Paperlike 13K monochrome monitor',
   },
   {
-    id: 'sotsu-flipaction-elite-16', name: 'FlipAction Elite 16″', maker: 'SOTSU', category: 'LCD monitor',
+    id: 'sotsu-flipaction-elite-16', collections: ['monitor'], name: 'FlipAction Elite 16″', maker: 'SOTSU', category: 'LCD monitor',
     description: 'A 16-inch LCD portable monitor with a 4K display and an adjustable FlipAction stand. Rotate between portrait and landscape, or raise the display above a laptop.',
     screenInches: 16, releaseDate: null, releaseYear: 2025, releaseType: 'Official store listing year; exact launch date unverified',
     releaseSource: 'https://www.sotsu.com/products/flipaction-elite-16.json',
@@ -246,7 +263,7 @@ const recoveredProducts = [
     cover: '/images/legacy/xteink_x3.webp', coverShape: 'x3', coverAlt: 'Xteink X3 pocket e-reader',
   },
   {
-    id: 'boox-palma-2-pro', name: 'Palma 2 Pro', maker: 'BOOX', category: 'E-reader',
+    id: 'boox-palma-2-pro', collections: ['note-taking'], name: 'Palma 2 Pro', maker: 'BOOX', category: 'E-reader',
     description: 'A phone-size e-reader with a 6.13-inch color e-paper touchscreen and Android apps. Supports mobile data through a SIM card and handwriting with the optional BOOX InkSense Plus stylus.',
     screenInches: 6.13, releaseDate: '2025-10-20', releaseType: 'Product announcement',
     releaseSource: 'https://shop.boox.com/blogs/news/unveiling-palma-2-pro-the-6-13-color-mobile-epaper-for-life-in-motion',
@@ -257,7 +274,7 @@ const recoveredProducts = [
     cover: '/images/legacy/boox_palma_2_pro.webp', coverShape: 'palma', coverAlt: 'BOOX Palma 2 Pro mobile e-paper reader',
   },
   {
-    id: 'supernote-nomad', name: 'Nomad', maker: 'Supernote', category: 'Notebook',
+    id: 'supernote-nomad', collections: ['note-taking'], name: 'Nomad', maker: 'Supernote', category: 'Notebook',
     description: 'A 7.8-inch e-paper notebook for handwriting, reading, and document annotation. The A6 X2 has a replaceable battery and microSD expansion.',
     screenInches: 7.8, releaseDate: null, releaseYear: 2023, releaseType: 'Year only; exact date unverified',
     releaseSource: 'https://supernote.com/blogs/supernote-blog/supernote-a6-x2-nomad-wins-the-highest-honor-gold-at-the-german-design-award-2024',
@@ -284,7 +301,7 @@ for (const product of recoveredProducts) {
 const mantaPage = 'https://supernote.com/products/supernote-manta';
 const mantaLaunch = 'https://supernote.com/blogs/supernote-blog/dived-for-inspirations-the-birth-of-supernote-manta';
 products.push({
-  id: 'supernote-manta', name: 'Manta', maker: 'Supernote', category: 'Notebook',
+  id: 'supernote-manta', collections: ['note-taking'], name: 'Manta', maker: 'Supernote', category: 'Notebook',
   description: 'A 10.7-inch e-paper notebook for handwriting, sketching, and PDF annotation. Its flexible display has a FeelWrite 2 writing surface, with a replaceable battery and an upgradeable motherboard.',
   screenInches: 10.7, releaseDate: '2024-12-12', releaseType: 'Product launch', releaseSource: mantaLaunch,
   price: 505, currency: 'USD', priceLabel: 'From US$505', priceSource: mantaPage,
@@ -300,7 +317,7 @@ products.push({
 const go6Gen2Page = 'https://shop.boox.com/products/go6gen2';
 const go6Gen2Launch = 'https://shop.boox.com/blogs/news/discover-boox-go-6-gen2';
 products.push({
-  id: 'boox-go6-gen2', name: 'Go 6 (Gen II)', maker: 'BOOX', category: 'E-reader',
+  id: 'boox-go6-gen2', collections: ['note-taking'], name: 'Go 6 (Gen II)', maker: 'BOOX', category: 'E-reader',
   description: 'A compact 6-inch e-reader with a flush monochrome touchscreen, adjustable warm-and-cool frontlight, and Android apps. Supports handwriting with the optional BOOX InkSense Plus stylus.',
   screenInches: 6, releaseDate: '2026-06-07', releaseType: 'Product announcement', releaseSource: go6Gen2Launch,
   price: 189.99, currency: 'USD', priceLabel: 'From US$189.99', priceSource: go6Gen2Page,
@@ -328,4 +345,69 @@ products.push({
   photos: [{ src: '/images/boox-go6.jpg', alt: 'First-generation BOOX Go 6, front and rear view' }, { src: '/images/boox-go6-front.jpg', alt: 'First-generation BOOX Go 6, complete front view' }],
   verifiedAt: '2026-09-11', sources: [{ label: 'Official product, price, specifications and photography', url: go6Page }, { label: 'Launch announcement', url: go6Launch }],
   mediaCredit: 'Official product photographs by BOOX.',
+});
+
+const plaudNotePage = 'https://www.plaud.ai/products/plaud-note-ai-voice-recorder';
+const plaudNoteLaunch = 'https://www.plaud.ai/blogs/articles/plaud-anniversary';
+products.push({
+  id: 'plaud-note', collections: ['note-taking'], name: 'Note', maker: 'PLAUD', category: 'AI voice recorder',
+  description: 'A card-sized voice recorder with separate modes for meetings and phone calls. Recordings sync to the Plaud app for transcription, summaries, and searchable notes.',
+  screenInches: null, releaseDate: null, releaseYear: 2023, releaseType: 'Year only; exact date unverified', releaseSource: plaudNoteLaunch,
+  price: 159, currency: 'USD', priceLabel: 'US$159', priceSource: plaudNotePage,
+  priceNote: 'Official store device price. Starter plan includes 300 transcription minutes per month; paid plans are optional.',
+  purchaseUrl: plaudNotePage, purchaseLabel: 'View on PLAUD', officialUrl: plaudNotePage, makerUrl: 'https://www.plaud.ai/',
+  specs: [['Display', 'No screen'], ['Recording modes', 'Meetings and phone calls; manual switch'], ['Microphones', '2 MEMS microphones and 1 voice pickup unit'], ['Pickup range', 'Up to 3 m'], ['Storage', '64 GB'], ['Battery', '400 mAh; up to 30 hours of recording'], ['Connectivity', 'Bluetooth, Wi-Fi'], ['Weight', '30 g'], ['Transcription', 'Via Plaud app; 300 minutes per month on Starter plan']],
+  cover: '/images/plaud-note-1.webp', coverShape: 'plaud-card', coverAlt: 'Gray PLAUD Note voice recorder, front view',
+  photos: [{ src: '/images/plaud-note-1.webp', alt: 'PLAUD Note front view with recording mode switch' }, { src: '/images/plaud-note-2.png', alt: 'Official PLAUD Note product photograph' }],
+  verifiedAt: '2026-09-11', sources: [{ label: 'Official product, specifications, price and photography', url: plaudNotePage }, { label: 'Official launch history', url: plaudNoteLaunch }],
+  mediaCredit: 'Official product photographs by PLAUD.',
+});
+
+const plaudProPage = 'https://www.plaud.ai/products/plaud-note-pro';
+const plaudProLaunch = 'https://www.prnewswire.com/news-releases/plaud-launches-plaud-note-pro-the-worlds-first-ai-note-taker-enabling-real-time-human-ai-alignment-302539908.html';
+products.push({
+  id: 'plaud-note-pro', collections: ['note-taking'], name: 'Note Pro', maker: 'PLAUD', category: 'AI voice recorder',
+  description: 'A slim voice recorder with a small AMOLED status display and automatic switching between calls and in-person conversations. Press the recording button to highlight a moment for the AI-generated notes.',
+  screenInches: 0.95, releaseDate: '2025-08-27', releaseType: 'Announcement / pre-order launch', releaseSource: plaudProLaunch,
+  price: 189, currency: 'USD', priceLabel: 'US$189', priceSource: plaudProPage,
+  priceNote: 'Official store device price. Starter plan includes 300 transcription minutes per month; paid plans are optional.',
+  purchaseUrl: plaudProPage, purchaseLabel: 'View on PLAUD', officialUrl: plaudProPage, makerUrl: 'https://www.plaud.ai/',
+  specs: [['Display', '0.95-inch AMOLED InstantView display'], ['Recording modes', 'Automatic call and meeting detection'], ['Microphones', '4 MEMS microphones and 1 voice pickup unit'], ['Pickup range', 'Up to 5 m'], ['Storage', '64 GB'], ['Battery', '500 mAh; up to 50 hours of recording in Endurance mode'], ['Connectivity', 'Bluetooth 5.4, Wi-Fi'], ['Dimensions', '85.6 × 54.1 × 2.99 mm'], ['Weight', '30 g'], ['Transcription', 'Via Plaud app; 300 minutes per month on Starter plan']],
+  cover: '/images/plaud-pro-1.png', coverShape: 'plaud-card', coverAlt: 'Black PLAUD Note Pro voice recorder, front view',
+  photos: [{ src: '/images/plaud-pro-1.png', alt: 'PLAUD Note Pro front view' }, { src: '/images/plaud-pro-2.webp', alt: 'PLAUD Note Pro side view' }],
+  verifiedAt: '2026-09-11', sources: [{ label: 'Official product, specifications, price and photography', url: plaudProPage }, { label: 'PLAUD launch press release', url: plaudProLaunch }],
+  mediaCredit: 'Official product photographs by PLAUD.',
+});
+
+const plaudPinPage = 'https://www.plaud.ai/products/plaud-notepin';
+const plaudPinLaunch = 'https://www.prnewswire.com/news-releases/plaudai-introduces-plaud-notepin-the-future-of-enhanced-productivity-is-an-ultra-light-wearable-ai-device-302232959.html';
+products.push({
+  id: 'plaud-notepin', collections: ['note-taking'], name: 'NotePin', maker: 'PLAUD', category: 'Wearable AI voice recorder',
+  description: 'A lightweight wearable recorder for capturing conversations and spoken ideas. Wear it with a clip, pin, necklace, or wristband, then use the Plaud app to turn recordings into transcripts and summaries.',
+  screenInches: null, releaseDate: '2024-08-28', releaseType: 'Announcement / pre-order launch', releaseSource: plaudPinLaunch,
+  price: 159, currency: 'USD', priceLabel: 'US$159', priceSource: plaudPinPage,
+  priceNote: 'Official store device price. Starter plan includes 300 transcription minutes per month; paid plans are optional. Wearable accessories vary by bundle.',
+  purchaseUrl: plaudPinPage, purchaseLabel: 'View on PLAUD', officialUrl: plaudPinPage, makerUrl: 'https://www.plaud.ai/',
+  specs: [['Display', 'No screen'], ['Microphones', '2 MEMS microphones'], ['Storage', '64 GB'], ['Battery', '270 mAh; up to 20 hours of recording'], ['Standby', 'Up to 40 days'], ['Connectivity', 'Bluetooth, Wi-Fi'], ['Dimensions', '51 × 21 × 11 mm'], ['Weight', '16.6 g without accessories'], ['Transcription', 'Via Plaud app; 300 minutes per month on Starter plan']],
+  cover: '/images/plaud-pin-1.webp', coverShape: 'plaud-pin', coverAlt: 'Gray PLAUD NotePin wearable recorder, front view',
+  photos: [{ src: '/images/plaud-pin-1.webp', alt: 'PLAUD NotePin front view' }, { src: '/images/plaud-pin-2.png', alt: 'Official PLAUD NotePin product photograph' }],
+  verifiedAt: '2026-09-11', sources: [{ label: 'Official product, specifications, price and photography', url: plaudPinPage }, { label: 'PLAUD launch press release', url: plaudPinLaunch }],
+  mediaCredit: 'Official product photographs by PLAUD.',
+});
+
+const max2Page = 'https://www.xunfei.cn/goods?goodsId=2387';
+const max2PricePage = 'https://www.xunfei.cn/categories?keywords=%E9%98%85%E8%AF%BB%E5%99%A8';
+const max2Launch = 'https://www.epaperia.com/News/1653.html';
+products.push({
+  id: 'iflytek-max2', collections: ['note-taking'], name: 'MAX2', maker: 'iFLYTEK', category: 'Notebook',
+  description: 'A 13.3-inch monochrome E Ink notebook for handwriting, document reading, and meeting notes. Combines a Wacom pen with an eight-microphone array for voice transcription and AI-assisted summaries.',
+  screenInches: 13.3, releaseDate: '2025-12-28', releaseType: 'Joint product announcement', releaseSource: max2Launch,
+  price: 6399, currency: 'CNY', priceLabel: 'CN¥6,399', priceSource: max2PricePage,
+  priceNote: 'China official store price; availability, shipping and regional services depend on destination.',
+  purchaseUrl: max2Page, purchaseLabel: 'View on iFLYTEK', officialUrl: max2Page, makerUrl: 'https://www.xunfei.cn/',
+  specs: [['Display', '13.3-inch monochrome E Ink'], ['Resolution', '3200 × 2400 pixels; 300 PPI'], ['Stylus', 'Custom Wacom magnetic battery-free electromagnetic pen'], ['Operating system', 'Android 15'], ['Memory', '6 GB RAM, 128 GB storage'], ['Audio', '8 microphones and 2 speakers'], ['Battery', '5,500 mAh'], ['Connectivity', 'Wi-Fi 6, Bluetooth 5.3, USB-C (USB 2.0)'], ['Dimensions', '231 × 300 × 4.55 mm'], ['Weight', 'About 595 g without cover']],
+  cover: '/images/iflytek-max2.png', coverShape: 'max2', coverAlt: 'iFLYTEK MAX2 E Ink notebook with its magnetic stylus',
+  photos: [{ src: '/images/iflytek-max2.png', alt: 'iFLYTEK MAX2 front view with stylus' }],
+  verifiedAt: '2026-09-11', sources: [{ label: 'Official product, specifications and photography', url: max2Page }, { label: 'Official store price', url: max2PricePage }, { label: 'Joint launch reported by the E-Paper Industry Alliance', url: max2Launch }],
+  mediaCredit: 'Official product photographs by iFLYTEK.',
 });

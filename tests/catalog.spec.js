@@ -41,7 +41,7 @@ for (const width of [375, 768, 1440]) {
 
 test('Modos Flow has independent product content and selectable models', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('.product-card h3')).toHaveText(["Paper Mono", "TICKEY", "reTerminal Sticky", "Go 6 (Gen II)", "Modos Flow", "Nest 7-inch", "Muse 10-inch", "Gallery 28.5-inch", "X4 Classic (V2)", "X4 Pro", "X3", "C1 Slim", "Palma 2 Pro", "Paperlike 13K", "OBOOK5", "FlipAction Elite 16″", "PaperS3", "Manta", "Go 6", "Nomad"]);
+  await expect(page.locator('.product-card h3')).toHaveText(["Paper Mono", "TICKEY", "reTerminal Sticky", "Go 6 (Gen II)", "Modos Flow", "Paper Color", "Nest 7-inch", "Muse 10-inch", "Gallery 28.5-inch", "X4 Classic (V2)", "X4 Pro", "MAX2", "X3", "Palma 2 Pro", "Note Pro", "Paperlike 13K", "OBOOK5", "FlipAction Elite 16″", "PaperS3", "Manta", "NotePin", "Go 6", "Nomad", "Note"]);
   await page.getByRole('link', { name: 'Explore Modos Flow by Modos', exact: true }).click();
   const dialog = page.getByRole('dialog');
   await expect(dialog.getByRole('heading', { name: 'Modos Flow' })).toBeVisible();
@@ -59,7 +59,7 @@ test('Modos Flow has independent product content and selectable models', async (
 test('brand filters preserve year sections and newest-first ordering', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.sort-button')).toHaveCount(0);
-  await expect(page.locator('.brand-button')).toHaveText(['BOOX', 'DASUNG', 'ENILINX', 'Guowen', 'InkJoy', 'Koridy', 'M5Stack', 'Modos', 'Seeed Studio', 'SOTSU', 'Supernote', 'Xteink']);
+  await expect(page.locator('.brand-button')).toHaveText(['BOOX', 'DASUNG', 'ENILINX', 'Guowen', 'iFLYTEK', 'InkJoy', 'M5Stack', 'Modos', 'PLAUD', 'Seeed Studio', 'SOTSU', 'Supernote', 'Xteink']);
   const brand = page.getByRole('button', { name: 'Xteink', exact: true });
   await brand.click();
   await expect(brand).toHaveAttribute('aria-pressed', 'true');
@@ -69,10 +69,10 @@ test('brand filters preserve year sections and newest-first ordering', async ({ 
   await brand.click();
   await expect(brand).toHaveAttribute('aria-pressed', 'false');
   await expect(page.locator('.year-heading')).toHaveText(['2026', '2025', '2024', '2023']);
-  await expect(page.locator('.product-card')).toHaveCount(20);
+  await expect(page.locator('.product-card')).toHaveCount(24);
   await page.getByRole('button', { name: 'M5Stack', exact: true }).click();
   await expect(page.locator('.year-heading')).toHaveText(['2026', '2024']);
-  await expect(page.locator('.product-card h3')).toHaveText(['Paper Mono', 'PaperS3']);
+  await expect(page.locator('.product-card h3')).toHaveText(['Paper Mono', 'Paper Color', 'PaperS3']);
 });
 
 test('PaperS3 has product details and EOL status', async ({ page }) => {
@@ -90,7 +90,6 @@ test('PaperS3 has product details and EOL status', async ({ page }) => {
 for (const [id, name, price, size, release, buy] of [
   ['obook5', 'OBOOK5', 'US$89.98', '4.26 inches', '2025', 'View on Amazon'],
   ['m5stack-paper-mono', 'Paper Mono', 'US$65', '3.97 inches', '21 Aug 2026', 'View on M5Stack'],
-  ['koridy-c1-slim', 'C1 Slim', 'CN¥499', '2.66 inches', '1 Nov 2025', 'View on JD'],
 ]) {
   test(`${name} has its own photos, price, purchase link and specs`, async ({ page }) => {
     await page.goto(`/#product/${id}`);
