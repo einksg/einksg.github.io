@@ -57,13 +57,13 @@ for (const width of [375, 768, 1440]) {
 
 test('Modos Flow has independent product content and selectable models', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('.product-card h3')).toHaveText(["Paper Mono", "TICKEY", "reTerminal Sticky", "Modos Flow", "Nest 7-inch", "Muse 10-inch", "Gallery 28.5-inch", "C1 Slim", "Palma 2 Pro", "OBOOK5", "PaperS3", "Paperlike 13K", "FlipAction Elite 16″", "X4", "X3", "Nomad"]);
+  await expect(page.locator('.product-card h3')).toHaveText(["Paper Mono", "TICKEY", "reTerminal Sticky", "Modos Flow", "Nest 7-inch", "Muse 10-inch", "Gallery 28.5-inch", "X4 Classic (V2)", "X4 Pro", "X3", "C1 Slim", "Palma 2 Pro", "Paperlike 13K", "OBOOK5", "FlipAction Elite 16″", "PaperS3", "Nomad"]);
   await page.getByRole('button', { name: 'Release date', exact: true }).click();
-  await expect(page.locator('.product-card h3')).toHaveText(["PaperS3", "OBOOK5", "Palma 2 Pro", "C1 Slim", "Nest 7-inch", "Muse 10-inch", "Gallery 28.5-inch", "Modos Flow", "reTerminal Sticky", "TICKEY", "Paper Mono", "Paperlike 13K", "FlipAction Elite 16″", "X4", "X3", "Nomad"]);
+  await expect(page.locator('.product-card h3')).toHaveText(["Nomad", "PaperS3", "OBOOK5", "FlipAction Elite 16″", "Paperlike 13K", "Palma 2 Pro", "C1 Slim", "X3", "Nest 7-inch", "Muse 10-inch", "Gallery 28.5-inch", "X4 Classic (V2)", "X4 Pro", "Modos Flow", "reTerminal Sticky", "TICKEY", "Paper Mono"]);
   await page.getByRole('button', { name: 'Screen size', exact: true }).click();
-  await expect(page.locator('.product-card h3')).toHaveText(["C1 Slim", "TICKEY", "X3", "Paper Mono", "reTerminal Sticky", "OBOOK5", "X4", "PaperS3", "Palma 2 Pro", "Nest 7-inch", "Nomad", "Muse 10-inch", "Modos Flow", "Paperlike 13K", "FlipAction Elite 16″", "Gallery 28.5-inch"]);
+  await expect(page.locator('.product-card h3')).toHaveText(["C1 Slim", "TICKEY", "X3", "Paper Mono", "reTerminal Sticky", "OBOOK5", "X4 Classic (V2)", "X4 Pro", "PaperS3", "Palma 2 Pro", "Nest 7-inch", "Nomad", "Muse 10-inch", "Modos Flow", "Paperlike 13K", "FlipAction Elite 16″", "Gallery 28.5-inch"]);
   await page.getByRole('button', { name: 'Screen size', exact: true }).click();
-  await expect(page.locator('.product-card h3')).toHaveText(["Gallery 28.5-inch", "FlipAction Elite 16″", "Modos Flow", "Paperlike 13K", "Muse 10-inch", "Nomad", "Nest 7-inch", "Palma 2 Pro", "PaperS3", "X4", "OBOOK5", "Paper Mono", "reTerminal Sticky", "TICKEY", "X3", "C1 Slim"]);
+  await expect(page.locator('.product-card h3')).toHaveText(["Gallery 28.5-inch", "FlipAction Elite 16″", "Modos Flow", "Paperlike 13K", "Muse 10-inch", "Nomad", "Nest 7-inch", "Palma 2 Pro", "PaperS3", "X4 Classic (V2)", "X4 Pro", "OBOOK5", "Paper Mono", "reTerminal Sticky", "TICKEY", "X3", "C1 Slim"]);
   await page.getByRole('link', { name: 'Explore Modos Flow by Modos', exact: true }).click();
   const dialog = page.getByRole('dialog');
   await expect(dialog.getByRole('heading', { name: 'Modos Flow' })).toBeVisible();
@@ -92,7 +92,7 @@ test('sidebar lists sorting first and brands alphabetically, and filters preserv
   await page.getByRole('button', { name: 'Screen size', exact: true }).click();
   await expect(page.locator('.product-card h3')).toHaveText(['C1 Slim']);
   await brand.click();
-  await expect(page.locator('.product-card h3')).toHaveText(["C1 Slim", "TICKEY", "X3", "Paper Mono", "reTerminal Sticky", "OBOOK5", "X4", "PaperS3", "Palma 2 Pro", "Nest 7-inch", "Nomad", "Muse 10-inch", "Modos Flow", "Paperlike 13K", "FlipAction Elite 16″", "Gallery 28.5-inch"]);
+  await expect(page.locator('.product-card h3')).toHaveText(["C1 Slim", "TICKEY", "X3", "Paper Mono", "reTerminal Sticky", "OBOOK5", "X4 Classic (V2)", "X4 Pro", "PaperS3", "Palma 2 Pro", "Nest 7-inch", "Nomad", "Muse 10-inch", "Modos Flow", "Paperlike 13K", "FlipAction Elite 16″", "Gallery 28.5-inch"]);
   await expect(brand).toHaveAttribute('aria-pressed', 'false');
 });
 

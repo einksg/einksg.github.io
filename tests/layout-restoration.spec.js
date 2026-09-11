@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const expectedProducts = ["Paper Mono", "TICKEY", "reTerminal Sticky", "Modos Flow", "Nest 7-inch", "Muse 10-inch", "Gallery 28.5-inch", "C1 Slim", "Palma 2 Pro", "OBOOK5", "PaperS3", "Paperlike 13K", "FlipAction Elite 16″", "X4", "X3", "Nomad"];
+const expectedProducts = ["Paper Mono", "TICKEY", "reTerminal Sticky", "Modos Flow", "Nest 7-inch", "Muse 10-inch", "Gallery 28.5-inch", "X4 Classic (V2)", "X4 Pro", "X3", "C1 Slim", "Palma 2 Pro", "Paperlike 13K", "OBOOK5", "FlipAction Elite 16″", "PaperS3", "Nomad"];
 
 test('keeps the added products and original desktop spacing', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });

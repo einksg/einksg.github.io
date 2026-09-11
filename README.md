@@ -1,6 +1,6 @@
 # eink.sg
 
-English e-paper product catalog. White background, responsive product grid, a left sidebar with sorting and brand filters, and simple product details with photos, a description, purchase link and separate Specs section. The catalog currently includes TICKEY, Modos Flow, OBOOK5, Paper Mono, PaperS3 and C1 Slim.
+English e-paper product catalog. White background, responsive product grid, a left sidebar with sorting and brand filters, and simple product details with photos, a description, purchase link and separate Specs section. The catalog includes 17 devices and frames, including all three current Xteink readers.
 
 ## Run
 
@@ -17,7 +17,7 @@ Add entries in `src/products.js`; put their media in `public/images/`. Every ent
 
 Click a brand to filter; click it again to show everything. Sorting stays active while filtering. Release date is the first sidebar button and defaults to newest first. Screen size starts smallest first. Clicking the active sorting button reverses its direction. Selecting the other button starts its default direction.
 
-Each product has a shareable route, e.g. `/#product/tickey`. Opening, closing, browser navigation, Escape and focus restoration work without a backend. Data is locally curated, not user-submitted HTML.
+Each product has a shareable route, e.g. `/product/tickey/`. Opening, closing, browser navigation, Escape and focus restoration work without a backend. Data is locally curated, not user-submitted HTML.
 
 ## Verify
 
@@ -40,6 +40,6 @@ No checkout, account, tracking, analytics or external requests run on page load;
 
 ## Unified catalog · September 11, 2026
 
-The eink.sg catalog now contains 16 products. Existing InkJoy Nest, Muse and Gallery frames, reTerminal Sticky, and six original listings are preserved. Added from the former apov store: DASUNG Paperlike 13K, SOTSU FlipAction Elite 16″ (LCD), Xteink X4 and X3, BOOX Palma 2 Pro, and Supernote Nomad. Only product identities and images were reused; concise descriptions and specs were curated afresh. Unknown release dates remain null. X4 and Palma 2 Pro use “Price at retailer” where a current price could not be verified. Enchanter is the controller in Modos Flow, not a separate monitor (https://gitlab.com/zephray/enchanter).
+The eink.sg catalog now contains 17 products. Existing InkJoy Nest, Muse and Gallery frames, reTerminal Sticky, and six original listings are preserved. Added from the former apov store: DASUNG Paperlike 13K, SOTSU FlipAction Elite 16″ (LCD), Xteink X4 Classic (V2), X4 Pro and X3, BOOX Palma 2 Pro, and Supernote Nomad. Only product identities and images were reused; concise descriptions and specs were curated afresh. Every device has a release year or date. Year-only entries keep the exact date null. SOTSU uses its official store listing year (2025); its exact launch date is unverified. X3 uses its overseas pre-order launch on December 11, 2025. X4 Classic (V2) replaces the original X4 while retaining its route; X4 Pro has its own route. Their official USD prices are $79 and $99, with X3 at $69. Palma 2 Pro starts at $379.99 for the Hong Kong warehouse Standard Bundle; the US warehouse Standard Bundle is $399.99. Prefer English official product stores and their prices when available. Enchanter is the controller in Modos Flow, not a separate monitor (https://gitlab.com/zephray/enchanter).
 
-PaperS3 uses the existing straight-on image. C1 Slim now uses the complete `public/images/c1slim.webp` image supplied in `images/`. Product sources are recorded in `src/products.js`. The apov store points to https://eink.sg/; maintain this catalog as the single source.
+PaperS3 uses the existing straight-on image. C1 Slim now uses the complete `public/images/c1slim.webp` image supplied in `images/`. Homepage-only CSS framing enlarges padded product photographs while preserving complete device outlines and original detail images. Product sources are recorded in `src/products.js`. The apov store points to https://eink.sg/; maintain this catalog as the single source.

@@ -139,5 +139,17 @@
     "source": "images/c1slim.webp",
     "accessed": "2026-09-11",
     "notes": "User-supplied complete product image, copied unchanged. No device cropping."
+  },
+  {
+    "file": "public/images/xteink-x4-classic.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0759/9344/8689/files/8a4bec83b8bf4fa96b4499b1db6dd84f.jpg?v=1788789486",
+    "source": "https://www.xteink.com/products/xteink-x4-classic-pocket-ereader",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/xteink-x4-pro.png",
+    "url": "https://cdn.shopify.com/s/files/1/0759/9344/8689/files/1_8093cabd-9ffe-4500-bd4f-c01f1f185951.png?v=1788788834",
+    "source": "https://www.xteink.com/products/xteink-x4-pro-pocket-ereader",
+    "accessed": "2026-09-11"
   }
 ]
