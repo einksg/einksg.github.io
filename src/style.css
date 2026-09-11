@@ -52,7 +52,7 @@ main { flex: 1; }
 .product-image.papers3 .product-image-crop { width: 175px; height: 190px; }
 .product-image.papers3 img { position: absolute; width: 155%; height: auto; max-width: none; left: -27.5%; top: -18%; }
 .product-topline { text-align: center; margin: 19px 0 16px; }
-.product-topline h3 { margin: 0 0 6px; font-size: 14px; font-weight: 500; }
+.product-topline h3 { margin: 0 0 6px; font-size: 14px; font-weight: 650; }
 .product-topline > span { font-size: 12px; color: var(--muted); }
 .card-price { margin: 12px 0 0; text-align: center; font-size: 13px; color: var(--muted); }
 .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 25px; font-size: 10px; color: var(--muted); }
@@ -61,7 +61,7 @@ main { flex: 1; }
 dialog { padding: 0; border: 0; border-radius: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; color: #171717; background: #fff; overscroll-behavior: contain; }
 dialog::backdrop { background: #fff; }
 .dialog-toolbar { max-width: 1536px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 26px 48px; background: #fff; }
-.dialog-toolbar > span { font-size: 22px; font-weight: 450; letter-spacing: -.8px; }
+.dialog-toolbar .detail-brand { font-size: 22px; font-weight: 450; letter-spacing: -.8px; }
 .close-button { min-height: 44px; min-width: 44px; font-size: 20px; }
 .product-layout { max-width: 1320px; margin: 35px auto 75px; display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 90px; padding: 0 48px; }
 .gallery { min-width: 0; align-self: start; }
@@ -73,7 +73,7 @@ dialog::backdrop { background: #fff; }
 .gallery-photo.papers3-photo { overflow: hidden; }
 .gallery-photo.papers3-photo img { width: 155%; max-width: none; }
 .product-info { align-self: start; position: sticky; top: 24px; padding: 20px 0; max-width: 420px; }
-.product-info h2 { font-size: 30px; font-weight: 450; letter-spacing: -.8px; line-height: 1.2; margin: 0 0 12px; }
+.product-info h2 { font-size: 30px; font-weight: 650; letter-spacing: -.8px; line-height: 1.2; margin: 0 0 12px; }
 .maker-byline { font-size: 14px; color: var(--muted); }
 .price-label { font-size: 20px; margin: 22px 0; }
 .detail-description { font-size: 15px; line-height: 1.7; margin: 25px 0 30px; }
@@ -126,7 +126,7 @@ dialog::backdrop { background: #fff; }
   .product-topline h3 { font-size: 13px; }
   .product-topline > span, .card-price { font-size: 12px; }
   .dialog-toolbar { padding: 18px 16px 8px 22px; }
-  .dialog-toolbar > span { font-size: 20px; }
+  .dialog-toolbar .detail-brand { font-size: 20px; }
   .product-layout { grid-template-columns: 1fr; margin: 20px auto 35px; padding-inline: 22px; gap: 30px; }
   .gallery-stack { gap: 16px; }
   .gallery-photo { min-height: 240px; }

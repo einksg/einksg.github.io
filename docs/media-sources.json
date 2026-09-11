@@ -97,5 +97,47 @@
     "source": "https://www.ruten.com.tw/item/22601857206672/",
     "accessed": "2026-09-10",
     "notes": "Original source asset. CSS frames the product where needed; image pixels are unchanged."
+  },
+  {
+    "file": "public/images/legacy/sotsu_flipaction_elite.png",
+    "source": "apov2025.github.io/assets/images/store/sotsu_flipaction_elite.png",
+    "accessed": "2026-09-11",
+    "notes": "Original image reused from previous store; original photographer unverified."
+  },
+  {
+    "file": "public/images/legacy/dasung_paperlike_13k_bw.png",
+    "source": "apov2025.github.io/assets/images/store/dasung_paperlike_13k_bw.png",
+    "accessed": "2026-09-11",
+    "notes": "Original image reused from previous store; original photographer unverified."
+  },
+  {
+    "file": "public/images/legacy/boox_palma_2_pro.webp",
+    "source": "apov2025.github.io/assets/images/store/boox_palma_2_pro.webp",
+    "accessed": "2026-09-11",
+    "notes": "Original image reused from previous store; original photographer unverified."
+  },
+  {
+    "file": "public/images/legacy/xteink_x3.webp",
+    "source": "apov2025.github.io/assets/images/store/xteink_x3.webp",
+    "accessed": "2026-09-11",
+    "notes": "Original image reused from previous store; original photographer unverified."
+  },
+  {
+    "file": "public/images/legacy/xteink-x4.webp",
+    "source": "apov2025.github.io/assets/images/store/xteink-x4.webp",
+    "accessed": "2026-09-11",
+    "notes": "Original image reused from previous store; original photographer unverified."
+  },
+  {
+    "file": "public/images/legacy/supernote_nomad.webp",
+    "source": "apov2025.github.io/assets/images/store/supernote_nomad.webp",
+    "accessed": "2026-09-11",
+    "notes": "Original image reused from previous store; original photographer unverified."
+  },
+  {
+    "file": "public/images/c1slim.webp",
+    "source": "images/c1slim.webp",
+    "accessed": "2026-09-11",
+    "notes": "User-supplied complete product image, copied unchanged. No device cropping."
   }
 ]

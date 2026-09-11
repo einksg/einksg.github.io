@@ -14,7 +14,7 @@ let activeBrand = null;
 function renderCatalog(order = 'date-desc') {
   const visibleProducts = products.filter(product => !activeBrand || product.maker === activeBrand);
   grid.innerHTML = sortProducts(visibleProducts, order).map(product => `<article class="product-card">
-    <a class="product-link" href="#product/${escape(product.id)}" aria-label="Explore ${escape(product.name)} by ${escape(product.maker)}">
+    <a class="product-link" href="/product/${escape(product.id)}/" aria-label="Explore ${escape(product.name)} by ${escape(product.maker)}">
       <div class="product-image ${escape(product.coverShape || '')}"><span class="product-image-crop"><img src="${escape(product.cover)}" alt="${escape(product.coverAlt || product.name)}" width="900" height="1464"></span></div>
       <div class="product-topline"><h3>${escape(product.name)}</h3><span>${escape(product.maker)}${product.releaseDate || product.releaseYear ? ` (${escape(product.releaseDate?.slice(0, 4) || product.releaseYear)})` : ''}</span></div>
       <p class="card-price">${escape(product.priceLabel)}</p>
@@ -65,7 +65,7 @@ function closeDialog(dialog, updateUrl = true) {
   dialog.querySelectorAll('iframe').forEach(frame => frame.remove());
   dialog.close();
   document.body.classList.remove('dialog-open');
-  if (updateUrl) history.replaceState(null, '', location.pathname + location.search);
+  if (updateUrl) history.replaceState(null, '', `/${location.search}`);
   document.title = 'Catalog by eink.sg';
   if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
 }
@@ -85,7 +85,7 @@ function openProduct(product) {
   activeProduct = product;
   const initialPrice = product.variants?.[0].priceLabel || product.priceLabel;
   document.title = `${product.name} by ${product.maker} — Catalog by eink.sg`;
-  productDialog.innerHTML = `<div class="dialog-toolbar"><span class="detail-brand"><strong>Catalog</strong> <span>by eink.sg</span></span><button class="close-button" data-close aria-label="Close product">✕</button></div>
+  productDialog.innerHTML = `<div class="dialog-toolbar"><a class="detail-brand" href="/"><strong>Catalog</strong> <span>by eink.sg</span></a><button class="close-button" data-close aria-label="Close product">✕</button></div>
     <div class="product-layout"><div class="gallery"><div class="gallery-stack" aria-label="Product photos">${product.photos.map(photo => `<div class="gallery-photo ${photo.crop === 'c1slim' ? 'c1slim-photo' : photo.crop === 'papers3' ? 'papers3-photo' : ''}"><img src="${escape(photo.src)}" alt="${escape(photo.alt)}" loading="lazy"></div>`).join('')}</div>
     </div>
     <div class="product-info"><h2 id="product-title">${escape(product.name)}</h2>
@@ -109,22 +109,22 @@ function openProduct(product) {
 }
 
 function route() {
-  const hash = location.hash;
-  const product = hash.startsWith('#product/') ? products.find(item => `#product/${item.id}` === hash) : null;
+  const legacyProduct = products.find(item => `#product/${item.id}` === location.hash);
+  if (legacyProduct) history.replaceState(null, '', `/product/${legacyProduct.id}/${location.search}`);
+  const path = location.pathname.replace(/\/$/, '');
+  const product = products.find(item => `/product/${item.id}` === path);
   for (const dialog of [productDialog]) if (dialog.open) closeDialog(dialog, false);
   if (product) openProduct(product);
 }
 
 document.addEventListener('click', event => {
-  const link = event.target.closest('a[href^="#"]');
-  if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const link = event.target.closest('a[href^="/product/"]');
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   const href = link.getAttribute('href');
-  if (href.startsWith('#product/')) {
-    event.preventDefault();
-    if (!productDialog.open) returnFocus = link;
-    history.pushState(null, '', href);
-    route();
-  }
+  event.preventDefault();
+  if (!productDialog.open) returnFocus = link;
+  history.pushState(null, '', href);
+  route();
 });
 window.addEventListener('popstate', route);
 window.addEventListener('hashchange', route);

@@ -37,3 +37,9 @@ Sources and verification dates live in `src/products.js`; `docs/media-sources.js
 OBOOK5's year is supported by contemporary coverage; the exact release date is unverified. Its price and purchase link use Amazon.com (US$89.98, verified September 10, 2026, USD display with delivery to Singapore; excludes shipping and taxes). C1 Slim's release date is retailer-reported; its CN¥499 original price was supplied by the catalog owner, and its retailer may require login. Prices retain their source currencies.
 
 No checkout, account, tracking, analytics or external requests run on page load; outbound links open only when selected. Inter is bundled locally. Previously collected video and community metadata remain available in the data file for future use, but the product page shows photos only.
+
+## Unified catalog · September 11, 2026
+
+The eink.sg catalog now contains 16 products. Existing InkJoy Nest, Muse and Gallery frames, reTerminal Sticky, and six original listings are preserved. Added from the former apov store: DASUNG Paperlike 13K, SOTSU FlipAction Elite 16″ (LCD), Xteink X4 and X3, BOOX Palma 2 Pro, and Supernote Nomad. Only product identities and images were reused; concise descriptions and specs were curated afresh. Unknown release dates remain null. X4 and Palma 2 Pro use “Price at retailer” where a current price could not be verified. Enchanter is the controller in Modos Flow, not a separate monitor (https://gitlab.com/zephray/enchanter).
+
+PaperS3 uses the existing straight-on image. C1 Slim now uses the complete `public/images/c1slim.webp` image supplied in `images/`. Product sources are recorded in `src/products.js`. The apov store points to https://eink.sg/; maintain this catalog as the single source.
