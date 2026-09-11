@@ -1,6 +1,6 @@
 # eink.sg
 
-English e-paper product catalog. White background, responsive product grid, a left sidebar with sorting and brand filters, and simple product details with photos, a description, purchase link and separate Specs section. The catalog includes 17 devices and frames, including all three current Xteink readers.
+English e-paper product catalog. White background, responsive product grid, a left sidebar with brand filters and subtle year sections, and simple product details with photos, a description, purchase link and separate Specs section. The catalog includes 20 devices and frames, including all three current Xteink readers.
 
 ## Run
 
@@ -15,7 +15,7 @@ Open http://localhost:5173. Production: `npm run build`; upload `dist/` to any s
 
 Add entries in `src/products.js`; put their media in `public/images/`. Every entry includes `screenInches` (numeric), `releaseDate` (ISO YYYY-MM-DD or null), `releaseType`, and a source URL. Use `releaseYear` when only the year is known; sorting uses the start of that year, while the page displays only the year. The homepage shows product name, company with year in parentheses, and price. Screen size and release date appear in Specs. Crowdfunding launch and fulfillment are different dates. Keep unconfirmed current prices null and label them “Price at retailer.” Add sources and a `verifiedAt` date. Cards and alphabetical brand filters generate automatically.
 
-Click a brand to filter; click it again to show everything. Sorting stays active while filtering. Release date is the first sidebar button and defaults to newest first. Screen size starts smallest first. Clicking the active sorting button reverses its direction. Selecting the other button starts its default direction.
+Click a brand to filter; click it again to show everything. Products are always ordered by release date, newest first, in separate year sections. Each section uses a small year heading and a fine divider. Brand filters keep this grouping and omit empty years. There are no user-selectable sorting controls.
 
 Each product has a shareable route, e.g. `/product/tickey/`. Opening, closing, browser navigation, Escape and focus restoration work without a backend. Data is locally curated, not user-submitted HTML.
 
@@ -28,7 +28,7 @@ npm test
 npm run build
 ```
 
-Browser tests cover desktop, tablet and mobile layouts, sorting controls, gallery switching, deep links, outbound purchase links, keyboard closing and product deep links. Numeric/date sorting tests use several products including missing metadata.
+Browser tests cover desktop, tablet and mobile layouts, year grouping, brand filtering, gallery switching, deep links, outbound purchase links, keyboard closing and product deep links. Release sorting tests cover fixed descending order, year-only dates, stable ties, and missing metadata.
 
 ## Sources
 
@@ -40,6 +40,8 @@ No checkout, account, tracking, analytics or external requests run on page load;
 
 ## Unified catalog · September 11, 2026
 
-The eink.sg catalog now contains 17 products. Existing InkJoy Nest, Muse and Gallery frames, reTerminal Sticky, and six original listings are preserved. Added from the former apov store: DASUNG Paperlike 13K, SOTSU FlipAction Elite 16″ (LCD), Xteink X4 Classic (V2), X4 Pro and X3, BOOX Palma 2 Pro, and Supernote Nomad. Only product identities and images were reused; concise descriptions and specs were curated afresh. Every device has a release year or date. Year-only entries keep the exact date null. SOTSU uses its official store listing year (2025); its exact launch date is unverified. X3 uses its overseas pre-order launch on December 11, 2025. X4 Classic (V2) replaces the original X4 while retaining its route; X4 Pro has its own route. Their official USD prices are $79 and $99, with X3 at $69. Palma 2 Pro starts at $379.99 for the Hong Kong warehouse Standard Bundle; the US warehouse Standard Bundle is $399.99. Prefer English official product stores and their prices when available. Enchanter is the controller in Modos Flow, not a separate monitor (https://gitlab.com/zephray/enchanter).
+The eink.sg catalog now contains 20 products. Existing InkJoy Nest, Muse and Gallery frames, reTerminal Sticky, and six original listings are preserved. Added from the former apov store: DASUNG Paperlike 13K, SOTSU FlipAction Elite 16″ (LCD), Xteink X4 Classic (V2), X4 Pro and X3, BOOX Palma 2 Pro, and Supernote Nomad. Only product identities and images were reused; concise descriptions and specs were curated afresh. Every device has a release year or date. Year-only entries keep the exact date null. SOTSU uses its official store listing year (2025); its exact launch date is unverified. X3 uses its overseas pre-order launch on December 11, 2025. X4 Classic (V2) replaces the original X4 while retaining its route; X4 Pro has its own route. Their official USD prices are $79 and $99, with X3 at $69. Palma 2 Pro starts at $379.99 for the Hong Kong warehouse Standard Bundle; the US warehouse Standard Bundle is $399.99. Prefer English official product stores and their prices when available. Enchanter is the controller in Modos Flow, not a separate monitor (https://gitlab.com/zephray/enchanter).
 
 PaperS3 uses the existing straight-on image. C1 Slim now uses the complete `public/images/c1slim.webp` image supplied in `images/`. Homepage-only CSS framing enlarges padded product photographs while preserving complete device outlines and original detail images. Product sources are recorded in `src/products.js`. The apov store points to https://eink.sg/; maintain this catalog as the single source.
+
+Supernote Manta (December 12, 2024) and BOOX Go 6 (Gen II) (June 7, 2026) use official store photographs, specifications and USD prices. First-generation BOOX Go 6 (August 25, 2024) is a separate listing from Gen II. All three appear in their release-year sections.

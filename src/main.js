@@ -11,19 +11,27 @@ let returnFocus;
 let activeProduct;
 let activeBrand = null;
 
-function renderCatalog(order = 'date-desc') {
+function renderCatalog() {
   const visibleProducts = products.filter(product => !activeBrand || product.maker === activeBrand);
-  grid.innerHTML = sortProducts(visibleProducts, order).map(product => `<article class="product-card">
+  const years = new Map();
+  for (const product of sortProducts(visibleProducts)) {
+    const year = product.releaseDate?.slice(0, 4) || product.releaseYear || 'Undated';
+    if (!years.has(String(year))) years.set(String(year), []);
+    years.get(String(year)).push(product);
+  }
+  grid.innerHTML = [...years].map(([year, yearProducts]) => `<section class="year-section" aria-labelledby="year-${escape(year)}">
+    <h2 class="year-heading" id="year-${escape(year)}">${escape(year)}</h2>
+    <div class="product-grid">${yearProducts.map(product => `<article class="product-card">
     <a class="product-link" href="/product/${escape(product.id)}/" aria-label="Explore ${escape(product.name)} by ${escape(product.maker)}">
       <div class="product-image ${escape(product.coverShape || '')}"><span class="product-image-crop"><img src="${escape(product.cover)}" alt="${escape(product.coverAlt || product.name)}" width="900" height="1464"></span></div>
       <div class="product-topline"><h3>${escape(product.name)}</h3><span>${escape(product.maker)}${product.releaseDate || product.releaseYear ? ` (${escape(product.releaseDate?.slice(0, 4) || product.releaseYear)})` : ''}</span></div>
       <p class="card-price">${escape(product.priceLabel)}</p>
     </a>
-  </article>`).join('');
+  </article>`).join('')}</div>
+  </section>`).join('');
   document.querySelector('#product-count').textContent = `${visibleProducts.length} ${visibleProducts.length === 1 ? 'product' : 'products'}${activeBrand ? ` by ${activeBrand}` : ''}`;
 }
 
-let sortOrder = 'date-desc';
 const brandFilters = document.querySelector('#brand-filters');
 brandFilters.innerHTML = [...new Set(products.map(product => product.maker))]
   .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }))
@@ -35,31 +43,8 @@ brandFilters.addEventListener('click', event => {
   for (const brandButton of brandFilters.querySelectorAll('button')) {
     brandButton.setAttribute('aria-pressed', String(brandButton.dataset.brand === activeBrand));
   }
-  renderCatalog(sortOrder);
+  renderCatalog();
 });
-const sortLabels = {
-  'size-asc': 'Screen size: smallest to largest.',
-  'size-desc': 'Screen size: largest to smallest.',
-  'date-desc': 'Release date: newest to oldest.',
-  'date-asc': 'Release date: oldest to newest.',
-};
-
-for (const [id, field, initialDirection] of [['sort-size', 'size', 'asc'], ['sort-date', 'date', 'desc']]) {
-  document.getElementById(id).addEventListener('click', () => {
-    const direction = sortOrder.startsWith(`${field}-`)
-      ? (sortOrder.endsWith('asc') ? 'desc' : 'asc')
-      : initialDirection;
-    sortOrder = `${field}-${direction}`;
-    for (const button of document.querySelectorAll('.sort-button')) {
-      const active = button.id === id;
-      button.setAttribute('aria-pressed', String(active));
-      button.querySelector('.sort-direction').textContent = active ? (direction === 'asc' ? '↑' : '↓') : '';
-    }
-    renderCatalog(sortOrder);
-    document.querySelector('#sort-status').textContent = sortLabels[sortOrder];
-  });
-}
-
 function closeDialog(dialog, updateUrl = true) {
   dialog.querySelectorAll('video').forEach(video => video.pause());
   dialog.querySelectorAll('iframe').forEach(frame => frame.remove());

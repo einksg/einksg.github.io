@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 
 const productIds = [
-  'tickey', 'modos-flow', 'obook5', 'koridy-c1-slim', 'm5stack-paper-mono',
+  'supernote-manta', 'boox-go6', 'boox-go6-gen2', 'tickey', 'modos-flow', 'obook5', 'koridy-c1-slim', 'm5stack-paper-mono',
   'm5stack-paper-s3', 'seeed-studio-sticky', 'inkjoy-nest-7', 'inkjoy-muse-10',
   'inkjoy-gallery-28-5', 'dasung-paperlike-13k', 'sotsu-flipaction-elite-16',
   'xteink-x4', 'xteink-x4-pro', 'xteink-x3', 'boox-palma-2-pro', 'supernote-nomad',
 ];
 
-test('all 17 products have working direct routes, images, and purchase links', async ({ page }) => {
+test('all 20 products have working direct routes, images, and purchase links', async ({ page }) => {
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   for (const id of productIds) {
@@ -22,7 +22,7 @@ test('all 17 products have working direct routes, images, and purchase links', a
     await expect(dialog.getByRole('heading', { name: 'Specs', exact: true })).toBeVisible();
     await page.getByRole('button', { name: 'Close product' }).click();
     await expect(page).toHaveURL(/\/$/);
-    await expect(page.locator('.product-card')).toHaveCount(17);
+    await expect(page.locator('.product-card')).toHaveCount(20);
     for (const label of await page.locator('.product-topline > span').allTextContents()) expect(label).toMatch(/\(20\d{2}\)$/);
   }
   expect(errors).toEqual([]);
@@ -62,5 +62,24 @@ test('Xteink models use matching English official stores and prices', async ({ p
     await expect(dialog.locator('.price-label')).toHaveText(price);
     await expect(dialog.getByRole('link', { name: 'View on Xteink', exact: true })).toHaveAttribute('href', `https://www.xteink.com/products/${path}`);
     await expect(dialog.getByText('Not verified', { exact: true })).toHaveCount(0);
+  }
+});
+
+
+test('Manta and both Go 6 generations have the right year, specs, price and official link', async ({ page }) => {
+  for (const [id, name, year, date, price, url, size] of [
+    ['boox-go6', 'Go 6', '2024', '25 Aug 2024', 'From US$149.99', 'https://shop.boox.com/products/go6', '6 inches'],
+    ['supernote-manta', 'Manta', '2024', '12 Dec 2024', 'From US$505', 'https://supernote.com/products/supernote-manta', '10.7 inches'],
+    ['boox-go6-gen2', 'Go 6 (Gen II)', '2026', '7 Jun 2026', 'From US$189.99', 'https://shop.boox.com/products/go6gen2', '6 inches'],
+  ]) {
+    await page.goto('/');
+    const section = page.getByRole('region', { name: year, exact: true });
+    await section.getByRole('link', { name: new RegExp(`Explore ${name.replace(/[()]/g, '\\$&')}`) }).click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog.getByRole('heading', { name, exact: true })).toBeVisible();
+    await expect(dialog.locator('.price-label')).toHaveText(price);
+    await expect(dialog.getByText(date, { exact: true })).toBeVisible();
+    await expect(dialog.getByText(size, { exact: true })).toBeVisible();
+    await expect(dialog.locator('.primary-button')).toHaveAttribute('href', url);
   }
 });

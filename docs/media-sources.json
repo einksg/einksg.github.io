@@ -151,5 +151,41 @@
     "url": "https://cdn.shopify.com/s/files/1/0759/9344/8689/files/1_8093cabd-9ffe-4500-bd4f-c01f1f185951.png?v=1788788834",
     "source": "https://www.xteink.com/products/xteink-x4-pro-pocket-ereader",
     "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/supernote-manta-front.png",
+    "url": "https://cdn.shopify.com/s/files/1/0565/1945/9007/files/front.png?v=1773990066",
+    "source": "https://supernote.com/products/supernote-manta",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/supernote-manta-back.png",
+    "url": "https://cdn.shopify.com/s/files/1/0565/1945/9007/files/back.png?v=1773990066",
+    "source": "https://supernote.com/products/supernote-manta",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/boox-go6-gen2.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0604/6410/3654/files/03_e5a26b25-7000-4b7c-acf6-bae264d6f6a1.jpg?v=1780560716",
+    "source": "https://shop.boox.com/products/go6gen2",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/boox-go6-gen2-colors.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0604/6410/3654/files/20260608-180654.jpg?v=1780913362",
+    "source": "https://shop.boox.com/products/go6gen2",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/boox-go6.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0604/6410/3654/files/1_be1178d4-cd63-48a8-af91-1849953b271b.jpg?v=1724049026",
+    "source": "https://shop.boox.com/products/go6",
+    "accessed": "2026-09-11"
+  },
+  {
+    "file": "public/images/boox-go6-front.jpg",
+    "url": "https://cdn.shopify.com/s/files/1/0604/6410/3654/files/2_a6e0f29d-0aef-46c3-8b52-b0ba470c7453.jpg?v=1724049026",
+    "source": "https://shop.boox.com/products/go6",
+    "accessed": "2026-09-11"
   }
 ]

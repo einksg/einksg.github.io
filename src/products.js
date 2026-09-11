@@ -279,3 +279,53 @@ for (const product of recoveredProducts) {
     mediaCredit: product.mediaCredit || 'Product image reused from the previous apov.sg store; original photographer unverified.',
   });
 }
+
+
+const mantaPage = 'https://supernote.com/products/supernote-manta';
+const mantaLaunch = 'https://supernote.com/blogs/supernote-blog/dived-for-inspirations-the-birth-of-supernote-manta';
+products.push({
+  id: 'supernote-manta', name: 'Manta', maker: 'Supernote', category: 'Notebook',
+  description: 'A 10.7-inch e-paper notebook for handwriting, sketching, and PDF annotation. Its flexible display has a FeelWrite 2 writing surface, with a replaceable battery and an upgradeable motherboard.',
+  screenInches: 10.7, releaseDate: '2024-12-12', releaseType: 'Product launch', releaseSource: mantaLaunch,
+  price: 505, currency: 'USD', priceLabel: 'From US$505', priceSource: mantaPage,
+  priceNote: 'US official store device price. Pen and folio sold separately; regional pricing and duties vary.',
+  purchaseUrl: mantaPage, purchaseLabel: 'View on Supernote', officialUrl: mantaPage, makerUrl: 'https://supernote.com/',
+  specs: [['Model', 'A5 X2'], ['Display', '10.7-inch flexible monochrome E Ink; no frontlight'], ['Resolution', '1920 × 2560 pixels; 300 PPI'], ['Writing surface', 'FeelWrite 2 film; palm rejection'], ['Processor', 'RK3566 quad-core, 1.8 GHz'], ['Memory', '4 GB RAM, 32 GB storage'], ['Expansion', 'MicroSD up to 2 TB'], ['Battery', '3,600 mAh; replaceable'], ['Connectivity', 'Dual-band Wi-Fi, Bluetooth 5.0, USB-C'], ['Dimensions', '251.3 × 182.6 × 6.0 mm'], ['Weight', 'About 375 g with pen loop']],
+  cover: '/images/supernote-manta-front.png', coverShape: 'manta', coverAlt: 'Supernote Manta A5 X2 notebook, complete front view with pen loop',
+  photos: [{ src: '/images/supernote-manta-front.png', alt: 'Supernote Manta front view with its flexible e-paper display' }, { src: '/images/supernote-manta-back.png', alt: 'Supernote Manta rear view' }],
+  verifiedAt: '2026-09-11', sources: [{ label: 'Official product, price, specifications and photography', url: mantaPage }, { label: 'Launch design story', url: mantaLaunch }],
+  mediaCredit: 'Official product photographs by Supernote.',
+});
+
+const go6Gen2Page = 'https://shop.boox.com/products/go6gen2';
+const go6Gen2Launch = 'https://shop.boox.com/blogs/news/discover-boox-go-6-gen2';
+products.push({
+  id: 'boox-go6-gen2', name: 'Go 6 (Gen II)', maker: 'BOOX', category: 'E-reader',
+  description: 'A compact 6-inch e-reader with a flush monochrome touchscreen, adjustable warm-and-cool frontlight, and Android apps. Supports handwriting with the optional BOOX InkSense Plus stylus.',
+  screenInches: 6, releaseDate: '2026-06-07', releaseType: 'Product announcement', releaseSource: go6Gen2Launch,
+  price: 189.99, currency: 'USD', priceLabel: 'From US$189.99', priceSource: go6Gen2Page,
+  priceNote: 'Hong Kong warehouse Standard Bundle: US$189.99; US warehouse: US$199.99. InkSense Plus stylus sold separately. Shipping and taxes depend on destination.',
+  purchaseUrl: go6Gen2Page, purchaseLabel: 'View on BOOX', officialUrl: go6Gen2Page, makerUrl: 'https://shop.boox.com/',
+  specs: [['Display', '6-inch monochrome e-paper touchscreen with anti-glare glass'], ['Resolution', '1448 × 1072 pixels; 300 PPI'], ['Frontlight', 'Adjustable warm/cool color temperature'], ['Processor', 'Octa-core, 2.0 GHz'], ['Operating system', 'Android 11 with Google Play'], ['Memory', '3 GB RAM, 32 GB storage'], ['Expansion', 'MicroSD card slot'], ['Stylus', 'Optional BOOX InkSense Plus'], ['Connectivity', 'Dual-band Wi-Fi, Bluetooth 5.0, USB-C OTG'], ['Battery', '1,500 mAh'], ['Dimensions', '149 × 109 × 6.8 mm'], ['Weight', 'About 160 g']],
+  cover: '/images/boox-go6-gen2.jpg', coverShape: 'go6', coverAlt: 'Dark BOOX Go 6 Gen II e-reader showing its front and grooved back',
+  photos: [{ src: '/images/boox-go6-gen2.jpg', alt: 'Dark BOOX Go 6 Gen II, front and rear view' }, { src: '/images/boox-go6-gen2-colors.jpg', alt: 'Light gray BOOX Go 6 Gen II, front and rear view' }],
+  verifiedAt: '2026-09-11', sources: [{ label: 'Official product, price, specifications and photography', url: go6Gen2Page }, { label: 'Launch announcement', url: go6Gen2Launch }],
+  mediaCredit: 'Official product photographs by BOOX.',
+});
+
+
+const go6Page = 'https://shop.boox.com/products/go6';
+const go6Launch = 'https://shop.boox.com/blogs/news/boox-go-6-ereader';
+products.push({
+  id: 'boox-go6', name: 'Go 6', maker: 'BOOX', category: 'E-reader',
+  description: 'A compact 6-inch e-reader with a Carta 1300 monochrome touchscreen and adjustable warm-and-cool frontlight. Android 11 and Google Play support reading apps, with microSD expansion for a larger library.',
+  screenInches: 6, releaseDate: '2024-08-25', releaseType: 'Product announcement', releaseSource: go6Launch,
+  price: 149.99, currency: 'USD', priceLabel: 'From US$149.99', priceSource: go6Page,
+  priceNote: 'Hong Kong warehouse device price: US$149.99; US warehouse: US$159.99. Shipping and taxes depend on destination.',
+  purchaseUrl: go6Page, purchaseLabel: 'View on BOOX', officialUrl: go6Page, makerUrl: 'https://shop.boox.com/',
+  specs: [['Display', '6-inch Carta 1300 monochrome e-paper touchscreen'], ['Resolution', '1448 × 1072 pixels; 300 PPI'], ['Frontlight', 'Adjustable warm/cool color temperature'], ['Processor', 'Octa-core, 2.0 GHz'], ['Operating system', 'Android 11 with Google Play'], ['Memory', '2 GB RAM, 32 GB storage'], ['Expansion', 'MicroSD card slot'], ['Connectivity', 'Dual-band Wi-Fi, Bluetooth 5.0, USB-C OTG'], ['Battery', '1,500 mAh'], ['Dimensions', '148 × 108 × 6.8 mm'], ['Weight', 'About 146 g']],
+  cover: '/images/boox-go6.jpg', coverShape: 'go6', coverAlt: 'First-generation BOOX Go 6, showing its front screen and smooth back',
+  photos: [{ src: '/images/boox-go6.jpg', alt: 'First-generation BOOX Go 6, front and rear view' }, { src: '/images/boox-go6-front.jpg', alt: 'First-generation BOOX Go 6, complete front view' }],
+  verifiedAt: '2026-09-11', sources: [{ label: 'Official product, price, specifications and photography', url: go6Page }, { label: 'Launch announcement', url: go6Launch }],
+  mediaCredit: 'Official product photographs by BOOX.',
+});

@@ -24,18 +24,12 @@
   <main>
     <section id="collection" class="collection" aria-labelledby="collection-title">
       <h2 id="collection-title" class="sr-only">Products</h2>
-      <aside class="catalog-sidebar" aria-label="Catalog controls">
-        <div class="sorting" role="group" aria-label="Sort products">
-          <button type="button" id="sort-date" class="sort-button" aria-pressed="true" aria-describedby="sort-status">Release date<span class="sort-direction" aria-hidden="true">↓</span></button>
-          <button type="button" id="sort-size" class="sort-button" aria-pressed="false" aria-describedby="sort-status">Screen size<span class="sort-direction" aria-hidden="true"></span></button>
-        </div>
-        <hr>
+      <aside class="catalog-sidebar" aria-label="Filter products">
         <div id="brand-filters" class="brand-filters" role="group" aria-label="Filter by brand"></div>
       </aside>
-      <p id="sort-status" class="sr-only" role="status">Release date: newest to oldest.</p>
       <div class="catalog-results">
         <span id="product-count" class="sr-only" role="status"></span>
-        <div id="product-grid" class="product-grid"></div>
+        <div id="product-grid" class="year-groups"></div>
       </div>
     </section>
   </main>
